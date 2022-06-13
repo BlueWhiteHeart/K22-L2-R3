@@ -1,0 +1,146 @@
+@import './layout.sass'
+@import '../sass/mixin.sass'
+@import '../sass/var.sass'
+  
+$navHeight: 100 * $scale + px
+html, body
+  width: 100%
+  // overflow-x: scroll
+  // min-width: 1190px
+  // > *
+  //   width: 100%
+.nav
+  +pc-size(100, height)
+  background: #fff
+  .nav-bar-mb
+    display: none !important
+  .logo-link
+    display: inline-block
+
+  .nav-logo
+    display: block
+    width: 202px
+    height: 43px
+    +pc-size(40, margin-left)
+    +pc-size(15, margin-right)
+    +pc-size(29, margin-top)
+
+
+  .nav-bar-pc
+    display: inline-block
+    float: right
+
+  .nav-logo-title, .nav-logo-title_en, .nav-logo-subtitle
+    +pc-size(14, font-size)
+    color: $black-1
+    display: inline-block
+
+  .nav-logo-title
+    +pc-size(18, font-size)
+
+  .nav-logo-title_en
+    width: 160px
+
+  .nav-logo-subtitle
+    display: block
+    +pc-size(12, font-size)
+
+  .nav-item, .nav-item-special
+    display: inline-block
+    height: 100%
+    +pc-size(40, margin-right)
+    +pc-size(100, line-height)
+    padding: 0 7px
+    text-align: center
+    +pc-size(16, font-size)
+    white-space: nowrap
+    cursor: pointer
+    transition: color .3s $cb-1
+    box-sizing: border-box
+
+  .nav-item-active
+    color: $tab-hover !important
+
+  .nav-item, .nav-item-special, .nav-item-child
+    color: $black-1
+    &:hover
+      color: #3d78b0
+  .nav-item-special
+    background: #fff
+    position: relative
+    border: .5px solid transparent
+    border-top: 0
+    i
+      transition: transform .3s $cb-1
+      +pc-size(12, margin-left)
+    .nav-item-child-wrapper
+      width: 100%
+      position: absolute
+      left: 0
+      top: $navHeight
+      z-index: 999
+      display: none
+      .nav-item-child
+        width: 100%
+        height: $navHeight
+        display: block
+        background: #fff
+        border: .5px solid $grey-3
+        border-top: 0
+    &:hover
+      color: $tab-hover
+      border-color: $grey-3
+      i
+        transform: rotate(-180deg)
+      .nav-item-child-wrapper
+        display: block
+
+
+
+
+  .nav-login
+    height: 100%
+    +pc-size(210, width)
+    +pc-size(20, margin-left)
+    margin-right: 0
+    background: #3d4f60
+    color: $white-1
+    > span:last-child
+      margin-left: 5px
+    &:hover
+      background: #586a7e
+      color: $white-1
+
+  .nav-language
+    +pc-size(100, width)
+    margin-right: 0
+    text-align: center
+
+.foot
+  .footbox
+    width: 1190px
+    margin: 0 auto
+    .foot-item
+      display: inline-block
+      vertical-align: top
+      margin-right: 0 !important
+      &:first-child
+        width: 600px
+        > footer
+          margin-top: 90px
+        > div
+          max-width: none
+      &:nth-child(2)
+        width: 270px
+        > footer
+          margin-top: 90px
+          a
+            display: inline-block
+            +pc-size(31, width, height)
+            white-space: nowrap
+            margin-right: 10px
+      &:nth-child(3)
+        width: 230px
+        position: relative
+      &:nth-child(4)
+        width: 90px

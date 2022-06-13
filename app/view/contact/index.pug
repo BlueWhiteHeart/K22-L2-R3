@@ -1,0 +1,62 @@
+extends ../common/layout/index
+
+block content
+  style(type='text/css')
+    case isMobile
+      when true
+        include ../../public/styles/contact_mb.css
+      when false
+        include ../../public/styles/contact_pc.css
+  div
+    - var banner1Type = 23
+    - var banner2Type = isMobile ? 31 : 24
+    - var mapType = isMobile ? 30 : 29
+    #contact-header
+      - var banner = data.banners.filter(function (e) { return e.type === banner1Type })[0]
+      if banner
+        .swiper-slide.bg-cover(style='background-image: url(' + banner.url + ')')
+          .swiper-slide-title #{isEn ? banner.title_en : banner.title}
+          .swiper-slide-content #{isEn ? banner.content_en : banner.content}
+      #contact-infos
+        div
+          i(class='fa fa-map-marker' aria-hidden='true')
+          span #{contactInfo.address}
+        div
+          i(class='fa fa-phone' aria-hidden='true')
+          span #{contactInfo.phone}
+        a(href='mailto:' + contactInfo.email)
+          i(class='fa fa-envelope' aria-hidden='true')
+          span #{contactInfo.email}
+
+    #contact-content
+      #content-header
+        a.weixin-handler
+          i.fa.fa-weixin
+          span zhongcap
+          .weixin-code-wrapper
+            img(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/qr.jpeg')
+        a(target='_blank' href=contactInfo.twitter)
+          i.fa.fa-twitter
+          span @ZHONG_Capital
+        a(target='_blank' href=contactInfo.weibo)
+          i.fa.fa-weibo
+          span 熙金资本_ZHONGCapital
+        a(target='_blank' href=contactInfo.linkedin)
+          i.fa.fa-linkedin
+          span ZHONG Capital
+        a(target='_blank' href=contactInfo.facebook)
+          i.fa.fa-facebook-official
+          span facebook.com/zhongcap
+      - var banner = data.banners.filter(function (e) { return e.type === mapType })[0]
+      if banner
+        .content-map
+          img.map-img(src=banner.url)
+      - var banner = data.banners.filter(function (e) { return e.type === banner2Type })[0]
+      if banner
+        img.content-img(src=banner.url)
+
+    script.
+      $('.weixin-handler > span, .weixin-handler > i').on('click', function (e) {
+        $(this).siblings('.weixin-code-wrapper').fadeToggle()
+      })
+

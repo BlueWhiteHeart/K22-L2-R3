@@ -1,0 +1,212 @@
+extends ../common/layout/index
+
+block content
+  style(type='text/css')
+    case isMobile
+      when true
+        include ../../public/styles/info_mb.css
+      when false
+        include ../../public/styles/info_pc.css
+  
+  //- 投资人页面主题图
+  #info-banner.banner
+    .swiper-wrapper
+      - var banner = data.banners.filter(function (e) { return e.type === 32 })[0]
+      if banner
+        .swiper-slide.bg-cover(style='background-image: url(' + banner.url + ')')
+          .swiper-slide-title #{isEn ? banner.title_en : banner.title}
+          .swiper-slide-subtitle #{isEn ? banner.subtitle_en : banner.subtitle}
+          .swiper-slide-content #{isEn ? banner.content_en : banner.content}
+    #info-banner-pagination.banner-pagination
+
+  //- 投资人详情
+  - var banners = data.banners.filter(function (e) { return e.type === 39 })
+  if banners && banners.length
+  #info-middle-banner-container
+    .info-middle-swiper-prev
+      i.fa.fa-angle-left(aria-hidden='true')
+    #info-middle-banner
+      #info-middle-swiper.swiper-wrapper
+        each banner in banners
+          - var text = isEn ? banner.title_en : banner.title
+          - var maxNum = 17
+          .info-middle-swiper-slide.swiper-slide
+            a(
+              href=((isEn ? '/en' : '') + '/detail?id=' + banner.id)
+              target="_blank"
+            ) #{text && text.length > maxNum ? (text.slice(0, 17) + '..') : text}
+            img(src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAMAAADzN3VRAAAAM1BMVEVHcEzi4uLj4+Pj4+Pi4uLh4eHg4ODi4uLi4uLi4uLj4+P////w8PD6+vpeXl6AgIDHx8fY0Rr6AAAAC3RSTlMAj86R6HwI/MUbkGsLU6cAAAB8SURBVCjPtZFLDoAwCETtF7RQvf9pbWLpN01c6Cx5HYbCtv2i3aEFi24f6l4BMQdmAuU7g6YgIt3YPFaQEFaXakFCqvSC0Aukn6OBkMsE+Smc8oIxE5sJRUE2kxJzRQkaPDB51jnr2db/mXZwvNjbetfJZcp9jH950490A6ZmDFgZaWQZAAAAAElFTkSuQmCC")
+    .info-middle-swiper-next
+      i.fa.fa-angle-right(aria-hidden='true')
+
+  #info
+    #info-tab
+      .info-tab-prefix 选项
+      each tab in data.bannerTypes.filter(function (e) { return [33, 34, 35].indexOf(e.id) > -1 })
+        .info-tab-item(data-id=tab.id)
+          span #{isEn ? tab.description_en : tab.description}
+          - var banners = data.banners.filter(function (e) { return e.type === tab.id })
+            if banners.length
+              .info-tab-item-tag #{banners.length}
+            else
+              .info-tab-item-tag(style='display: none;') 0
+      a#info-logout(href='/logout') 退出账号
+            
+    #info-content
+      #info-header
+        .info-title
+          span Hello!#{data.user.name}
+          //- a#info-logout(href='/logout') 退出账号
+        .info-account 您的手机号: #{data.user.mobile || data.user.account}
+      #info-table
+        #info-table-header
+          span.info-table-header-tab
+          span.info-table-header-time
+        table#info-list
+          tbody#info-list-body
+        #info-more 查看更多
+
+
+  script.
+
+    var allBanners = !{JSON.stringify(data.banners)};
+    var allBannerTypes = !{JSON.stringify(data.bannerTypes)};
+
+    var bannerNums = {
+      33: #{isMobile} ? 4 : 10,
+      34: #{isMobile} ? 4 : 10,
+      35: #{isMobile} ? 4 : 10
+    }
+    var lastActiveTab = 33;
+    activeTab(lastActiveTab)
+    tabEvent()
+    loadMoreEvent()
+
+    function getTabDom () {
+      try {
+        var tabWrapper = document.getElementById('info-tab')
+        var tabs = tabWrapper.getElementsByClassName('info-tab-item')
+        return tabs
+      } catch (err) {
+        console.error(err)
+        return []
+      }
+    }
+
+    function tabEvent () {
+      var tabs = getTabDom()
+      for (var i = 0; i < tabs.length; i++) {
+        (function (tab) {
+          tab.onclick = activeTab.bind(window, tab.getAttribute('data-id'))
+        })(tabs[i])
+      }
+    }
+
+    function activeTab (typeId) {
+      lastActiveTab = +typeId
+      var tabs = getTabDom()
+      var titleDom = document.getElementById('info-table-header')
+      loadDomVisible()
+      for (var i = 0; i < tabs.length; i++) {
+        var tab = tabs[i];
+        var tabId = tab.getAttribute('data-id');
+        var commonClass = 'info-tab-item';
+        if (tabId - typeId) {
+          tab.setAttribute('class', commonClass);
+        } else {
+          var tabNameDom = titleDom.getElementsByClassName('info-table-header-tab')[0]
+          var timeDom = titleDom.getElementsByClassName('info-table-header-time')[0]
+          var tableDom = document.getElementById('info-list-body')
+          var banners = allBanners.filter(function (e) { return e.type === +typeId })
+          var tabTypeObj = allBannerTypes.filter(function (e) { return e.id === +typeId })[0]
+          tab.setAttribute('class', commonClass + ' ' + commonClass + '-active');
+          // tab 名称
+          tabNameDom.innerText = #{isEn} ? tabTypeObj.description_en : tabTypeObj.description;
+          // 显示最后更新时间
+          timeDom.innerText = banners.length ? '最后更新于: ' + formatTime(banners[0].updatedAt, 1) : ' ';
+          // 渲染指定 选项 的 table 数据
+          tableDom.innerHTML = banners.length ? banners.slice(0, bannerNums[typeId]).reduce(function (prev, curt) {
+            return prev + generateListItem(curt)
+          }, '<tr><td>名称</td><td>日期</td><td>类型</td><td>大小</td><td>预览</td><td>下载</td></tr>') : '<tr><td>暂无数据</td></tr>'
+        }
+      }
+    }
+
+    function formatTime (time, type) {
+      if (!time) return '';
+      var d = new Date(time)
+      var year = d.getFullYear()
+      var month = d.getMonth() + 1
+      var date = d.getDate()
+      var hours = d.getHours()
+      var minutes = d.getMinutes()
+      var seconds = d.getSeconds()
+      function addZero (num) { return num >= 10 ? num : '0' + num }
+      switch (type) {
+        case 1:
+          return year + '-' + addZero(month) + '-' + addZero(date) + ' ' + addZero(hours) + ':' + addZero(minutes) + ':' + addZero(seconds)
+        case 2:
+          return year + '年' + month + '月' + date + '日'
+      }
+    }
+
+    function generateListItem (obj) {
+      function gPrefix (str) {
+        return #{isMobile} ? '<span class="td-prefix">' + str + '</span>' : ''
+      }
+      return '<tr><td>' + gPrefix('名称') + '<span class="td-content">' + obj.title + '</span></td><td>' +
+        gPrefix('日期') + formatTime(obj.updated_at, 2) + '</td><td>' +
+        gPrefix('类型') + obj.subtitle + '</td><td>' +
+        gPrefix('大小') + obj.content + '</td><td><a class="preview" target="_blank" href="' + obj.href + '">预览</a></td><td><a class="download" target="_blank" href="/file/download?url=' +
+        encodeURIComponent(obj.href) + '">' + (#{isMobile} ? '下载' : '下载到本地') + '</a></td></tr>';
+    }
+
+    function loadMoreEvent () {
+      document.getElementById('info-more').onclick = function () {
+        var curtNum = bannerNums[lastActiveTab]
+        var targetBanners = allBanners.filter(function (e) {
+          return +lastActiveTab === e.type
+        })
+        if (curtNum < targetBanners.length) {
+          bannerNums[lastActiveTab] += (#{isMobile} ? 4 : 10)
+          activeTab(lastActiveTab)
+        }
+      }
+    }
+
+    function loadDomVisible () {
+      var curtNum = bannerNums[lastActiveTab]
+      var targetBanners = allBanners.filter(function (e) {
+        return +lastActiveTab === e.type
+      })
+      document.getElementById('info-more').setAttribute(
+        'style', 'display: ' + (curtNum >= targetBanners.length ? 'none' : 'block')
+      )
+    }
+
+    if (#{isMobile}) {
+      new Swiper('#info-middle-banner', {
+        loop: false,
+        speed: 1000,
+        autoplay: {
+          delay: 1500
+        },
+        navigation: {
+          nextEl: '.info-middle-swiper-next',
+          prevEl: '.info-middle-swiper-prev',
+        }
+      });
+    } else {
+      new Swiper('#info-middle-banner', {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        loop: false,
+        speed: 800,
+        allowTouchMove: false,
+        navigation: {
+          nextEl: '.info-middle-swiper-next',
+          prevEl: '.info-middle-swiper-prev',
+        }
+      });
+    }
+

@@ -1,0 +1,72 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+
+#sr-header
+  width: 100%
+  height: 6rem
+
+  .swiper-slide
+    +full
+    position: relative
+
+    .swiper-slide-title, .swiper-slide-content
+      display: block
+      position: absolute
+      left: 50%
+      transform: translate(-50%, 0)
+      text-align: center
+      color: $white-1
+    .swiper-slide-title
+      width: 90%
+      top: 35%
+      +font-dpr(22)
+    .swiper-slide-content
+      width: 85%
+      top: 50%
+      +font-dpr(10)
+
+#sr-content
+  +size-dpr(15, padding-left, padding-right)
+  +size-dpr(20, padding-top)
+  .content-wrapper
+    display: block
+    +size-dpr(30, margin-bottom)
+    border-bottom: 1px solid $grey-3
+    box-shadow: none
+    cursor: pointer
+    &:link, &:visited
+      color: inherit
+    &:hover
+      background: $white-1
+      border-radius: 3px
+    &:not(:first-child)
+      img
+        +size-dpr(5, margin-top)
+
+    .content-img-wrapper
+      position: relative
+      background: $white-1
+      > img
+        width: 100%
+      > span
+        position: absolute
+        +size-dpr(15, left)
+        +size-dpr(20, bottom)
+        +font-dpr(12)
+        color: $white-1
+    .content-text-wrapper
+      background: $white-1
+      +size-dpr(10, margin-bottom)
+      +size-dpr(15, padding-top, padding-bottom)
+      +size-dpr(2, padding-left, padding-right)
+      color: $black-1
+      .content-text-title
+        +size-dpr(20, margin-bottom)
+        +textEllipsis(2)
+        +font-dpr(18)
+      .content-text-content
+        +textEllipsis(3)
+        +font-dpr(11)
+        color: $grey-7
+

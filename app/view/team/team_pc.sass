@@ -1,0 +1,142 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+#team-header
+  width: 100%
+
+  .swiper-slide
+    width: 100%
+
+    .descbox
+      position: relative
+      width: 100%
+    .desc
+      width: 100%
+      position: absolute
+      left: 0
+      top: 20%
+      line-height: 150%
+      text-align: center
+      color: #fff
+      &-subtitle
+        +pc-size(13, font-size)
+      &-title
+        +pc-size(56, font-size)
+        +pc-size(48, margin-bottom)
+        +pc-size(13, margin-top)
+        font-weight: 400
+    img
+      width: 100%
+    .swiper-slide-title
+      +pc-size(95, margin-top)
+      text-align: center
+      +pc-size(36, font-size)
+    .swiper-slide-content
+      width: 82%
+      max-width: 1400px
+      // +pc-size(40, margin-top)
+      text-align: center
+      // +pc-size(115, margin-bottom)
+      +pc-size(16, font-size)
+      margin-left: auto
+      margin-right: auto
+      line-height: 26px
+
+.mbbox, .mb-content
+  display: none
+
+.pcbox
+  img
+    width: 100%
+
+#team-content
+  margin: 0 auto
+  +pc-size(62, margin-top)
+  width: 100%;
+  font-size: 0
+
+  .startup-content
+    margin: 0 auto;
+    +pc-size(20, font-size)
+    +pc-size(12, line-height)
+    +pc-size(50, margin-bottom)
+    +pc-size(43, margin-top)
+    line-height: 150%
+    color: #000
+    // border-bottom: 1px solid #eee
+    text-align: justify
+    transform: scale(0.7)
+
+  .content-wrapper
+    width: calc(50% - 6px)
+    display: inline-block
+    +pc-size(6, margin-bottom)
+    position: relative
+    // background: linear-gradient(left, rgba(121, 124, 129, .5), rgba(121, 124, 129, 1))
+    font-size: 0
+    color: $white-1
+    > *
+      display: inline-block
+    .content-img
+      +full
+      height: auto
+    &:nth-child(2n+1)
+      +pc-size(6, margin-left)
+    &:not(:first-child)
+      .content-text
+        display: none
+    &:first-child
+      width: 100%
+      margin-left: 0
+      .content-img
+        position: relative
+        z-index: 5
+      .content-text
+        width: 45%
+        +pc-size(14, font-size)
+        padding-right: 5%
+        position: absolute
+        top: 30%
+        // left: 870px
+        left: 45%
+        text-align: center
+        z-index: 8
+        .content-title
+          +pc-size(24, font-size)
+          +pc-size(34, line-height)
+        .content-subtitle
+          +pc-size(42, margin-top)
+          +pc-size(26, font-size)
+          +pc-size(7, margin-bottom)
+          font-weight: 500
+        .content-content
+          +pc-size(50, margin-bottom)
+          line-height: 150%
+          color: #d4d5d6
+        .content-description
+          +pc-size(16, font-size)
+          +pc-size(30, line-height)
+          +pc-size(50, margin-bottom)
+          // transform: scale(0.8)
+          color: rgba(255,255,255,0.4);
+
+
+#team-img-wrapper
+  +pc-u(1228px, 1228px, 1228px, 1228px, width)
+  margin: 0 auto
+  +pc-size(45, margin-top)
+  .team-logo
+    width: 100%
+    +pc-size(54, margin-top)
+    +pc-size(20, margin-bottom)
+  .team-icon-wrapper
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+
+  .team-icon
+    +pc-size(307, width)
+    box-sizing: border-box
+    display: inline-block

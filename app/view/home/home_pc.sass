@@ -1,0 +1,461 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+
+//- #banner-1
+//-   +pc-size(800, height)
+
+.banner
+  position: relative
+
+.banner-pagination
+  position: absolute
+  z-index: 10
+  text-align: center
+
+#banner-1
+  width: 100%
+  +pc(600, 650, 750, 800, height)
+  overflow: hidden
+
+  img
+    +full
+  
+  .banner-1-title,.banner-1-subtitle
+    text-align: center
+    color: $white-1
+  .banner-1-title
+    +pc(225, 240, 284, 295, padding-top)
+    +pc-size(50, font-size)
+  .banner-1-subtitle
+    +pc-size(30, padding-top)
+    +pc-size(16, font-size)
+
+  .banner-pagination-bg
+    position: absolute
+    bottom: 0
+    +pc-size(207, height)
+    width: 100%
+    background-image: url(https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523522380186.png)
+    background-repeat: repeat-x
+    background-size: contain
+    z-index: 1
+
+  #banner-1-pagination
+    width: 100%
+    position: absolute
+    left: 0
+    text-align: center
+    +pc-size(66, bottom)
+
+    .swiper-pagination-bullet
+      opacity: 1
+      border: 0
+      border-radius: 0
+      color: #505050
+      background: transparent
+      height: 30px
+      width: auto
+      +pc-size(50, padding-left, padding-right)
+      display: inline-block
+      position: relative
+      border-left: 1px solid #505050
+      transition: color .2s $cb-1
+
+      &:hover
+        color: $white-1
+      > *:first-child
+        +pc-size(24, font-size)
+        +pc-size(15, padding-bottom)
+
+    > div:last-child
+      border-right: 1px solid #505050
+
+    .swiper-pagination-bullet-active
+      color: $white-1
+      > *:nth-child(1)
+        border-bottom: 2px solid #658bac
+
+#banner-2
+  .banner-2-wrapper
+    +pc-u(4.6%, 7%, 12%, 15%, padding-left, padding-right)
+    > *
+      width: 50%
+      vertical-align: top
+      display: inline-block
+    > .banner-2-content-wrapper
+      padding: 55px 12% 105px 0
+      +pc(55, 55, 105, 105, padding-top)
+      +pc(80, 80, 110, 115, padding-bottom)
+      color: $black-1
+
+      .banner-2-tag, .banner-2-content
+        +pc-size(14, font-size)
+      .banner-2-tag, .banner-2-footer
+        transition: all .3s $cb-1
+        &:hover
+          border-color: $blue-9
+          color: $blue-9
+          
+      .banner-2-tag
+        +pc-size(30, margin-bottom)
+      .banner-2-title
+        +pc-size(50, margin-bottom)
+        +pc-size(36, font-size)
+      .banner-2-content
+        +pc-size(116, margin-bottom)
+        +pc-size(26, line-height)
+      .banner-2-footer
+        +pc-size(14, font-size)
+        +pc-size(20, padding-bottom)
+        +pc-size(70, margin-bottom)
+        +pc-size(150, width)
+        border-bottom: 1px solid #c6cbcc
+        cursor: pointer
+        &:hover
+          color: $blue-9
+          border-color: $blue-9
+        i
+          float: right
+          font-size: 22px
+        > *
+          &:first-child
+            color: inherit
+
+    > .banner-2-img-wrapper
+        padding: 35px 8% 35px 8%
+        text-align: center
+        img
+          width: 100%
+
+#banner-3
+  background: #3d5061
+  > .banner-3-img-wrapper
+    +pc-u(-48px, -48px, -85px, -85px, margin-top)
+    display: inline-block
+    width: 50%
+    img
+      width: 106%
+      min-height: 510px
+      vertical-align: middle
+  .swiper-slide-content
+    vertical-align: top
+    display: inline-block
+    width: 50%
+    color: $white-1
+    +pc-u(88px, 88px, 135px, 175px, margin-top)
+    position: relative
+    // +pc-size(145, padding-left)
+    // +pc-u(5.4%, 5.4%, 120px, 135px, padding-left)
+    .banner-3-title
+      +pc-u(72px, 72px, 70px, 130px, margin-bottom)
+      font-style: italic
+      +pc-size(50, line-height)
+      white-space: nowrap
+      padding-left: 11%
+      > *
+        display: inline-block
+        vertical-align: top
+      > *:first-child
+        +pc-size(70, font-size)
+      .last
+        +pc-size(70, font-size)
+        display: inline-block
+        vertical-align: bottom
+        +pc-size(14, padding-left)
+      .middle
+        width: 90%
+        +pc-size(14, padding-left)
+        +pc-size(40, padding-right)
+        +pc-size(38, font-size)
+      .middlecn-true
+        +pc-size(44, font-size)
+        +pc-size(60, line-height)
+
+    .banner-3-subtitle, .banner-3-desc, .banner-3-content, .banner-3-footer
+      +pc-size(16, font-size)
+      +pc-size(30, margin-bottom)
+      // +pc-size(90, margin-left)
+    .banner-3-desc, .banner-3-subtitle
+      padding-left: 15%
+    .banner-3-desc
+      +pc-size(14, font-size)
+      color: $grey-11
+    .banner-3-subtitle
+      +pc-size(14, margin-bottom)
+      
+    .banner-3-content
+      +pc-size(15, margin-top)
+      +pc-size(95, margin-bottom)
+      +size-dpr(30, margin-right)
+      +pc-size(14, font-size)
+      +textEllipsis(3)
+      color: #8395a6
+    .banner-3-footer
+      // margin-top: 85px
+      // margin-left: 395px
+      position: absolute
+      bottom: -3%
+      right: 15%
+      // +pc-u(60%, 60%, 70%, 75%, margin-left)
+      padding-bottom: 20px
+      +pc-size(160, width)
+      border-bottom: 1px solid #5c6775
+      cursor: pointer
+      &:hover
+        border-color: $blue-4
+        color: $blue-4
+      i
+        float: right
+        font-size: 22px
+        color: #5c6775
+      > *:first-child
+        color: #96abbe
+        font-size: 14px
+          
+  .swiper-slide-active
+    > .swiper-slide-content
+      > *
+        opacity: 1
+
+  #banner-3-pagination
+    width: auto
+    +pc-size(125, bottom)
+    left: 64.5%
+    .swiper-pagination-bullet-active
+      background: $white-1
+
+#numbers
+  text-align: center
+  +pc-size(75, padding-top)
+  +pc-size(50, padding-bottom)
+  +pc-u(5%, 5%, 10%, 10%, padding-left, padding-right)
+  font-size: 0
+  > .numbers-item
+    display: inline-block
+    vertical-align: top
+    width: 20%
+    position: relative
+    text-align: center
+    @media screen and (max-width: 1200px)
+      width: 50% !important
+      margin-bottom: 35px
+      &:nth-child(2)
+        &:after
+          display: none !important
+    &:nth-child(2)
+      width: 40%
+      .numbers-item-num
+        > span
+          vertical-align: baseline
+          &:nth-child(2), &:last-child
+            margin-left: 8px
+    &:nth-child(3)
+      .numbers-item-num
+        > span
+          vertical-align: top
+          &:last-child
+            font-size: 45px
+            display: inline-block
+            margin-top: -10px
+    &:not(:last-child):after
+      content: ''
+      width: 1px
+      +pc-size(125, height)
+      display: block
+      position: absolute
+      right: 0
+      top: 50%
+      transform: translate(0, -50%)
+      background: #ebebeb
+    .numbers-item-title
+      color: #547088
+      +pc-size(16, font-size)
+    .numbers-item-num
+      color: #547088
+      font-weight: 400
+      > span
+        font-size: 50px
+      .numbers-item-num-up
+        +pc-size(80, font-size)
+    .numbers-item-unit
+      color: #afb4ba
+      +pc-size(14, font-size)
+
+.carousel
+  position: relative
+  height: 520px
+  .mask-left, .mask-right
+    width: 380px
+    height: 445px
+    position: absolute
+    top: 0
+    z-index: 4
+  .mask-left
+    background-image: url('https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523896234117.png')
+    left: 0
+  .mask-right
+    background-image: url('https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523896183252.png')
+    right: 0
+
+#banner-4-1, #banner-4-2
+  text-align: center
+  overflow: hidden
+
+  .swiper-wrapper
+    transition-timing-function: linear
+
+  .swiper-slide
+    display: inline-block
+    +pc-size(294, width)
+    +pc-size(175, height)
+    +pc-size(5, margin)
+    transition: opacity 1s linear
+    opacity: 1
+
+    .swiper-img
+      cursor: none
+      width: 100%
+      height: 100%
+      display: inline-block
+      vertical-align: middle
+      img
+        width: 100%
+
+#banner-4-2
+  .banner-4-foot
+    +pc-size(70, margin-top, margin-bottom)
+    display: inline-block
+    +pc-size(16, font-size)
+    cursor: pointer
+    color: #bcbcbc
+    transition: color .2s $cb-1
+    &:hover
+      color: $blue-9
+    > span
+      +pc-size(20, margin-right)
+
+#banner-5-container
+  +pc-size(100, padding-top)
+  box-sizing: border-box
+  overflow: hidden
+  position: relative
+  background: url(https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523709002061.jpg)
+  background-size: cover
+  .banner-5-prev, .banner-5-next
+    position: absolute
+    top: 55%
+    z-index: 999
+    transform: translate(0, -50%)
+    color: rgba(255, 255, 255, .5)
+    +pc-size(65, font-size)
+    cursor: pointer
+    &:hover
+      color: $white-1
+
+  .banner-5-prev
+    outline: none
+    +pc-size(140 - 80, left)
+  .banner-5-next
+    outline: none
+    +pc-size(140 - 80, right)
+
+  #banner-5-pagination
+    bottom: 40px
+    .swiper-pagination-bullet
+      background: #ebebeb
+    .swiper-pagination-bullet-active
+      background: $white-1
+#banner-5
+  // width: 100%
+  overflow: hidden
+  position: static
+  +pc-size(140, margin-left)
+  +pc-size(140 - 45, margin-right)
+  padding-bottom: 100px
+
+  .banner-5-header
+    text-align: center
+    > p
+      +pc-size(36, font-size)
+      color: $white-1
+    > a
+      +pc-size(25, margin-top)
+      +pc-size(90, margin-bottom)
+      display: inline-block
+      +pc-size(16, font-size)
+      cursor: pointer
+      color: #bcbcbc
+      transition: color .2s $cb-1
+      &:hover
+        color: $blue-9
+      > span
+        +pc-size(20, margin-right)
+
+  .swiper-wrapper
+    // display: flex
+    // flex-direction: row
+  
+    .swiper-slide
+      +pc-size(45, padding-right)
+      // +pc-size(385, width)
+      width: 270px
+      // height: 270px
+      height: auto
+      
+      .banner-5-img-wrapper
+        position: relative
+        background: $white-1
+        img
+          width: 100%
+        > span
+          position: absolute
+          +pc-size(35, left)
+          +pc-size(20, bottom)
+          +pc-size(12, font-size)
+          color: $white-1
+      
+      .banner-5-content-wrapper
+        color: #000
+        background: $white-1
+        +pc-size(20, padding)
+        padding-top: 35px
+        padding-bottom: 35px
+        .banner-5-title
+          +pc-size(15, margin-bottom)
+          +pc(20, 20, 22, 22, font-size)
+          height: 56px
+          +textEllipsis(3)
+        .banner-5-content
+          height: 44px
+          color: #595959
+          +pc-size(16, font-size)
+          +textEllipsis(2)
+
+#banner-6
+  +pc-size(105, padding-top)
+  text-align: center
+  .banner-6-title
+    +pc-size(36, font-size)
+  .banner-6-subtitle
+    +pc-size(30, margin-top)
+    +pc-size(35, margin-bottom)
+    +pc-size(16, font-size)
+  .banner-6-content
+    display: inline-block
+    +pc-size(65, height, line-height)
+    +pc-size(60, padding-left, padding-right)
+    color: #5290ca
+    font-size: 16px
+    border: 1px solid #edf1f5
+    border-radius: 30px
+    transition: all .3s $cb-1
+    cursor: pointer
+    &:hover
+      background: $grey-11
+      color: $white-1
+      border-color: $white-1
+  > img
+    display: block
+    width: 100%
+

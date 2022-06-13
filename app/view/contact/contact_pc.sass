@@ -1,0 +1,121 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+#contact-header
+  width: 100%
+  position: relative
+  color: #000
+  +pc(668, 668, 668, 668, height)
+
+  .swiper-slide
+    +full
+    position: relative
+
+    img
+      +full
+
+    .swiper-slide-title, .swiper-slide-content
+      position: absolute
+      left: 10%
+    .swiper-slide-title
+      +pc-size(184, top)
+      +pc-size(50, font-size)
+    .swiper-slide-content
+      width: 40%
+      max-width: 450px
+      +pc-size(184 + 36 + 38, top)
+      +pc-size(14, font-size)
+      +pc(20, 20, 20, 30, line-height)
+
+  #contact-infos
+    position: absolute
+    left: 10%
+    +pc-size(184 + 36 + 38 + 130, top)
+    +pc-size(16, font-size)
+    > *
+      +pc-size(16, font-size)
+      +pc-size(40, margin-bottom)
+      cursor: pointer
+      color: inherit
+      &:hover
+        > *
+          color: $white-1
+      i
+        display: inline-block
+        +pc-size(20, width)
+        +pc-size(20, margin-right)
+        text-align: center
+        color: #3c5c99
+        +pc-size(22, font-size)
+
+#contact-content
+  #content-header
+    +pc(166, 166, 166, 166, height)
+    border-bottom: 1px solid #e5e5e5
+    +pc(74, 74, 74, 74, margin-bottom)
+    font-size: 0
+    +pc-u(0, 0, 3%, 8%, padding-left, padding-right)
+    white-space: nowrap
+    text-align: center
+    > *
+      display: inline-block
+      +pc(50, 50, 40, 30, padding-top)
+      cursor: pointer
+      text-align: center
+      color: #3b5b99
+      +pc-size(14, font-size)
+      position: relative
+      &:visited, &:link, &:hover
+        text-decoration: none !important
+        color: inherit
+      i
+        display: block
+        +pc(36, 36, 44, 46, font-size)
+        +pc(8, 8, 8, 18, margin-bottom)
+      span
+        +pc(35, 60, 60, 60, padding-left, padding-right)
+      &:not(:first-child)
+        &:before
+          content: ' '
+          width: 1px
+          height: 15px
+          background: #e5e5e5
+          position: absolute
+          bottom: 2%
+          left: 0
+      &:last-child
+        border-right: 0
+      .fa-facebook-official, .fa-linkedin
+        color: $blue-8
+      .fa-weibo
+        color: $red-7
+      .fa-twitter
+        color: $blue-6
+      .fa-weixin
+        color: $green-5
+  .weixin-code-wrapper
+    position: absolute
+    +pc-u(-100%, -105%, -105%, -108%, top)
+    left: 50%
+    z-index: 99999
+    transform: translate(-50%, 0)
+    padding: 10px
+    box-shadow: 0px 2px 15px 0px rgba(0,0,0,.2)
+    border-radius: 3px
+    overflow: hidden
+    background: $white-1
+    display: none
+    img
+      margin: 0
+      width: 120px
+      height: 120px
+
+  .content-map
+    width: 100%
+    text-align: center
+    img
+      width: 658px
+      height: 233px
+      margin-top: 0 !important
+  img
+    width: 100%

@@ -1,0 +1,92 @@
+$baseWidth-PC: 1920
+$baseWidth-MB: 750
+
+@mixin pc($s, $m, $l, $xl, $properties...)
+  @each $property in $properties
+    #{$property}: $s + px
+    @media screen and (min-width: 1280px) and (max-width: 1600px)
+      #{$property}: $m + px
+    @media screen and (min-width: 1600px) and (max-width: 1919px)
+      #{$property}: $l + px
+    @media screen and (min-width: 1919px)
+      #{$property}: $xl + px
+
+@mixin pc-u($s, $m, $l, $xl, $properties...)
+  @each $property in $properties
+    #{$property}: $s
+    @media screen and (min-width: 1280px) and (max-width: 1600px)
+      #{$property}: $m
+    @media screen and (min-width: 1600px) and (max-width: 1919px)
+      #{$property}: $l
+    @media screen and (min-width: 1919px)
+      #{$property}: $xl
+
+@mixin pc-t($s, $m, $l, $xl)
+  transform: $s
+  @media screen and (min-width: 1280px) and (max-width: 1600px)
+    transform: $m
+  @media screen and (min-width: 1600px) and (max-width: 1919px)
+    transform: $l
+  @media screen and (min-width: 1919px)
+    transform: $xl
+
+@mixin pc-size($size, $properties...)
+  @each $property in $properties
+    #{$property}: $size + px
+
+@mixin computeSize($scale, $size, $properties...)
+  @each $property in $properties
+    #{$property}: $size * $scale + px
+
+@mixin font-dpr($font-size)
+  font-size: $font-size + px
+  [data-dpr='2'] & 
+    font-size: $font-size * 2 + px
+  [data-dpr='3'] & 
+    font-size: $font-size * 3 + px
+
+@mixin size-dpr($size, $properties...)
+  @each $property in $properties
+    #{$property}: $size + px
+    [data-dpr='2'] & 
+      #{$property}: $size * 2 + px
+    [data-dpr='3'] & 
+      #{$property}: $size * 3 + px
+
+@mixin w-ratio-pc($px, $properties...)
+  @each $property in $properties
+    #{$property}: $px / $baseWidth-PC * 100 + %
+
+@mixin w-ratio-mb($px, $properties...)
+  @each $property in $properties
+    #{$property}: $px / $baseWidth-MB * 100 + %
+
+@mixin textEllipsis($line)
+  overflow: hidden
+  text-overflow: ellipsis
+  display: -webkit-box
+  -webkit-line-clamp: $line
+  -webkit-box-orient: vertical
+
+@mixin full
+  width: 100%
+  height: 100%
+
+@mixin text-overflow
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+
+@mixin x-scroll
+  overflow-y: hidden
+  overflow-x: scroll
+  -webkit-overflow-scrolling: touch
+
+@mixin y-scroll
+  overflow-x: hidden
+  overflow-y: scroll
+  -webkit-overflow-scrolling: touch
+
+@mixin break-word
+  word-wrap: break-word
+  white-space: normal

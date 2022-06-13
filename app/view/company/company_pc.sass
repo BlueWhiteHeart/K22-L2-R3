@@ -1,0 +1,163 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+#company-header
+  width: 100%
+  +pc(500, 500, 500, 500, height)
+
+  .header-container
+    width: 1400px
+    padding: 154px 0 0 90px
+    margin: 0 auto
+  .swiper-slide
+    +full
+    position: relative
+
+    img
+      +full
+
+    .swiper-slide-title, .swiper-slide-content
+      // position: absolute
+      color: $white-1
+    .swiper-slide-title
+      +pc-size(50, font-size)
+    .swiper-slide-content
+      margin-top: 46px
+      +pc-size(14, font-size)
+
+#company-content
+  position: relative
+  // +pc-u(0, 0, 8.25%, 10.25%, margin-left, margin-right)
+  // max-width: 1420px
+  padding: 45px 60px
+  background: #fff
+  margin: 0 auto
+  +pc(60, 60, 0, 0, padding-right)
+  +pc(1030, 1030, 1350, 1350, width)
+  background: $white-1
+  +pc-u(0, 0, -45px, -45px, margin-top)
+  #content-header
+    width: 100%
+    +pc(64, 64, 62, 78, margin-bottom)
+    // padding-right: 150px
+    white-space: nowrap
+    position: relative
+    .content-header-tab, .content-header-tag
+      +pc-size(14, font-size)
+    .content-header-tab
+      transition: color .3s $cb-1
+      padding: 0 2px
+      +pc-size(16, padding-bottom)
+      +pc-size(38, margin-right)
+      color: #777777
+      display: inline-block
+      cursor: pointer
+      &:hover
+        color: $blue
+    .content-header-tab-active
+      color: $blue
+    .content-header-tag
+      position: absolute
+      right: 4%
+      top: 30%
+      transform: translate(0, -50%)
+      color: #61819e
+
+  #content-header-scroll-bar
+    position: absolute
+    bottom: 0
+    left: 0
+    transition: all .3s $cb-1
+    width: 40px
+    height: 2px
+    background: $blue
+
+  #content-imgs
+    display: block
+    font-size: 0
+    +pc(-30, -30, -10, -20, margin-left)
+    vertical-align: top
+    position: relative
+    .logo-img
+      display: inline-block
+      cursor: pointer
+      +pc(274, 274, 274, 274, width)
+      +pc(170, 170, 170, 170, height)
+      +pc(30, 30, 30, 30, margin-bottom)
+      +pc(30, 30, 30, 30, margin-left)
+      img
+        width: 100%
+
+    #logo-desc
+      margin: 0 auto 30px 28px
+      +pc(25, 25, 80, 80, margin-right)
+      border: 1px solid #e6e9eb
+      position: relative
+      display: none
+      font-size: 0
+      .triangle
+        position: absolute
+        top: -9.5px
+        left: 15%
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 0 10px 10px 10px
+        border-color: transparent transparent #fff transparent
+        .triangle-border
+          position: relative
+          &:before, &:after
+            position: absolute
+            top: 2px
+            left: 0
+            content: ""
+            background: #e6e9eb
+            display: block
+            width: 1px
+            height: 14.5px
+          &:before
+            transform: rotate(45deg) translateX(-7px)
+          &:after
+            transform: rotate(-45deg) translateX(7px)
+      .left
+        padding: 0 80px 0 75px
+        margin: 55px 290px 55px 0
+        border-right: 1px solid #dfe4e5
+      .right
+        width: 290px
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
+        text-align: center
+      .left, .right
+        vertical-align: middle
+      .logo-desc-title
+        font-size: 22px
+        font-weight: 600
+        position: relative
+        &:before
+          width: 3px
+          display: block
+          content: ""
+          height: 22px
+          position: absolute
+          top: 3px
+          left: -12px
+          background: $blue
+      .logo-desc-subtitle
+        font-size: 14px
+        margin: 15px 0 25px
+        color: #7e7e7e
+      .logo-desc-content
+        font-size: 14px
+        letter-spacing: 1px
+        color: #8e8e8e
+      .logo-desc-href
+        display: block
+        margin: 18px auto
+        font-size: 14px
+        color: $blue
+        transition: color .4s $cb-1
+        &:hover
+          color: $blue-9

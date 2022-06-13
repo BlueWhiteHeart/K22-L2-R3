@@ -1,0 +1,99 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+#team-header
+  width: 100%
+
+  .swiper-slide
+    width: 100%
+
+    .descbox
+      position: relative
+      width: 100%
+
+    .desc
+      width: 100%
+      text-align: center
+      +font-dpr(14)
+      color: #fff
+      .desc-subtitle, .desc-title
+        position: absolute
+        width: 100%
+        left: 50%
+        transform: translateX(-50%)
+      .desc-subtitle
+        +font-dpr(11)
+        top: 10%
+      .desc-title
+        +font-dpr(22)
+        top: 15%
+
+    > *
+      display: block
+    img
+      width: 100%
+    
+    .swiper-slide-title, .swiper-slide-content
+      text-align: left
+      +size-dpr(22, padding-left, padding-right)
+    .swiper-slide-title
+      +size-dpr(22.5, margin-bottom)
+      +size-dpr(50, margin-top)
+      +font-dpr(22)
+      font-weight: 600
+    .swiper-slide-content
+      +size-dpr(25, margin-bottom, margin-top)
+      +font-dpr(11)
+      color: #000
+      +size-dpr(20, line-height)
+
+#team-content
+  .mb-content
+    +size-dpr(22, padding)
+    display: block
+    text-align: left
+
+    .content-subtitle
+      +font-dpr(16)
+    .content-description
+      +size-dpr(20, padding-top, padding-bottom)
+      +font-dpr(14)
+      +size-dpr(20, line-height)
+  .content-img
+    width: 100%
+  .startup-content
+    +size-dpr(22, padding-left, padding-right)
+    padding-bottom: 50px
+    +font-dpr(12)
+  .content-wrapper
+    display: none
+    margin-bottom: 0.1%
+    > *
+      display: block
+.pcbox
+  display: none
+.mbbox
+  img
+    width: 100%
+
+
+#team-img-wrapper
+  width: 100%
+  margin: 0 auto
+  .team-logo
+    width: 100%
+  .team-icon-wrapper
+    width: 100%
+    +size-dpr(25, padding-left, padding-right)
+    +size-dpr(25, padding-bottom)
+    +size-dpr(10, padding-top)
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+
+  .team-icon
+    +size-dpr(15, margin-top)
+    width: 48%
+    box-sizing: border-box
+    display: inline-block

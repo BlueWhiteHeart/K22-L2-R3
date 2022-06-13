@@ -1,0 +1,303 @@
+extends ../common/layout/index
+
+mixin banner4 (banners)
+  if banners.length
+    .swiper-wrapper
+      each banner in banners
+        .swiper-slide
+          .swiper-img.card-shadow
+            img(src=banner.url)
+
+block content
+  style(type='text/css')
+    case isMobile
+      when true
+        include ../../public/styles/home_mb.css
+      when false
+        include ../../public/styles/home_pc.css
+  script(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/resources/scrollreveal.min.js')
+  script(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/resources/countUp.min.js')
+  div
+    #banner-1.banner
+      .swiper-wrapper
+        each banner in data.banners
+          if banner.type === 1
+            .swiper-slide.bg-cover(style='background-image: url(' + banner.url + ')')
+              .banner-1-title #{isEn ? banner.title_en : banner.title}
+              .banner-1-subtitle #{isEn ? banner.subtitle_en : banner.subtitle}
+      .banner-pagination-bg
+      #banner-1-pagination.banner-pagination
+
+    include ../common/banner/news_notice
+
+    //- 关于我们
+    #banner-2.fadeUp
+      - var i = 0
+        each banner in data.banners
+          if i === 0 && banner.type === 2
+            - i++
+            .banner-2-wrapper
+              .banner-2-content-wrapper
+                .banner-2-tag #{isEn ? 'ABOUT US' : '关于我们'}
+                .banner-2-title #{isEn ? banner.title_en : banner.title}
+                .banner-2-content #{isEn ? banner.content_en : banner.content}
+                .banner-2-footer
+                  a(href=isEn ? '/en/team' : '/team') #{isEn ? 'VIEW MORE' : '探索更多'}
+                  i(class='fa fa-angle-right' aria-hidden='true')
+              .banner-2-img-wrapper
+                img(src=banner.url)
+
+    //- 创始合伙人介绍
+    #banner-3.banner.fadeUp
+      - var banner = data.banners.filter(function (e) { return e.type === 5 })[0]
+      if banner
+        .banner-3-img-wrapper
+          img(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1524787668678.jpg')
+        .swiper-slide-content
+          .banner-3-title
+            span(style='display: none;') “
+            span.middle(class=isEn ? 'middlecn-false' : 'middlecn-true')
+              | #{isEn ? banner.title_en : banner.title}
+              span.last(style='display: none;') ”
+          .banner-3-subtitle #{isEn ? banner.subtitle_en : banner.subtitle}
+          .banner-3-desc #{isEn ? banner.description_en : banner.description}
+          .banner-3-footer
+            a(href=isEn ? '/en/team' : '/team') #{isEn ? 'VIEW MORE' : '探索更多'}
+            i(class='fa fa-angle-right' aria-hidden='true')
+
+    #numbers
+      each item in nums
+        .numbers-item.NumfadeUp
+          .numbers-item-title #{isEn ? item.title_en : item.title}
+          .numbers-item-num
+            each numItem, index in item.num
+              span(class=isNaN(numItem) ? '' : 'numbers-item-num-up') #{numItem}
+          .numbers-item-unit #{isEn ? item.unit_en : item.unit}
+    .carousel
+      .mask-left
+      .mask-right
+      - var banners4 = data.banners.filter(function (e) { return [7,8,9,10,11].indexOf(e.type) > -1 })
+      - var banner41 = banners4.slice(0, banners4.length / 2)
+      - var banner42 = banners4.slice(banners4.length / 2, banners4.length)
+      #banner-4-1.banner
+        +banner4(banner41)
+      #banner-4-2.banner
+        +banner4(banner42)
+        a.banner-4-foot(href=isEn ? '/en/company' : '/company')
+          span #{isEn ? 'ALL PORTFOLIO COMPANIES' : '查看所有被投公司'}
+          i(class='fa fa-angle-right' aria-hidden='true')
+
+    #banner-5-container
+      #banner-5.banner.fadeUp
+        .banner-5-header
+          p #{isEn ? 'NEWS AND SHARING' : '关注资本战略 · 深耕财富导向'}
+          a(href=isEn ? '/en/news' : '/news')
+            span #{isEn ? 'VIEW ALL NEWS' : '查看所有'}
+            i(class='fa fa-angle-right' aria-hidden='true')
+        .swiper-wrapper
+          each banner in data.banners
+            if [21, 22].indexOf(banner.type) > -1
+              .swiper-slide
+                a(href=(isEn ? '/en' : '') + (banner.href || '/detail?id=' + banner.id))
+                  div.card-shadow
+                    .banner-5-img-wrapper.bg-cover
+                      img(src=banner.url)
+                      span #{isEn ? banner.subtitle_en : banner.subtitle}
+                    .banner-5-content-wrapper
+                      .banner-5-title #{isEn ? banner.title_en : banner.title}
+                      .banner-5-content(class=isEn ? 'banner-5-content_en' : 'banner-5-content_cn') #{isEn ? (banner.content_en || '') : (banner.content || '')}
+        #banner-5-pagination.banner-pagination
+      .banner-5-prev
+        i.fa.fa-angle-left(aria-hidden='true')
+      .banner-5-next
+        i.fa.fa-angle-right(aria-hidden='true')
+
+    #banner-6.fadeUp
+      - var i = 0
+        each banner in data.banners
+          if i === 0 && banner.type === 3
+            - i++
+            .banner-6-title #{isEn ? banner.title_en : banner.title}
+            .banner-6-subtitle #{isEn ? banner.subtitle_en : banner.subtitle}
+            a(href='mailto:' + contactInfo.email).banner-6-content #{contactInfo.email}
+            img(src=banner.url)
+
+  script.
+    window.sr = ScrollReveal();
+    var container = !{isMobile} ? document.getElementById('main')  : window.document.documentElement
+    sr.reveal('.fadeUp', {
+      duration: 1500,
+      distance: '20px',
+      container: container,
+      scale: 1
+    });
+
+    sr.reveal('.NumfadeUp', {
+      duration: 1500,
+      distance: '20px',
+      container: container,
+      scale: 1,
+      beforeReveal: countUpStart()
+    });
+    var numTimer = false;
+    function countUpStart() {
+      if (numTimer) return;
+      return function () {
+        numTimer = true;
+        !{JSON.stringify(nums)}.reduce(function (prev, curt) {
+          var validNums = curt.num.filter(function (e) { return !isNaN(e)})
+          return prev.concat(validNums)
+        }, []).forEach(function (e, i) {
+          //- console.log(arr)
+          var ani = new CountUp(document.getElementsByClassName('numbers-item-num-up')[i], 0, +e, 0, 3.5, { separator: '' });
+          if (ani.error) {
+            console.error(ani.error)
+          } else {
+            ani.start()
+          }
+        })
+      }
+    }
+
+  script.
+    var banners1 = !{JSON.stringify(data.banners)}.filter(function (e) {
+      return e.type === 1
+    })
+    // 首页主轮播
+    setTimeout(function () {
+      new Swiper('#banner-1', {
+        effect: 'fade',
+        speed: 900,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          reverseDirection: false
+        },
+        pagination: {
+          el: '#banner-1-pagination',
+          clickable: true,
+          renderBullet: function (index, className) {
+            var key = #{isEn} ? '_en' : ''
+            var content = banners1[index]['content' + key]
+              .split('\n')
+              .reduce(function (prev, curt) {
+                return prev + '<p>' + curt + '</p>'
+              }, '')
+            return '<div class=' + className + '>' + content + '</div>'
+          },
+        }
+      })
+    }, 1000)
+
+    //- // 投资人轮播
+    //- var banners3 = !{JSON.stringify(data.banners)}.filter(function (e) {
+    //-   return e.type === 5
+    //- })
+    //- if (banners3.length) {
+    //-   new Swiper('#banner-3', {
+    //-     effect: 'fade',
+    //-     speed: 900,
+    //-     autoplay: {
+    //-       delay: 3000
+    //-     },
+    //-     pagination:  {
+    //-       el: '#banner-3-pagination',
+    //-       clickable: true,
+    //-       renderBullet: function (index, className) {
+    //-         var style = banners3.length > 1 ? '' : 'display: none;'
+    //-         return '<span style="' + style + ' class=' + className + '></span>'
+    //-       }
+    //-     }
+    //-   })
+    //- }
+
+    // 公司轮播
+    var banners4 = !{JSON.stringify(data.banners)}.filter(function (e) {
+      return [7,8,9,10,11].indexOf(e.type) > -1
+    })
+    var slideFn = banner4SlideNext()
+    var banner4Swiper1 = new Swiper('#banner-4-1', {
+      slidesPerView: 'auto',
+      spaceBetween: 10,
+      speed: 6000,
+      loop: true,
+      allowTouchMove: false,
+      on: {
+        slideNextTransitionEnd: slideFn
+      }
+    });
+    var banner4Swiper2 = new Swiper('#banner-4-2', {
+      slidesPerView: 'auto',
+      spaceBetween: 10,
+      speed: 6000,
+      loop: true,
+      allowTouchMove: false,
+      slidesOffsetBefore: 310 / 2,
+      on: {
+        slideNextTransitionEnd: slideFn
+      }
+    });
+
+    setTimeout(slideFn, 0)
+
+    function banner4SlideNext () {
+      var times = -1
+      return function () {
+        times++
+        if (times === 2) {
+          times = 0    
+          if (banner4Swiper1 && banner4Swiper2) {
+            banner4Swiper1.slideNext()
+            banner4Swiper2.slideNext()
+          }
+        }
+      }
+    }
+
+    // 最新动态轮播
+    var banners5 = !{JSON.stringify(data.banners)}.filter(function (e) {
+      return [21, 22].indexOf(e.type) > -1
+    })
+    if (banners5.length) {
+      if (!{isMobile}) {
+        var banner5SwiperMb = new Swiper('#banner-5', {
+          slidesPerView: 'auto',
+          speed: 6000,
+          //- loop: true,
+          allowTouchMove: false,
+          on: {
+            slideNextTransitionEnd: banner5SlideFnMB
+          }
+        });
+        setTimeout(banner5SlideFnMB, 0);
+        function banner5SlideFnMB () {
+          banner5SwiperMb && banner5SwiperMb.slideNext()
+        }
+      } else {
+        var pageWidth = document.body.clientWidth
+        var num = pageWidth >= 1600 ? 4: 3
+        new Swiper('#banner-5', {
+          slidesPerView: num,
+          slidesPerGroup: num,
+          speed: 2000,
+          //- loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+          },
+          navigation: {
+            nextEl: '.banner-5-next',
+            prevEl: '.banner-5-prev',
+          },
+          pagination: {
+            el: '#banner-5-pagination',
+            clickable: true
+          },
+          on: {
+            slideNextTransitionEnd: function() {
+              this.pagination.update()
+            }
+          }
+        })
+      }
+    }

@@ -1,0 +1,175 @@
+style(type='text/css')
+  case isMobile
+    when true
+      include ../../../../public/styles/login-modal_mb.css
+    when false
+      include ../../../../public/styles/login-modal_pc.css
+
+#v-login
+  .v-login-content
+    .v-login-content-left
+      .v-login-content-left--header #{isEn ? 'Why choose ZHONG Capital?' : '为什么选择熙金资本？'}
+
+      .v-login-content-left--line
+
+      .v-login-content-left--title #{isEn ? 'To have more innovative opportunities' : '参与更多的创新机会'}
+      .v-login-content-left--content #{isEn ? 'To have transparent, mutual aid and open equity investment opportunities; fully enjoy fund’s leverage advantage and secure more quality innovation projects' : '透明、互助、开放的股权投资机会，充分享受基金带来的杠杆优势，锁定更多、优质的创新项目'}
+
+      .v-login-content-left--title #{isEn ? 'Close access to emerging industries' : '超近距离接触新兴行业'}
+      .v-login-content-left--content #{isEn ? 'To invest in the fund and observe post-investment management to comprehensively understand new emerging industries in close contact; observe and understand targeted industries and enterprises; get involved in a great trend; professional operation: strictness + legal compliance +opportunity' : '通过投资基金、观察基金投后管理，更全面了解、近距离接触新兴行业，全天候观察、了解目标行业与企业融身大趋势通过专业机构、专业团队的专业运作，不会错失投资机会；天然的优质防火墙：严格+合规+机会'}
+
+      .v-login-content-left--title #{isEn ? 'The best global ROI(Return on Investment)+venture capital investment' : '全球最优投资回报率+创投机会'}
+      .v-login-content-left--content #{isEn ? 'Investors may receive the best global ROI, far higher than the average level from China’s venture capital market in the context that IRR of global PE/VC is falling even below 10% and IRR of more than 70% LP is lower than 15%.' : '在全球 PE/VC 的平均内部收益率 IRR 逐渐下降并趋向10%以下，且70%以上LP投资回报IRR低于15%的阶段，“中国”“创业投资”市场，使投资人获得可能远远高于全球行业平均水平的、全世界最优的投资回报“中国”新兴大市场，无系统性风险，带给投资人最成熟、稳健和安全的投资机会，遵循严格的行业规范并严格筛选高潜力、高回报的企业，带给投资人高透明度和珍贵的投资机会'}
+
+      a.v-login-content-left--btn(
+        href=((isEn ? '/en' : '') + '/team')
+      ) #{isEn ? 'Learn more about ZHONG Capital' : '了解熙金控股'}
+
+
+    .v-login-content-right
+      .v-login-content-right--title #{isEn ? 'Investor Log-in' : '投资人登录'}
+      img.v-login-content-right--close(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/icon_close_grey.png')
+      
+      //- 使用账号密码登录
+      .v-login-content-right--cell
+        img.v-login-content-right--cell-icon(
+          src='https://k22.oss-cn-hangzhou.aliyuncs.com/homepage/' + (isMobile ? 'icon_account_grey.png' : 'icon_account_black.png')
+        )
+        input#v-login-input-tel.v-login-content-right--cell-input(
+          placeholder=isEn ? 'Enter account' : '请输入账号'
+        )
+          
+      .v-login-content-right--cell
+        img.v-login-content-right--cell-icon(
+          src='https://k22.oss-cn-hangzhou.aliyuncs.com/homepage/' + (isMobile ? 'icon_safe_grey.png' : 'icon_safe_black.png')
+        )
+        input#v-login-input-captcha.v-login-content-right--cell-input(type='password' placeholder=isEn ? 'Enter password' : '请输入密码')
+        if isMobile
+          span#v-login-captcha
+
+      //- 使用手机号与验证码登录
+      //- .v-login-content-right--cell
+      //-   img.v-login-content-right--cell-icon(
+      //-     src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/' + (isMobile ? 'icon_mobile_grey.png' : 'icon_mobile_black.png')
+      //-   )
+      //-   input#v-login-input-tel.v-login-content-right--cell-input(
+      //-     type='tel'
+      //-     placeholder=isEn ? 'Enter phone number' : '请输入手机号'
+      //-     maxlength='11'
+      //-   )
+      //-   if !isMobile
+      //-     span#v-login-captcha
+          
+      //- .v-login-content-right--cell
+      //-   img.v-login-content-right--cell-icon(
+      //-     src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/' + (isMobile ? 'icon_safe_grey.png' : 'icon_safe_black.png')
+      //-   )
+      //-   input#v-login-input-captcha.v-login-content-right--cell-input(placeholder=isEn ? 'Enter verification code' : '请输入验证码')
+      //-   if isMobile
+      //-     span#v-login-captcha
+
+      .v-login-content-right--btn #{isEn ? 'Enter' : '登录'}
+
+script.
+  ;(function () {
+    var isEn = false
+
+    if (window.location.href.indexOf('/en') > -1) {
+      isEn = true
+    }
+
+    var reqTime;
+    function setCaptchaProps (active, text) {
+      var target = $('#v-login-captcha');
+      if (!target) return;
+      if (active) {
+        target.css('color', '#4A90E2');
+      } else {
+        target.css('color', '#C1C1C1');
+      }
+      target.text(text || (isEn ? 'Send verification code' : '发送验证码'));
+    };
+
+    window.$toggleLoginModal = function () {
+      try {
+        var isLogin = #{isLogin};
+        if (isLogin) {
+          window.location.href = '/info';
+          return;
+        }
+      } catch (err) {}
+      $('html').scrollTop(0);
+      $('#v-login').fadeToggle(250, function () {
+        var css = $('html').css('overflow');
+        $('html').css('overflow', css === 'hidden' ? 'auto' : 'hidden');
+      });
+    };
+
+    $('#v-login .v-login-content-right--close').on('click', window.$toggleLoginModal);
+
+    setCaptchaProps(true);
+
+    $('#v-login-captcha').on('click', function () {
+      if (reqTime) return;
+      reqTime = Date.now();
+      var tel = $('#v-login-input-tel').val();
+      $.ajax({
+        type: 'post',
+        url: '/sms',
+        timeout: 30000,
+        data: {
+          mobilePhone: tel,
+        },
+        success: function (res) {
+          if (!res.success) {
+            reqTime = null;
+            alert(res.errMsg);
+          } else {
+            var timer = setInterval(function () {
+              var delay = 60 - Math.floor((Date.now() - reqTime) / 1000);
+              if (delay <= 0) {
+                reqTime = null;
+                setCaptchaProps(true);
+                clearInterval(timer);
+                return;
+              }
+              setCaptchaProps(false, '重新获取(' + delay + 's)');
+            }, 1000);
+          }
+        },
+        error: function (res) {
+          reqTime = null;
+          alert(res.responseJSON.errMsg);
+        }
+      })
+    });
+
+    $('.v-login-content-right--btn').on('click', function () {
+      //- var tel = $('#v-login-input-tel').val();
+      //- var captcha = $('#v-login-input-captcha').val();
+      var account = $('#v-login-input-tel').val();
+      var password = $('#v-login-input-captcha').val();
+      if (!account || !password) return;
+      $.ajax({
+        type: 'post',
+        url: '/login',
+        timeout: 30000,
+        data: {
+          //- account: tel,
+          //- captcha: captcha
+          account: account,
+          password: password
+        },
+        success: function (res) {
+          if (res.success) {
+            window.location.href = '/info';
+          } else {
+            alert(res.errMsg);
+          }
+        },
+        error: function (res) {
+          alert(res.responseJSON.errMsg);
+        }
+      })
+    });
+  })();

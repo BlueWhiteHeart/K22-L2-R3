@@ -1,0 +1,60 @@
+extends ../layout
+
+block content
+  div(id='app')
+  script(type='text/x-template' id='content-component')
+    div(id='app')
+      el-button(type='primary' icon='el-icon-plus' size='mini' @click='go("/admin/user/create")') 新增用户
+      el-tabs(
+        v-model='active'
+        style='margin: 15px auto 0;'
+        @tab-click='tabActiveChange'
+        type='card')
+        el-tab-pane(v-for='bt in statusTypes' :label='bt.label' :name='bt.id + ""' :key='bt.id') 
+
+      el-table(:data='activeDataSource')
+        el-table-column(prop='account' label='用户名')
+        el-table-column(prop='mobile' label='手机号')
+        el-table-column(prop='email' label='邮箱')
+        el-table-column(prop='name' label='姓名')
+        el-table-column(prop='level' label='权限等级')
+          template(slot-scope='scope')
+            el-tag {{scope.row.level === 1 ? '超级管理员' : scope.row.level === 2 ? '管理员' : '投资人'}}
+        el-table-column(prop='status' label='状态')
+          template(slot-scope='scope')
+            el-tag {{scope.row.status === 0 ? '待审核' : scope.row.status === 1 ? '已激活' : '已冻结'}}
+        el-table-column(label='操作')
+          template(slot-scope='scope')
+            el-button(@click='go("/admin/user/detail?id=" + scope.row.id)' type='text' size='small') 编辑
+  script.
+    new Vue({
+      el: '#app',
+      template: '#content-component',
+      data: function () {
+        return {
+          active: '-1',
+          statusTypes: [
+            { label: '所有', id: -1 },
+            { label: '待审核', id: 0 },
+            { label: '已激活', id: 1 },
+            { label: '已冻结', id: 2 }
+          ],
+          activeDataSource: [],
+          dataSource: !{JSON.stringify(data.users) || '[]'}
+        }
+      },
+      beforeMount () {
+        this.tabActiveChange()
+      },
+      methods: {
+        go: function (href) {
+          window.location.href = href
+        },
+        tabActiveChange: function () {
+          var active = +this.active
+          this.activeDataSource = active === -1 ? this.dataSource.slice() : this.dataSource.filter(function (e) {
+            return e.status === active
+          })
+        }
+      }
+    })

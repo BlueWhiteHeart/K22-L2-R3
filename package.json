@@ -1,0 +1,77 @@
+{
+  "name": "k22",
+  "version": "1.0.0",
+  "description": "k22",
+  "main": "index.js",
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-mp-pool",
+    "stop": "egg-scripts stop --title=egg-server-mp-pool",
+    "startdev": "egg-scripts start --daemon --title=egg-server-mp-pool-beta --port=7002",
+    "stopdev": "egg-scripts stop --title=egg-server-mp-pool-beta",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
+    "test": "npm run lint -- --fix && npm run test-local && npm run precommit",
+    "cov": "egg-bin cov",
+    "lint": "npm run lint:js",
+    "pkgfiles": "egg-bin pkgfiles",
+    "autod": "egg-bin autod",
+    "ci": "npm run lint && npm run autod -- --check && npm run pkgfiles -- --check && npm run cov && npm run cov",
+    "precommit": "standard --parser babel-eslint 'app/**/*.js' 'config/**/*.js' | snazzy",
+    "lint:js": "standard index.js && standard app/**/*.js && standard config/**/*.js --verbose | snazzy"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:js",
+      "pre-push": "npm run lint:js"
+    }
+  },
+  "author": "刘博翔",
+  "license": "ISC",
+  "dependencies": {
+    "@yuque/sdk": "^1.1.1",
+    "ali-oss": "^6.12.0",
+    "autoprefixer": "^10.0.1",
+    "axios": "^0.20.0",
+    "chalk": "^4.1.0",
+    "chance": "^1.1.7",
+    "co": "^4.6.0",
+    "egg": "^2.28.0",
+    "egg-alinode": "^2.0.1",
+    "egg-scripts": "^2.13.0",
+    "egg-sequelize": "^6.0.0",
+    "egg-validate": "^2.0.2",
+    "egg-view-pug": "^1.0.0",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "mysql2": "^2.2.5",
+    "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "autod": "^3.1.0",
+    "autod-egg": "^1.1.0",
+    "babel-eslint": "^10.1.0",
+    "egg-bin": "^4.15.0",
+    "egg-ci": "^1.18.0",
+    "egg-mock": "^4.0.1",
+    "eslint": "^7.11.0",
+    "eslint-config-egg": "^8.1.2",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "husky": "^4.3.0",
+    "snazzy": "^8.0.0",
+    "standard": "^14.3.4"
+  },
+  "standard": {
+    "ignore": [
+      "app/model/",
+      "app/public/"
+    ]
+  },
+  "ci": {
+    "version": "12"
+  }
+}

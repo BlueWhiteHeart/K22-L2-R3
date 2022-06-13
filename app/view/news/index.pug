@@ -1,0 +1,281 @@
+extends ../common/layout/index
+
+mixin mainBanner (banner, typeId)
+  if banner.type === typeId
+    .swiper-slide.bg-cover(style='background-image: url(' + banner.url + ')')
+      .swiper-slide-content #{isEn ? (banner.content_en || '') : (banner.content || '')}
+      .swiper-slide-title #{isEn ? banner.title_en : banner.title}
+      .swiper-slide-subtitle #{isEn ? banner.subtitle_en : banner.subtitle}
+
+mixin item (banner, typeId, showMore)
+  if banner.type === typeId
+    .content-wrapper.card-shadow
+      a.content-img-wrapper(
+        href=(isEn ? (showMore ? '/en' : '') : '') + (banner.href || '/detail?id=' + banner.id),
+        target=banner.href ? '_blank' : '_self'
+      )
+        img(src=banner.url)
+        .content-img-tip
+          if banner.icon
+            img(src=banner.icon)
+          span #{isEn ? banner.subtitle_en : banner.subtitle}
+      a.content-text-wrapper(
+        href=(isEn ? (showMore ? '/en' : '') : '') + (banner.href || '/detail?id=' + banner.id),
+        target=banner.href ? '_blank' : '_self')
+        .content-text-title #{isEn ? banner.title_en : banner.title}
+        .content-text-content #{isEn ? (banner.description_en || '') : (banner.description || '')}
+        if showMore
+          a.content-text-more(href=isEn ? '/en/contact' : '/contact') #{isEn ? 'More' : '更多'}
+            i(class='fa fa-angle-right' aria-hidden='true')
+
+block content
+  style(type='text/css')
+    case isMobile
+      when true
+        include ../../public/styles/news_mb.css
+      when false
+        include ../../public/styles/news_pc.css
+  div
+    #news-header.banner
+      .swiper-wrapper
+        each banner in data.banners
+          +mainBanner(banner, 20)
+      #news-header-pagination.banner-pagination
+
+    include ../common/banner/news_notice
+
+    .news-content
+      #content-header
+        each bt, index in data.bannerTypes
+          if bt.id === 21 || bt.id === 22
+            div(
+              class=(index === 1 ? 'content-header-tab content-header-tab-active' : 'content-header-tab'),
+              data-id=bt.id
+            ) #{isEn ? bt.description_en : bt.description}
+        .content-header-view
+          svg.content-header-icon.content-header-icon-active(aria-hidden='true' data-id='1' viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg")
+            path(d="M290.1 63.9H96.7c-16.6 0-30 13.4-30 30V290c0 16.6 13.4 30 30 30h193.4c16.6 0 30-13.4 30-30V93.9c0-16.6-13.5-30-30-30zM290.1 385.3H96.7c-16.6 0-30 13.4-30 30v196.1c0 16.6 13.4 30 30 30h193.4c16.6 0 30-13.4 30-30V415.3c0-16.6-13.5-30-30-30zM290.1 703.6H96.7c-16.6 0-30 13.4-30 30v196.1c0 16.6 13.4 30 30 30h193.4c16.6 0 30-13.4 30-30V733.6c0-16.5-13.5-30-30-30zM607 63.8H413.7c-16.6 0-30 13.4-30 30V290c0 16.6 13.4 30 30 30H607c16.6 0 30-13.4 30-30V93.8c0-16.5-13.4-30-30-30zM607 385.3H413.7c-16.6 0-30 13.4-30 30v196.1c0 16.6 13.4 30 30 30H607c16.6 0 30-13.4 30-30V415.3c0-16.6-13.4-30-30-30zM607 703.6H413.7c-16.6 0-30 13.4-30 30v196.1c0 16.6 13.4 30 30 30H607c16.6 0 30-13.4 30-30V733.6c0-16.5-13.4-30-30-30zM927.9 63.8H734.6c-16.6 0-30 13.4-30 30V290c0 16.6 13.4 30 30 30H928c16.6 0 30-13.4 30-30V93.8c-0.1-16.5-13.5-30-30.1-30zM927.9 385.3H734.6c-16.6 0-30 13.4-30 30v196.1c0 16.6 13.4 30 30 30H928c16.6 0 30-13.4 30-30V415.3c-0.1-16.6-13.5-30-30.1-30zM927.9 703.6H734.6c-16.6 0-30 13.4-30 30v196.1c0 16.6 13.4 30 30 30H928c16.6 0 30-13.4 30-30V733.6c-0.1-16.5-13.5-30-30.1-30z")
+          svg.content-header-icon(aria-hidden='true' data-id='2' viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg")
+            path(d="M896 256H128V128h768v128z m0 192H128v128h768V448z m0 320H128v128h768V768z")
+        .content-header-tag
+          span #{isEn ? 'WeChat' : '关注公众号'}：
+          span zhongcap 
+          span
+          i.fa.fa-weixin(aria-hidden='true')
+          .content-header-code
+            img(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/qr.jpeg')
+      #content-imgs.news-imgs
+        - var i = 0
+        each banner in data.banners
+          if i < 12
+            if banner.type === 21
+              - i++
+              +item(banner, 21, true)
+            else if banner.type === 22
+              - i++
+              +item(banner, 22, true)
+      .content-more(data-type='self') 查看更多资讯
+    #news-other
+      #news-other-header.banner
+        .swiper-wrapper
+          - var banner = data.banners.filter(function (e) { return e.type === 27 })[0]
+          if banner
+            +mainBanner(banner, 27)
+      .news-content
+        #other-imgs.news-imgs
+          - var j = 0
+          each banner in data.banners
+            if j < 12
+              if banner.type === 28
+                - j++
+                +item(banner, 28, false)
+      .content-more(data-type='other') 查看更多资讯
+    
+  script.
+    var banners1 = !{JSON.stringify(data.banners)}.filter(function (e) {
+      return e.type === 20
+    })
+    // 首页主轮播
+    new Swiper('#news-header', {
+      effect: 'fade',
+      speed: 900,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '#news-header-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class=' + className + '></span>'
+        }
+      }
+    })
+
+    var banners2 = !{JSON.stringify(data.banners)}.filter(function (e) {
+      return e.type === 21 || e.type === 22
+    })
+    var otherBanners = !{JSON.stringify(data.banners)}.filter(function (e) {
+      return e.type === 28
+    });
+    var lastActiveTab = !{JSON.stringify(data.bannerTypes)}.filter(function (e) {
+      return e.id === 21 || e.id === 22
+    })[0].id;
+    var lastTypeId = 1
+    var bannerNums = {
+      21: 12,
+      22: 12
+    }
+    var otherBannerNums = 12
+    var tabs = document.getElementsByClassName('content-header-tab')
+    var types = document.getElementsByClassName('content-header-icon')
+
+    tabEvent()
+    typeEvent()
+    loadMoreEvent()
+    loadDomVisible('self')
+    loadDomVisible('other')
+
+    function tabEvent () {
+      for (var i = 0; i < tabs.length; i++) {
+        (function (index) {
+          tabs[index].onclick = function (e) {
+            try {
+              var typeId = +tabs[index].getAttribute('data-id')
+              if (lastActiveTab !== typeId) {
+                changeTab(typeId)
+              }
+            } catch (err) {
+              console.error(err)
+            }
+          }
+        })(i)
+      }
+    }
+    function typeEvent () {
+      for (var i = 0; i < types.length; i++) {
+        (function (index) {
+          types[index].addEventListener('click', function (e) {
+            try {
+              var typeId = +types[index].getAttribute('data-id')
+              if (lastTypeId !== typeId) {
+                changeItemsType(typeId)
+              }
+            } catch (err) {
+              console.error(err)
+            }
+          }, false)
+        })(i)
+      }
+    }
+
+
+    function changeTab (typeId) {
+      lastActiveTab = typeId
+      var itemClass = lastTypeId === 1 ? 'content-wrapper card-shadow' : 'content-wrapper card-shadow content-wrapper-special';
+      var html = banners2.filter(function (e) { return typeId === 21 || e.type === typeId }).slice(0, bannerNums[typeId]).reduce(function (prev, curt) {
+          return prev + '<div class="' + itemClass + '">' +
+            '<a href="' + (#{isEn} ? '/en' : '') + '/detail?id=' + curt.id +'" class="content-img-wrapper">' + '<img src="' + curt.url + '" />' + '<div class="content-img-tip"><span>' + (#{isEn} ? curt.subtitle_en : curt.subtitle) + '</span></div>' +
+            '</a>' +
+            '<a href="' + (#{isEn} ? '/en' : '') + '/detail?id=' + curt.id +'" class="content-text-wrapper">' +
+              '<div class="content-text-title">' + (#{isEn} ? curt.title_en : curt.title) + '</div>' +
+              '<div class="content-text-content">' + ((#{isEn} ? curt.description_en : curt.description) || '') + '</div>' +
+              '<a class="content-text-more" href="' + (#{isEn} ? '/en/contact' : '/contact') + '">' +
+                (#{isEn} ? 'MORE' : '更多') +
+                '<i class="fa fa-angle-right" aria-hidden="true"></i>' +
+              '</a>' +
+            '</a>' +
+          '</div>';
+        return prev
+      }, '')
+
+      for (var i = 0; i < tabs.length; i++) {
+        var target = tabs[i]
+        var _typeId = +target.getAttribute('data-id')
+        target.setAttribute(
+          'class',
+          _typeId === typeId ? 'content-header-tab content-header-tab-active' : 'content-header-tab'
+        );
+      }
+      document.getElementById('content-imgs').innerHTML = html
+      loadDomVisible('self')
+    }
+
+    function changeItemsType (typeId) {
+      lastTypeId = +typeId
+      for (var j = 0;j < types.length; j++) {
+        var target = types[j]
+        var _class = 'content-header-icon'
+        var _typeId = target.getAttribute('data-id')
+        target.setAttribute('class', +_typeId === lastTypeId ? _class + ' content-header-icon-active' : _class)
+      }
+      var items = document.getElementById('content-imgs').getElementsByClassName('content-wrapper')
+      var normalClass = 'content-wrapper card-shadow'
+      for (var i = 0; i < items.length; i++) {
+        items[i].setAttribute('class', lastTypeId === 1 ? normalClass : normalClass + ' content-wrapper-special')
+      }
+    }
+
+
+    function loadMoreEvent () {
+      var elems = document.getElementsByClassName('content-more')
+      for (var i = 0; i < elems.length; i ++) {
+        (function () {
+          var target = elems[i]
+          if (target.getAttribute('data-type') === 'self') {
+            target.onclick = function () {
+              var curtNum = bannerNums[lastActiveTab]
+              var targetBanners = banners2.filter(function (e) {
+                return +lastActiveTab === 21 || (+lastActiveTab === e.type)
+              })
+              if (curtNum < targetBanners.length) {
+                bannerNums[lastActiveTab] += 16
+                changeTab(lastActiveTab)
+              }
+            }
+          } else {
+            target.onclick = function () {
+              otherBannerNums += 12;
+              var html = otherBanners.slice(0, otherBannerNums).reduce(function (prev, curt) {
+                  return prev + '<div class="content-wrapper card-shadow">' +
+                    '<a href="' + (curt.href || '#') +'" class="content-img-wrapper" target="' + (curt.href ? '_blank' : '_self') + '">' +
+                      '<img src="' + curt.url + '" />' + '<div class="content-img-tip"><img src="' + curt.icon + '" /><span>' + (#{isEn} ? curt.subtitle_en : curt.subtitle) + '</span></div>' +
+                    '</a>' +
+                    '<a href="' + (curt.href || '#') + '" class="content-text-wrapper" target="' + (curt.href ? '_blank' : '_self') + '">' +
+                      '<div class="content-text-title">' + (#{isEn} ? curt.title_en : curt.title) + '</div>' +
+                      '<div class="content-text-content">' + ((#{isEn} ? curt.description_en : curt.description) || '') + '</div>' +
+                    '</a>' +
+                  '</div>';
+                return prev
+              }, '')
+              document.getElementById('other-imgs').innerHTML = html;
+              loadDomVisible('other');
+            }
+          }
+        })(i)
+      }
+    }
+
+    function loadDomVisible (type) {
+      var elems = document.getElementsByClassName('content-more')
+      var t
+      for (var i = 0; i < elems.length; i ++) {
+        if (elems[i].getAttribute('data-type') === type) {
+          t = elems[i]
+        }
+      }
+      if (type === 'self') {
+        var curtNum = bannerNums[lastActiveTab]
+        var targetBanners = banners2.filter(function (e) {
+          return +lastActiveTab === 21 || (+lastActiveTab === e.type)
+        })
+        t.setAttribute(
+          'style', 'display: ' + (curtNum >= targetBanners.length ? 'none' : 'block')
+        )
+      } else {
+        t.setAttribute(
+          'style', 'display: ' + (otherBannerNums >= otherBanners.length ? 'none' : 'block')
+        )
+      }
+    }

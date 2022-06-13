@@ -1,0 +1,237 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+
+#info-banner
+  width: 100%
+  position: relative
+  height: 7rem
+  clear: both
+
+  .swiper-slide
+    +full
+    position: relative
+    text-align: center
+    color: $white-1
+    text-align: center
+    .swiper-slide-title, .swiper-slide-subtitle, .swiper-slide-content
+      display: block
+      width: 90%
+      position: absolute
+      left: 50%
+      transform: translate(-50%, 0)
+    .swiper-slide-title
+      top: 20%
+      +font-dpr(10)
+    .swiper-slide-subtitle
+      top: 33%
+      +font-dpr(27)
+      font-weight: 300
+    .swiper-slide-content
+      top: 64%
+      +font-dpr(27)
+      font-weight: 500
+
+  #info-banner-pagination
+    position: absolute
+    +size-dpr(5, bottom)
+    left: 0
+    z-index: 999
+    text-align: center
+    .swiper-pagination-bullet
+      +size-dpr(6, width, height)
+      background: $grey-3
+    .swiper-pagination-bullet-active
+      background: $white-1
+
+#info
+  position: relative
+  +size-dpr(107, padding-top)
+  #info-tab
+    +size-dpr(50, height, line-height)
+    +x-scroll
+    font-size: 0
+    border-top: 1px solid #d8ddde
+    .info-tab-prefix
+      display: none
+    .info-tab-item, #info-logout
+      display: inline-block
+      width: 25%
+      // +size-dpr(24, padding-left)
+      // +size-dpr(20, padding-bottom)
+      // +size-dpr(36, margin-right)
+      +font-dpr(12)
+      text-align: center
+      color: $black-1
+      > span
+        display: inline-block
+        position: relative
+      .info-tab-item-tag
+        display: none !important
+    .info-tab-item-active
+      color: #3b79b2
+      > span
+        &:after
+          content: ''
+          width: 100%
+          +size-dpr(2, height, bottom)
+          display: block
+          position: absolute
+          left: 0%
+          // transform: translateX(-50%)
+          background: #3b79b2
+
+  #info-content
+    #info-header
+      +size-dpr(107, height)
+      +size-dpr(25, padding-left)
+      +size-dpr(28, padding-right)
+      +size-dpr(30, padding-top)
+      +size-dpr(35, padding-bottom)
+      width: 100%
+      position: absolute
+      top: 0
+      left: 0
+      .info-title
+        +font-dpr(25)
+      .info-account
+        +font-dpr(11)
+        color: #585858
+      // #info-logout
+      //   float: right
+      //   +size-dpr(80, width)
+      //   +size-dpr(27, height, line-height)
+      //   display: block
+      //   border: 1px solid $grey-7
+      //   +font-dpr(11)
+      //   color: $grey-7
+      //   text-align: center
+
+  #info-table
+    background: #f0f0f0
+    width: 100%
+    +size-dpr(14, padding-left, padding-right)
+    +size-dpr(34, padding-bottom)
+
+    #info-table-header
+      display: none
+
+    #info-list-body
+      tr
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        +font-dpr(11)
+        +size-dpr(15, margin-top)
+        border: 1px solid #d0d0d0
+        &:first-child
+          display: none !important
+        td
+          background: $white-1
+          border-top: 1px solid #d0d0d0
+          .td-prefix
+            +size-dpr(14, margin-right)
+            color: #bcbcbc
+          &:first-child, &:nth-child(5), &:last-child
+            font-weight: 600
+          &:first-child
+            // +size-dpr(198 / 2, height)
+            +size-dpr(20, padding-left)
+            width: 100%
+            +size-dpr(23, padding-top)
+            +size-dpr(28, padding-bottom)
+            border: 0
+            .td-content
+              display: inline-block
+              width: 80%
+              vertical-align: top
+          &:first-child, &:nth-child(2)
+            +size-dpr(20, padding-left)
+            box-sizing: border-box
+          &:nth-child(2)
+            width: 40%
+          &:nth-child(3), &:nth-child(4)
+            width: 30%
+          &:nth-child(2), &:nth-child(3), &:nth-child(4)
+            +size-dpr(110 / 2, height, line-height)
+            overflow: hidden
+            text-overflow: ellipsis
+            text-align: center
+          &:nth-child(5), &:last-child
+            width: 50%
+            +size-dpr(110 / 2, height, line-height)
+            text-align: center
+            color: #3a78af
+          &:last-child
+            border-left: 1px solid #d0d0d0
+            // +size-dpr(-20, text-indent)
+
+#info-logout
+  color: #B2B5BA !important
+  border-left: 1px solid rgba(216,220,223,1)
+  box-sizing: border-box
+
+#info-more
+  background: #e8ebeb
+  text-align: center
+  +size-dpr(12, font-size)
+  +size-dpr(47, height, line-height)
+  +size-dpr(15, margin-top)
+  color: #c9cccc
+  cursor: pointer
+  transition: all .2s $cb-1
+  border: 1px solid transparent
+  &:active
+    color: $grey-7
+    border-color: $grey-5
+
+#info-middle-banner-container
+  overflow: hidden
+  +size-dpr(30, padding-top, padding-bottom)
+  border-bottom: 1px solid rgba(216,220,223,1)
+  display: flex
+  justify-content: center
+  align-items: center
+  #info-middle-banner
+    box-sizing: border-box
+    position: relative
+    display: inline-block
+    overflow: hidden
+    // width: 80%
+    flex: 1
+    #info-middle-swiper
+      width: 100%
+      +size-dpr(60, height, line-height)
+      position: relative
+      // overflow: hidden
+      text-align: center
+      .info-middle-swiper-slide
+        width: 100%
+        +size-dpr(60, height)
+        +size-dpr(70, line-height)
+        +size-dpr(23, padding-left, padding-right)
+        color: #000
+        font-weight: 500
+        img, a
+          vertical-align: middle
+        a
+          +font-dpr(14)
+          display: block
+          &:link, &:visited
+            color: #000
+        img
+          display: none
+  .info-middle-swiper-prev, .info-middle-swiper-next
+    +size-dpr(31, width)
+    // flex: 1
+    +size-dpr(36, height)
+    +font-dpr(30)
+    color: rgba(216,220,223,1)
+    display: inline-block
+    i
+      transform: scaleX(0.6)
+  .info-middle-swiper-prev
+    text-align: right
+  .info-middle-swiper-next
+    text-align: left
+

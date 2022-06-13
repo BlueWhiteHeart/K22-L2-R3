@@ -1,0 +1,94 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+
+#sr-header
+  width: 100%
+  height: 500px
+  overflow: hidden
+
+  .swiper-slide
+    +full
+    position: relative
+
+    img
+      +full
+
+    .swiper-slide-title, .swiper-slide-content
+      position: absolute
+      left: 50%
+      transform: translate(-50%, 0)
+      color: $white-1
+      letter-spacing: 1px
+      width: 70%
+      text-align: center
+    .swiper-slide-title
+      +pc-size(172, top)
+      +pc-size(50, font-size)
+    .swiper-slide-content
+      +pc-size(172 + 36 + 28 + 20, top)
+      +pc-size(14, font-size)
+
+#sr-content
+  margin-top: 50px
+  margin-left: -2%
+  +pc-u(0, 0, 12%, 15%, padding-left, padding-right)
+  display: block
+  font-size: 0
+  .content-wrapper
+    display: inline-block
+    width: 48%
+    margin-left: 2%
+    vertical-align: bottom
+    +pc-size(16, padding)
+    padding-bottom: 0
+    +pc-size(66, margin-bottom)
+    cursor: pointer
+    transition: box-shadow .3s ease-out, transform .3s ease-out, opacity .2s ease-out, background .2s ease-out
+    &:hover
+      box-shadow: rgba(45,45,45,0.05) 0px 2px 2px, rgba(49,49,49,0.05) 0px 4px 4px, rgba(42,42,42,0.05) 0px 8px 8px, rgba(32,32,32,0.05) 0px 16px 16px, rgba(49,49,49,0.05) 0px 32px 32px, rgba(35,35,35,0.05) 0px 64px 64px
+      transform: translate(0, -4px)
+      background: $white-1
+
+    &:nth-child(2n+1)
+      padding-right: 14px
+    &:nth-child(2n)
+      padding-left: 14px
+
+    &:link, &:visited
+      color: inherit
+    &:hover
+      // background: $white-1
+      border-radius: 3px
+    .content-img-wrapper
+      position: relative
+      background: $white-1
+      > img
+        width: 100%
+        // +pc-size(380, height)
+      > span
+        position: absolute
+        +pc-size(24, left)
+        +pc-size(24, bottom)
+        +pc-size(12, font-size)
+        color: $white-1
+    .content-text-wrapper
+      background: $white-1
+      border-bottom: 1px solid #eee
+      +pc-size(40, padding-top)
+      +pc-size(76, padding-bottom)
+      color: $black-1
+      .content-text-title
+        +pc-size(26, margin-bottom)
+        +textEllipsis(1)
+        height: 31px
+        overflow: hidden
+        font-weight: 600
+        +pc-size(24, font-size)
+      .content-text-content
+        +textEllipsis(2)
+        height: 40px
+        overflow: hidden
+        color: #858585
+        +pc-size(14, font-size)
+

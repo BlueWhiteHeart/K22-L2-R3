@@ -1,0 +1,25 @@
+style(type='text/css')
+  case isMobile
+    when true
+      include ../../../public/styles/news_notice_banner_mb.css
+    when false
+      include ../../../public/styles/news_notice_banner_pc.css
+#news-notice-banner
+  - var noticeBanners = data.banners.filter(function (e) { return e.type === 26 })
+  .swiper-wrapper
+    each nb in noticeBanners
+      .swiper-slide.news-notice-swiper-slide
+        span.news-notice-slide-title #{isEn ? nb.title_en : nb.title}
+        span.news-notice-slide-content #{isEn ? nb.content_en : nb.content}
+
+  script.
+    new Swiper('#news-notice-banner', {
+      direction: 'vertical',
+      speed: 2000,
+      loop: true,
+      allowTouchMove: false,
+      autoplay: {
+        delay: 3000
+      }
+    });
+  

@@ -1,0 +1,173 @@
+[
+  {
+    "id": 1,
+    "description": "首页主轮播"
+  },
+  {
+    "id": 2,
+    "description": "关于我们"
+  },
+  {
+    "id": 3,
+    "description": "项目BP板块"
+  },
+  {
+    "id": 4,
+    "description": "团队主题图"
+  },
+  {
+    "id": 5,
+    "description": "团队成员板块"
+  },
+  {
+    "id": 6,
+    "description": "被投公司主题图"
+  },
+  {
+    "id": 7,
+    "description": "高科技",
+    "description_en": "Technology"
+  },
+  {
+    "id": 8,
+    "description": "消费升级",
+    "description_en": "Consumption Upgrade"
+  },
+  {
+    "id": 9,
+    "description": "现代教育",
+    "description_en": "Education"
+  },
+  {
+    "id": 10,
+    "description": "金融创新",
+    "description_en": "Finance Innovation"
+  },
+  {
+    "id": 11,
+    "description": "文化媒体",
+    "description_en": "Cultural Media"
+  },
+  {
+    "id": 12,
+    "description": "社会责任主题图"
+  },
+  {
+    "id": 13,
+    "description": "社会责任内容板块"
+  },
+  {
+    "id": 14,
+    "description": "创智主题图"
+  },
+  {
+    "id": 15,
+    "description": "创智内容板块"
+  },
+  {
+    "id": 16,
+    "description": "公益主题图"
+  },
+  {
+    "id": 17,
+    "description": "公益内容板块"
+  },
+  {
+    "id": 18,
+    "description": "在行主题图"
+  },
+  {
+    "id": 19,
+    "description": "在行内容板块"
+  },
+  {
+    "id": 20,
+    "description": "新闻主轮播"
+  },
+  {
+    "id": 21,
+    "description": "最新",
+    "description_en": "最新"
+  },
+  {
+    "id": 22,
+    "description": "推荐",
+    "description_en": "推荐"
+  },
+  {
+    "id": 23,
+    "description": "联系主题图"
+  },
+  {
+    "id": 24,
+    "description": "联系定位图"
+  },
+  {
+    "id": 25,
+    "description": "健康医疗",
+    "description_en": "Healthcare"
+  },
+  {
+    "id": 26,
+    "description": "新闻快讯"
+  },
+  {
+    "id": 27,
+    "description": "第三方新闻主轮播"
+  },
+  {
+    "id": 28,
+    "description": "第三方新闻条目"
+  },
+  {
+    "id": 29,
+    "description": "地图"
+  },
+  {
+    "id": 30,
+    "description": "移动端-地图"
+  },
+  {
+    "id": 31,
+    "description": "移动端-地图插图"
+  },
+  {
+    "id": 32,
+    "description": "信息页-主题图"
+  },
+  {
+    "id": 33,
+    "description": "年度报告",
+    "description_en": "年度报告"
+  },
+  {
+    "id": 34,
+    "description": "文件下载",
+    "description_en": "文件下载"
+  },
+  {
+    "id": 35,
+    "description": "财务报表",
+    "description_en": "财务报表"
+  },
+  {
+    "id": 36,
+    "description": "关于我们-中间图标",
+    "description_en": "关于我们-中间图标"
+  },
+  {
+    "id": 37,
+    "description": "关于我们-中间大图",
+    "description_en": "关于我们-中间大图"
+  },
+  {
+    "id": 38,
+    "description": "关于我们-中间文字板块",
+    "description_en": "关于我们-中间文字板块"
+  },
+  {
+    "id": 39,
+    "description": "投资人文件页面-新闻轮播",
+    "description_en": "投资人文件页面-新闻轮播"
+  }
+]

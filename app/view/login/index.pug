@@ -1,0 +1,125 @@
+extends ../common/layout/index
+
+block content
+  style(type='text/css')
+    case isMobile
+      when true
+        include ../../public/styles/login_mb.css
+      when false
+        include ../../public/styles/login_pc.css
+  #form-container
+    form#login-form
+      .form-header !{isEn ? 'Investor Login' : '投资者登录'}
+      .form-item
+        p #{isEn ? 'Account' : '账号'}
+        input#login-account(type='text' placeholder=isEn ? 'Please Input Your Account Number' : '请输入账号')
+      .form-item
+        p #{isEn ? 'Password' : '密码'}
+        input#login-password(type='password' placeholder=isEn ? 'Please Input Your Password' : '请输入密码')
+      .form-footer
+        button#login-btn(type='submit') #{isEn ? 'Log In' : '登录'}
+  #message.message-slide-out 有问题了
+
+  script.
+    var timer = null
+    var lock = false
+    var isEn = false
+
+    if (window.location.href.indexOf('/en') > -1) {
+      isEn = true
+    }
+    
+    document.getElementById('login-form').onsubmit = function (e) {
+      if (lock) return false;
+      var account = document.getElementById('login-account').value
+      var password = document.getElementById('login-password').value
+      if (!account || !password || !account.trim() || !password.trim()) {
+        lock = false
+        message(isEn ? '"Account Number" or "Password" cannot be blank!' : '用户名密码不能为空!')
+        return false
+      }
+      lock = true;
+      document.getElementById('login-btn').innerText = '正在登录中';
+      request({
+        method: 'POST',
+        url: '/admin/login',
+        async: true,
+        data: JSON.stringify({
+          account: account.trim(),
+          password: password.trim()
+        }),
+        success: function (res) {
+          var _href = res.data.href;
+          var targetHref = _href.indexOf('admin') > -1 ? _href : (#{isEn} ? '/en' + _href : _href);
+          window.location.href = targetHref;
+        },
+        error: function (res) {
+          message(res.errMsg);
+          document.getElementById('login-btn').innerText = isEn ? 'Log In' : '登录';
+          lock = false
+        }
+      })
+      return false
+    }
+
+    function message (text) {
+      var target = document.getElementById('message')
+      var targetClass = target.getAttribute('class')
+      var slideClass = 'message-slide-in'
+      if (targetClass === slideClass) {
+        clearTimeout(timer)
+      } else {
+        target.setAttribute('class', slideClass)
+      }
+      target.innerText = text
+      startTimer()
+      function startTimer () {
+        timer = setTimeout(function () {
+          target.setAttribute('class', 'message-slide-out')
+        }, 1500)
+      }
+    }
+
+    function request (obj) {
+      var xhr = null
+      if (window.XMLHttpRequest) {
+        xhr = new window.XMLHttpRequest()
+      } else {
+        var versions = [
+          'MSXML2.XmlHttp.6.0',
+          'MSXML2.XmlHttp.5.0',
+          'MSXML2.XmlHttp.4.0',
+          'MSXML2.XmlHttp.3.0',
+          'MSXML2.XmlHttp.2.0',
+          'Microsoft.XmlHttp'
+        ]
+        for (var i = 0; i < versions.length; i++) {
+          try {
+            xhr = new window.ActiveXObject(versions[i])
+            break
+          } catch (e) {}
+        }
+      }
+      xhr.open(
+        obj.method || 'GET',
+        obj.url,
+        !!obj.async
+      )
+      xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8')
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          try {
+            var res = JSON.parse(xhr.responseText)
+            if (res.success) {
+              obj.success(res)
+            } else {
+              obj.error(res)
+            }
+          } catch (err) {
+            obj.error(isEn ? 'Connection Error!' : '网络异常!')
+          }
+        }
+      }
+      xhr.send(obj.data)
+    }
+

@@ -1,0 +1,84 @@
+2022-06-13 10:03:01,918 WARN 69706 Sequelize Error: connect ECONNREFUSED 127.0.0.1:3306, sleep 1 seconds to retry...
+2022-06-13 10:03:01,567 INFO 69706 [egg:logger] init all loggers with options: {"dir":"/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/logs/k22","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"k22-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"type":"agent"}
+2022-06-13 10:03:01,824 INFO 69706 [egg-alinode] alinode agentx started, node versions: {"node":"16.15.0","v8":"9.4.146.24-node.20","uv":"1.43.0","zlib":"1.2.11","brotli":"1.0.9","ares":"1.18.1","modules":"93","nghttp2":"1.47.0","napi":"8","llhttp":"6.0.4","openssl":"1.1.1n+quic","cldr":"40.0","icu":"70.1","tz":"2021a3","unicode":"14.0","ngtcp2":"0.1.0-DEV","nghttp3":"0.1.0-DEV"}, update /Users/bluewhiteheart/.nodepath with "/usr/local/bin", config: {"server":"wss://agentserver.node.aliyun.com:8080","appid":"87051"}
+2022-06-13 10:03:01,833 INFO 69706 [egg:core] dump config after load, 8ms
+2022-06-13 10:03:01,910 INFO 69706 [egg-watcher] Start watching: ["/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app","/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config","/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/mocks","/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/mocks_proxy","/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app.js"]
+2022-06-13 10:03:01,910 INFO 69706 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app"
+2022-06-13 10:03:01,910 INFO 69706 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config"
+2022-06-13 10:03:01,910 INFO 69706 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/mocks"
+2022-06-13 10:03:01,910 INFO 69706 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/mocks_proxy"
+2022-06-13 10:03:01,911 INFO 69706 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app.js"
+2022-06-13 10:03:01,911 INFO 69706 [egg-watcher:agent] watcher start success
+2022-06-13 10:03:01,948 ERROR 69706 nodejs.SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+    at ConnectionManager.connect (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/mysql/connection-manager.js:92:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:220:24)
+    at async /Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:174:32
+name: "SequelizeConnectionRefusedError"
+parent: {"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}
+original: {"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}
+pid: 69706
+hostname: baixindeMacBook-Pro.local
+
+2022-06-13 10:03:02,921 WARN 69706 Sequelize Error: connect ECONNREFUSED 127.0.0.1:3306, sleep 1 seconds to retry...
+2022-06-13 10:03:03,924 WARN 69706 Sequelize Error: connect ECONNREFUSED 127.0.0.1:3306, sleep 1 seconds to retry...
+2022-06-13 10:03:04,927 ERROR 69706 nodejs.SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+    at ConnectionManager.connect (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/mysql/connection-manager.js:92:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:220:24)
+    at async /Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:174:32
+    at async ConnectionManager.getConnection (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:197:7)
+    at async /Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/sequelize.js:301:26
+    at async Sequelize.authenticate (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/sequelize.js:453:5)
+    at async authenticate (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-sequelize@6.0.0@egg-sequelize/lib/loader.js:134:7)
+    at async authenticate (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-sequelize@6.0.0@egg-sequelize/lib/loader.js:142:7)
+    at async authenticate (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-sequelize@6.0.0@egg-sequelize/lib/loader.js:142:7)
+name: "SequelizeConnectionRefusedError"
+parent: {"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}
+original: {"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}
+pid: 69706
+hostname: baixindeMacBook-Pro.local
+
+2022-06-13 10:03:04,937 INFO 69706 [egg:core] dump config after ready, 8ms
+2022-06-13 10:06:13,747 WARN 70197 Sequelize Error: connect ECONNREFUSED 127.0.0.1:3306, sleep 1 seconds to retry...
+2022-06-13 10:06:13,426 INFO 70197 [egg:logger] init all loggers with options: {"dir":"/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/logs/k22","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"k22-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"type":"agent"}
+2022-06-13 10:06:13,659 INFO 70197 [egg-alinode] alinode agentx started, node versions: {"node":"16.15.0","v8":"9.4.146.24-node.20","uv":"1.43.0","zlib":"1.2.11","brotli":"1.0.9","ares":"1.18.1","modules":"93","nghttp2":"1.47.0","napi":"8","llhttp":"6.0.4","openssl":"1.1.1n+quic","cldr":"40.0","icu":"70.1","tz":"2021a3","unicode":"14.0","ngtcp2":"0.1.0-DEV","nghttp3":"0.1.0-DEV"}, update /Users/bluewhiteheart/.nodepath with "/usr/local/bin", config: {"server":"wss://agentserver.node.aliyun.com:8080","appid":"87051"}
+2022-06-13 10:06:13,665 INFO 70197 [egg:core] dump config after load, 5ms
+2022-06-13 10:06:13,733 INFO 70197 [egg-watcher] Start watching: ["/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app","/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config","/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/mocks","/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/mocks_proxy","/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app.js"]
+2022-06-13 10:06:13,733 INFO 70197 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app"
+2022-06-13 10:06:13,734 INFO 70197 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config"
+2022-06-13 10:06:13,734 INFO 70197 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/mocks"
+2022-06-13 10:06:13,734 INFO 70197 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/mocks_proxy"
+2022-06-13 10:06:13,734 INFO 70197 [egg-watcher] Start watching: "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app.js"
+2022-06-13 10:06:13,734 INFO 70197 [egg-watcher:agent] watcher start success
+2022-06-13 10:06:14,128 ERROR 70197 nodejs.SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+    at ConnectionManager.connect (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/mysql/connection-manager.js:92:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:220:24)
+    at async /Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:174:32
+name: "SequelizeConnectionRefusedError"
+parent: {"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}
+original: {"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}
+pid: 70197
+hostname: baixindeMacBook-Pro.local
+
+2022-06-13 10:06:14,749 WARN 70197 Sequelize Error: connect ECONNREFUSED 127.0.0.1:3306, sleep 1 seconds to retry...
+2022-06-13 10:06:15,752 WARN 70197 Sequelize Error: connect ECONNREFUSED 127.0.0.1:3306, sleep 1 seconds to retry...
+2022-06-13 10:06:16,756 ERROR 70197 nodejs.SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+    at ConnectionManager.connect (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/mysql/connection-manager.js:92:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:220:24)
+    at async /Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:174:32
+    at async ConnectionManager.getConnection (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/dialects/abstract/connection-manager.js:197:7)
+    at async /Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/sequelize.js:301:26
+    at async Sequelize.authenticate (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_sequelize@6.20.1@sequelize/lib/sequelize.js:453:5)
+    at async authenticate (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-sequelize@6.0.0@egg-sequelize/lib/loader.js:134:7)
+    at async authenticate (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-sequelize@6.0.0@egg-sequelize/lib/loader.js:142:7)
+    at async authenticate (/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-sequelize@6.0.0@egg-sequelize/lib/loader.js:142:7)
+name: "SequelizeConnectionRefusedError"
+parent: {"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}
+original: {"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}
+pid: 70197
+hostname: baixindeMacBook-Pro.local
+
+2022-06-13 10:06:16,766 INFO 70197 [egg:core] dump config after ready, 9ms

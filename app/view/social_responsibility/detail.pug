@@ -1,0 +1,53 @@
+extends ../common/layout/index
+
+mixin headerItem(banner, text)
+  if banner
+    a.header-item(href=(isEn ? '/en/detail?id=' : '/detail?id=') + banner.id)
+      .header-item-img.bg-cover(style='background: url(' + banner.url + ') no-repeat;')
+      span #{text}
+  else
+    .header-item(style='display: none;')
+
+
+block content
+  style(type='text/css')
+    case isMobile
+      when true
+        include ../../public/styles/detail_mb.css
+      when false
+        include ../../public/styles/detail_pc.css
+  div
+    #detail-header
+      +headerItem(data.last, isEn ? 'LAST' : '上一篇')
+      +headerItem(data.next, isEn ? 'NEXT' : '下一篇')
+
+    #detail-content
+      #detail-breadCrumb
+        - var isNewsType = [20,21,22,26,27,28].indexOf(data.banner.type) > -1
+        - var parentHref = isNewsType ? '/news' : '/socialResponsibility'
+        - var parentText = isNewsType ? (isEn ? 'news' : '新闻') : (isEn ? 'Social Responsibility' : '社会责任')
+        a.breadCrumb-item(href=isEn ? '/en' : '/') #{isEn ? 'Home' : '首页' }
+        a.breadCrumb-item(href=(isEn ? '/en' : '') + parentHref) #{parentText}
+        .breadCrumb-item #{isEn ? data.banner.title_en : data.banner.title}
+
+      #detail-text-wrapper
+        .detail-img
+          img(src=data.banner.url)
+          span #{isEn ? data.banner.subtitle_en : data.banner.subtitle}
+        .detail-text
+          h3 #{isEn ? data.banner.title_en : data.banner.title}
+          p #{isEn ? data.banner.content_en : data.banner.content}
+
+  script.
+    console.log(!{JSON.stringify(data)})
+    var contentOrigin = !{JSON.stringify(data.contentOrigin)};
+    var content = #{isEn} ? contentOrigin.content_en : contentOrigin.content;
+    if (content) {
+      var style = #{isMobile} ? 'margin: auto;' : 'margin: auto;';
+      $('#detail-text-wrapper').html('<div style="' + style + '">' + content + '</div>');
+      $('#detail-text-wrapper img').css({
+        'width': '100%',
+        'height': '100%',
+        'max-width': '100%'
+      });
+    }

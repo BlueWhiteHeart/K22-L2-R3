@@ -1,0 +1,83 @@
+@import '../../sass/mixin.sass'
+@import '../../sass/var.sass'
+
+$height: calc(100% - #{$navHeightWithUnit})
+
+#v-login
+  width: 100%
+  position: fixed
+  z-index: 99999
+  top: 0
+  left: 0
+  display: none
+  height: $height
+  background: transparent
+  
+  .v-login-content
+    width: 100%
+    height: 100%
+    +size-dpr($navHeight, margin-top)
+    +size-dpr(57, padding-top)
+    +size-dpr(40, padding-left, padding-right)
+    background: #fff
+
+    &-left
+      display: none
+      *
+        display: none
+
+    &-right
+
+      &--title
+        +font-dpr(22)
+        +size-dpr(50, margin-bottom)
+      &--close
+        display: none
+      &--cell
+        +size-dpr(15, padding-left, padding-right)
+        +size-dpr(40, margin-bottom)
+        +size-dpr(48, height)
+        +size-dpr(4, border-radius)
+        border: 1px solid #CDD2D5
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        &-icon, &-input
+          vertical-align: middle
+        &-icon
+          +size-dpr(13, width)
+          +size-dpr(18, height)
+          +size-dpr(14, margin-right)
+        &-input
+          display: inline-block
+          height: 95%
+          flex: 1
+          +font-dpr(13)
+          outline: none
+          border: 0
+          &::-webkit-input-placeholder
+            color: rgba(193,193,193,1)
+          &::-moz-placeholder
+            color: rgba(193,193,193,1)
+          &::-ms-input-placeholder
+            color: rgba(193,193,193,1)
+      &--btn
+        +size-dpr(48, height, line-height)
+        +size-dpr(6, border-radius)
+        +font-dpr(14)
+        width: 100%
+        background: rgba(60,79,96,1)
+        color: #fff
+        text-align: center
+        &:active
+          opacity: 0.7
+
+#v-login-captcha
+  +font-dpr(12)
+  +size-dpr(10, padding-top, padding-bottom)
+  +size-dpr(250, width)
+  text-align: right
+  display: inline-block
+  white-space: nowrap
+  

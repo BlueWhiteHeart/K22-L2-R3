@@ -1,0 +1,41 @@
+apps:
+  - script : ./start.js
+    name   : 'firm'
+    env    :
+      COMMON_VARIABLE: true
+    env_production:
+      NODE_ENV: production
+deploy:
+  production:
+    user: root
+    host:
+      - 47.98.14.17
+    port: 22
+    ref: origin/master
+    repo: https://gitlab.iblack7.com/5k/k22.git
+    path: /root/www/firm/production
+    ssh_options: StrictHostKeyChecking=no
+    pre-deploy: git fetch --all
+    post-deploy: 'source ~/.bashrc && cnpm install && cnpm run stop && cnpm start'
+  plus:
+    user: root
+    host:
+      - 47.98.14.17
+    port: 22
+    ref: origin/master
+    repo: https://gitlab.iblack7.com/5k/k22.git
+    path: /root/www/firm/production
+    ssh_options: StrictHostKeyChecking=no
+    pre-deploy: git fetch --all
+    post-deploy: 'source ~/.bashrc && cnpm run stop && cnpm start'
+  beta:
+    user: root
+    host:
+      - 47.98.14.17
+    port: 22
+    ref: origin/beta
+    repo: https://gitlab.iblack7.com/5k/k22.git
+    path: /root/www/firm-beta/production
+    ssh_options: StrictHostKeyChecking=no
+    pre-deploy: git fetch --all
+    post-deploy: 'source ~/.bashrc && cnpm install && cnpm run stopdev && cnpm startdev'

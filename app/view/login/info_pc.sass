@@ -1,0 +1,305 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+
+#info-banner
+  width: 100%
+  +pc(300, 300, 300, 300, height)
+  position: relative
+
+  .swiper-slide
+    +full
+    position: relative
+    text-align: center
+    color: $white-1
+    img
+      +full
+    .swiper-slide-title, .swiper-slide-subtitle, .swiper-slide-content
+      width: 90%
+      position: absolute
+      left: 50%
+      transform: translate(-50%, 0)
+    .swiper-slide-subtitle, .swiper-slide-content
+      font-size: 45px
+    .swiper-slide-title
+      +pc(75, 75, 75, 75, top)
+      +pc(14, 14, 14, 14, font-size)
+    .swiper-slide-subtitle
+      +pc(100, 100, 100, 100, top)
+      font-weight: 300
+    .swiper-slide-content
+      top: 150px
+      font-weight: bold
+
+  #info-banner-pagination
+    position: absolute
+    bottom: 15px
+    left: 0
+    z-index: 999
+    text-align: center
+    .swiper-pagination-bullet
+      background: $grey-5
+    .swiper-pagination-bullet-active
+      background: $white-1
+
+#info, #info-middle-banner-container
+  padding-left: 140px
+  padding-right: 134px
+#info
+  +pc(70, 70, 70, 70, margin-top)
+  +pc-size(35, margin-bottom)
+  font-size: 0
+
+#info-tab
+  float: left
+  color: $black-1
+  position: relative
+  z-index: 8
+  +pc(216, 216, 256, 256, width)
+  +pc(40, 40, 40, 40, padding-left)
+  +pc(60, 60, 60, 60, padding-right)
+  .info-tab-prefix, .info-tab-item, #info-logout
+    +pc(18, 18, 18, 18, padding-left)
+  .info-tab-prefix
+    +pc(14, 14, 14, 14, font-size)
+    color: #bbbbbb
+    +pc(48, 48, 48, 48, margin-bottom)
+  .info-tab-item, #info-logout
+    position: relative
+    +pc(36, 36, 36, 36, margin-bottom)
+    +pc(16, 16, 16, 16, font-size)
+    white-space: nowrap
+    cursor: pointer
+    > *
+      vertical-align: middle
+    span
+      transform: all .4s $cb-1
+    &:hover
+      span
+        color: #3b78b0
+    .info-tab-item-tag
+      display: inline
+      +pc-size(1, padding-top, padding-bottom)
+      +pc-size(6, padding-left, padding-right)
+      +pc(8, 8, 8, 8, margin-left)
+      background: #fa7252
+      +pc-size(10, font-size)
+      text-align: center
+      color: $white-1
+      +pc-size(10, border-radius)
+    
+  .info-tab-item-active
+    &:before
+      content: ''
+      +pc-size(4, width)
+      +pc-size(14, height)
+      position: absolute
+      top: 60%
+      +pc-size(0, left)
+      transform: translate(0, -50%)
+      background: $blue
+
+#info-content
+  +pc(216, 216, 256, 256, padding-left)
+  +pc(22, 22, 22, 22, padding-right)
+  width: 100%
+  position: relative
+  z-index: 6
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    +pc(216, 216, 216, 216, left)
+    width: 1px
+    height: 100%
+    background: #efefef
+  > *
+    +pc(46, 46, 46, 46, margin-left)
+
+  #info-header
+    border-bottom: 1px solid #efefef
+    +pc(20, 20, 20, 20, padding-left)
+    .info-title
+      > *
+        color: $black-1
+      > span
+        +pc(40, 40, 40, 40, font-size)
+      // #info-logout
+      //   float: right
+      //   +pc(204, 204, 204, 204, width)
+      //   +pc(48, 48, 48, 48, height, line-height)
+      //   display: block
+      //   border: 1px solid #e1e1e1
+      //   +pc-size(14, font-size)
+      //   font-weight: bold
+      //   text-align: center
+      //   cursor: pointer
+      //   transition: all .35s $cb-1
+      //   &:hover
+      //     color: $blue-4
+      //     border-color: $blue-4
+
+    .info-account
+      +pc-size(14, font-size)
+      margin-top: 20px
+      margin-bottom: 38px
+      color: rgba(0, 0, 0, 0.55)
+      font-weight: 400
+
+  #info-table
+    #info-table-header
+      +pc(34, 34, 34, 34, padding-top, padding-bottom)
+      +pc(86, 86, 86, 86, height)
+      .info-table-header-tab
+        +pc(18, 18, 18, 18, font-size)
+        font-weight: bold
+      .info-table-header-time
+        +pc-size(14, font-size)
+        +pc(26, 26, 28, 28, margin-left)
+        color: #a4a4a4
+
+  #info-list
+    border-collapse:collapse
+    width: 100%
+    border: 1px solid #dddddd
+    background: #fbfbfb
+    +pc-size(3, border-radius)
+    #info-list-body
+      +pc-size(30, padding-right)
+      tr
+        +pc(100, 100, 100, 100, min-height)
+        +pc(146, 146, 146, 146, max-height)
+        width: 100%
+        display: table
+        text-align: center
+        +pc-size(14, font-size)
+        border-top: 1px solid #dddddd
+        &:first-child
+          border: 0
+          +pc(60, 60, 60, 60, min-height, height)
+          +pc-size(16, font-size)
+          text-align: left
+          td
+            overflow: visible !important
+            font-weight: normal !important
+            &:nth-child(2)
+              text-indent: 3%
+            &:last-child
+              text-align: center
+        td
+          +textEllipsis(3)
+          display: table-cell
+          text-align: left
+          width: 18%
+          > span
+            display: block
+            +textEllipsis(3)
+          &:first-child
+            +pc(50, 50, 50, 50, padding-left)
+            +pc(110, 110, 110, 110, padding-right)
+            +pc(380, 380, 380, 380, min-width, width, max-width)
+            text-align: left
+            font-weight: bold
+          &:nth-child(2)
+            +pc(180, 180, 180, 180, min-width, width)
+          &:last-child
+            +pc(30, 30, 30, 30, padding-right)
+            +pc(120, 120, 120, 120, min-width, width, max-width)
+          .preview
+            width: 45px;
+            // height: 14px;
+            font-size: 10px
+          .download, .preview
+            display: block
+            +pc-size(3, padding-top, padding-bottom)
+            border: 1px solid #3d79b0
+            border-radius: 15px
+            transition: all .3s $cb-1
+            text-align: center
+            +pc-size(10, font-size)
+            color: #3d79b0
+            &:hover
+              color: $white-1
+              background: #3d79b0
+
+#info-logout
+  color: rgba(0,0,0,0.4)
+  display: block
+
+#info-more
+  background: #edeeef
+  text-align: center
+  +pc-size(40, margin-top)
+  +pc-size(14, font-size)
+  +pc-size(52, height, line-height)
+  color: #aaabac
+  cursor: pointer
+  transition: all .3s $cb-1
+  border: 1px solid transparent
+  &:hover
+    color: $grey-7
+    border-color: $grey-5
+
+#info-middle-banner-container
+  overflow: hidden
+  margin: 15px 0
+  display: flex
+  justify-content: center
+  align-items: center
+  #info-middle-banner
+    box-sizing: border-box
+    position: relative
+    // display: inline-block
+    overflow: hidden
+    // width: 80%
+    flex: 1
+    font-size: 0
+    #info-middle-swiper
+      width: 100%
+      height: 63px
+      text-align: center
+      .info-middle-swiper-slide
+        // width: 25%
+        display: inline-block
+        height: 100%
+        line-height: 60px
+        font-size: 14px
+        font-weight: 500
+        color: rgba(0,0,0,1)
+        padding: 0 14.5px
+        cursor: pointer
+        img, a
+          vertical-align: middle
+        a
+          display: inline-block
+          &:link, &:visited
+            color: rgba(0,0,0,1)
+        img
+          opacity: 0
+          width: 25px
+          height: 25px
+          margin-left: 6px
+        &:hover
+          a
+            color: rgba(61,120,176,1) !important
+          img
+            opacity: 1
+  .info-middle-swiper-prev, .info-middle-swiper-next
+    width: 141px
+    display: inline-block
+    top: 18px
+    color: rgba(0, 0, 0, 0.1)
+    font-size: 40px
+    cursor: pointer
+    padding: 0 20px
+    transform: scaleX(0.7)
+    &:active, &:hover, &:link
+      border: 0
+      outline: none
+  .info-middle-swiper-prev
+    padding-left: 40px
+    text-align: left
+  .info-middle-swiper-next
+    padding-right: 20px
+    text-align: right
+

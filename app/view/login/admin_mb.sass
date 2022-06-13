@@ -1,0 +1,67 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+#form-container
+  width: 100%
+
+  #login-form
+    margin: auto
+    +size-dpr(55, padding-top)
+    +size-dpr(241, padding-bottom)
+    +size-dpr(36, padding-left, padding-right)
+    background: $white-1
+    border: 1px solid #ecf1f2
+    border-radius: 3px
+
+    .form-header
+      +size-dpr(38, margin-bottom)
+      +font-dpr(23)
+    .form-item
+      +size-dpr(23, margin-bottom)
+      +font-dpr(14)
+      > *:first-child
+        margin: 0
+        +size-dpr(15, margin-bottom)
+        color: #3d5061
+      input
+        width: 100%
+        +size-dpr(46, height)
+        +size-dpr(16, padding-left, padding-right)
+        color: #000
+        border: 1px solid #dce1e2
+        border-radius: 3px
+        outline: 0
+        transition: border-color .4s $cb-1
+        &::placeholder
+          color: #dce1e2
+        &:focus
+          border-color: #3d79b0
+
+    #login-btn
+      width: 100%
+      +size-dpr(46, height, line-height)
+      +size-dpr(3, margin-top)
+      border: 0
+      border-radius: 3px
+      background: #3d5061
+      outline: 0
+      cursor: pointer
+      +font-dpr(15)
+      color: $white-1
+
+#message
+  padding: 4px 20px
+  position: absolute
+  top: 0
+  left: 50%
+  transition: all .6s ease
+  border: 1px solid $grey-5
+  border-radius: 3px
+  background: $white-1
+  font-size: 15px
+  color: $blue-4
+
+.message-slide-in
+  transform: translate(-50%, 350%)
+.message-slide-out
+  transform: translate(-50%, -100%)

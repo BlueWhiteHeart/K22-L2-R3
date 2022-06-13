@@ -1,0 +1,168 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title #{isEn ? 'ZHONG Capital Holding Group' : '熙金资本官网'}
+    style(type='text/css')
+      case isMobile
+        when true
+          include ../../../public/styles/layout_mb.css
+        when false
+          include ../../../public/styles/layout_pc.css
+    link(rel='icon' type='image/x-icon' href='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/favicon.ico')
+    link(rel='stylesheet', href='https://unpkg.com/font-awesome@4.7.0/css/font-awesome.css')
+    link(rel='stylesheet' href='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/resources/swiper.min.css')
+    script(src="https://zhongcap.oss-cn-hangzhou.aliyuncs.com/resources/jquery.min.js")
+    case isMobile
+      when true
+        script(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/resources/flexible.js')
+    script(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/resources/swiper.min.js')
+  body
+    block header
+      .nav
+        a.logo-link(href=isEn ? '/en' : '/')
+          img.nav-logo(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1524184818085.png')
+        .nav-bar-pc
+          each page in data.pages
+            if page.children && page.children.length > 0
+              div(class='nav-item-special' + ((pathname.indexOf(page.path) > -1 && pathname !== '/' && pathname !== '/en') ? ' nav-item-active' : ''))
+                a(href=isEn ? '/en' + page.path : page.path, style='color: inherit')
+                  span #{isEn ? page.name_en : page.name}
+                  i.fa.fa-angle-down(aria-hidden='true')
+                .nav-item-child-wrapper
+                  each child in page.children
+                    a.nav-item-child(
+                      class=((isEn ? '/en' + child.path : child.path) === pathname) ? 'nav-item-active' : '',
+                      href=isEn ? '/en' + child.path : child.path
+                    ) #{isEn ? child.name_en : child.name}
+            else
+            a(
+              class='nav-item' + ((isEn ? '/en' + page.path : page.path) === pathname ? ' nav-item-active' : ''),
+              href=isEn ? '/en' + page.path : page.path
+            ) #{isEn ? page.name_en : page.name}
+          a#pc-login-btn.nav-item.nav-login
+            i.fa.fa-user-o(aria-hidden='true')
+            if isLogin == true
+              span #{ isEn ? 'Welcome' : '欢迎回来～' }
+            else
+             span #{ isEn ? 'Investor Login' : '投资者登录'}
+          - var loc = isEn ? pathname.replace('/en', '') : '/en' + pathname
+          - var locd = loc ? loc : '/'
+          a.nav-item.nav-language(href=locd) #{isEn ? '中文' : 'EN'}
+        .nav-bar-mb.flex-row.flex-align-center
+          a.nav-item(href=locd, style='color: #000') #{isEn ? '中文' : 'EN'}
+          .nav-item#nav-menu-trigger
+            svg.menu-trigger-active(viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg")
+              path(d="M128 768h768v-85.333333H128v85.333333z m0-213.333333h768v-85.333334H128v85.333334z m0-298.666667v85.333333h768V256H128z")
+            svg(viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg")
+              path(d="M610.461538 500.184615l256-257.96923c11.815385-11.815385 11.815385-29.538462 0-41.353847l-39.384615-41.353846c-11.815385-11.815385-29.538462-11.815385-41.353846 0L527.753846 417.476923c-7.876923 7.876923-19.692308 7.876923-27.569231 0L242.215385 157.538462c-11.815385-11.815385-29.538462-11.815385-41.353847 0l-41.353846 41.353846c-11.815385 11.815385-11.815385 29.538462 0 41.353846l257.969231 257.969231c7.876923 7.876923 7.876923 19.692308 0 27.56923L157.538462 785.723077c-11.815385 11.815385-11.815385 29.538462 0 41.353846l41.353846 41.353846c11.815385 11.815385 29.538462 11.815385 41.353846 0L498.215385 610.461538c7.876923-7.876923 19.692308-7.876923 27.56923 0l257.969231 257.969231c11.815385 11.815385 29.538462 11.815385 41.353846 0L866.461538 827.076923c11.815385-11.815385 11.815385-29.538462 0-41.353846L610.461538 527.753846c-7.876923-7.876923-7.876923-19.692308 0-27.569231z")
+          #nav-bar-fixed.drawer-slide-out
+            #nav-bar-fixed-trigger
+            .nav-item-wrapper
+              a#mb-login-btn.nav-item.nav-login.flex-row.flex-align-center.flex-justify-center
+                i.fa.fa-user-o(aria-hidden='true')
+                span #{isEn ? 'Investor Login' : '投资者登录'}
+              each page in data.pages
+                a(
+                  class='nav-item' + ((isEn ? '/en' + page.path : page.path) === pathname ? ' nav-item-active' : ''),
+                  href=isEn ? '/en' + page.path : page.path
+                ) #{isEn ? page.name_en : page.name}
+              .nav-item
+                p #{isEn ? 'Submit BP' : '提交BP'}
+                a(href='mailto:' + contactInfo.email)
+                  i.fa.fa-envelope(aria-hidden='true')
+                  span #{contactInfo.email}
+    #main
+      block content
+      block footer
+        .foot
+          .footbox
+            .foot-item
+              header #{isEn ? 'CONTACT US' : '联系我们'}
+              div
+                i(class='fa fa-map-marker' aria-hidden='true')
+                span #{isEn ? contactInfo.address_en : contactInfo.address}
+              div
+                i(class='fa fa-phone' aria-hidden='true')
+                span #{contactInfo.phone}
+              a(href='mailto:' + contactInfo.email)
+                i(class='fa fa-envelope' aria-hidden='true')
+                span #{contactInfo.email}
+              footer
+                p 京ICP备15046963号
+                p Copyright ©2018 Zhong Captial. All Rights Reserved.
+            .foot-item
+              header #{isEn ? 'GUIDE' : '指南'}
+              each page in data.pages
+                div
+                  span
+                    a(href=isEn ? '/en' + page.path : page.path) #{isEn ? page.name_en : page.name}
+              footer
+                a(target='_blank' href=contactInfo.twitter)
+                  //- img(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523757553871.png')
+                  i.fa.fa-twitter(aria-hidden='true' style='background-color: #5daade;')
+                a(target='_blank' href=contactInfo.weibo)
+                  //- img(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523757584274.png')
+                  i.fa.fa-weibo(aria-hidden='true' style='background-color: #e6162d;')
+                a(target='_blank' href=contactInfo.linkedin)
+                  //- img(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523757597058.png')
+                  i.fa.fa-linkedin(aria-hidden='true' style='background-color: #1283c8;')
+                a(target='_blank' href=contactInfo.facebook)
+                  //- img(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523757608691.png')
+                  i.fa.fa-facebook(aria-hidden='true' style='background-color: #537abc;')
+            .foot-item
+              header #{isEn ? 'ACCOUNT' : '账户'}
+              each accountInfo in accountInfos
+                div
+                  span
+                    a(href=isEn ? '/en' + accountInfo.path : accountInfo.path) #{isEn ? accountInfo.name_en : accountInfo.name}
+            .foot-item
+              header #{isEn ? 'WeChat' : '公众号'}: zhongcap
+              header
+                i.fa.fa-weixin
+              img(class='foot-qrcode' src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/qr.jpeg')
+
+    //- 投资者登录模块
+    include ../components/modal/login-modal
+
+    script.
+      drawerEvent();
+
+      function drawerEvent () {
+        var triggerDom = document.getElementById('nav-menu-trigger')
+        var collapsed = false
+        triggerDom.onclick = function (e) {
+          e.stopPropagation()
+          collapsed = !collapsed
+          var childs = triggerDom.childNodes
+          var activeClass = 'menu-trigger-active'
+          for (var i = 0; i < childs.length; i++) {
+            var target = childs[i]
+            var oldClass = target.getAttribute('class') || ''
+            var isActive = oldClass.indexOf(activeClass) > -1
+            target.setAttribute('class', isActive ? '' : activeClass)
+          }
+          toggleDrawer(collapsed)
+        }
+        document.getElementById('nav-bar-fixed-trigger').onclick = function () {
+          triggerDom.click()
+        }
+      }
+
+      function toggleDrawer (collapsed) {
+        var drawerDom = document.getElementById('nav-bar-fixed')
+        drawerDom.setAttribute('class', collapsed ? 'drawer-slide-in' : 'drawer-slide-out')
+      }
+
+      function toggleLoginModal () {
+        var isLogin = #{isLogin};
+        if (isLogin) {
+          window.location.href = '/info'
+        } else {
+          window.$toggleLoginModal();
+        }
+      }
+
+      $('#pc-login-btn, #mb-login-btn').on('click', toggleLoginModal)
+      $('#v-login').on('click', toggleLoginModal);
+      $('#v-login > .v-login-content').on('click', function (e) { e.stopPropagation(); });

@@ -1,0 +1,789 @@
+{
+  "config": {
+    "session": {
+      "maxAge": 86400000,
+      "key": "EGG_SESS",
+      "httpOnly": true,
+      "encrypt": true,
+      "logValue": true
+    },
+    "security": {
+      "domainWhiteList": [],
+      "protocolWhiteList": [],
+      "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
+      "csrf": {
+        "enable": false,
+        "type": "ctoken",
+        "ignoreJSON": false,
+        "useSession": false,
+        "cookieName": "csrfToken",
+        "sessionName": "csrfToken",
+        "headerName": "x-csrf-token",
+        "bodyName": "_csrf",
+        "queryName": "_csrf",
+        "supportedRequests": [
+          {
+            "path": {},
+            "methods": [
+              "POST",
+              "PATCH",
+              "DELETE",
+              "PUT",
+              "CONNECT"
+            ]
+          }
+        ],
+        "refererWhiteList": []
+      },
+      "xframe": {
+        "enable": true,
+        "value": "SAMEORIGIN"
+      },
+      "hsts": {
+        "enable": false,
+        "maxAge": 31536000,
+        "includeSubdomains": false
+      },
+      "dta": {
+        "enable": true
+      },
+      "methodnoallow": {
+        "enable": true
+      },
+      "noopen": {
+        "enable": true
+      },
+      "nosniff": {
+        "enable": true
+      },
+      "referrerPolicy": {
+        "enable": false,
+        "value": "no-referrer-when-downgrade"
+      },
+      "xssProtection": {
+        "enable": true,
+        "value": "1; mode=block"
+      },
+      "csp": {
+        "enable": false,
+        "policy": {}
+      },
+      "ssrf": {
+        "ipBlackList": null,
+        "ipExceptionList": null,
+        "checkAddress": null
+      },
+      "_protocolWhiteListSet": "<Set>"
+    },
+    "helper": {
+      "shtml": {}
+    },
+    "jsonp": {
+      "limit": 50,
+      "callback": [
+        "_callback",
+        "callback"
+      ],
+      "csrf": false
+    },
+    "onerror": {
+      "errorPageUrl": "",
+      "appErrorFilter": null,
+      "templatePath": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-onerror@2.1.0@egg-onerror/lib/onerror_page.mustache"
+    },
+    "i18n": {
+      "defaultLocale": "en_US",
+      "dirs": [],
+      "queryField": "locale",
+      "cookieField": "locale",
+      "cookieDomain": "",
+      "cookieMaxAge": "1y"
+    },
+    "watcher": {
+      "type": "development",
+      "eventSources": {
+        "default": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-watcher@3.1.1@egg-watcher/lib/event-sources/default",
+        "development": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-watcher@3.1.1@egg-watcher/lib/event-sources/development"
+      }
+    },
+    "customLogger": {
+      "scheduleLogger": {
+        "consoleLevel": "NONE",
+        "file": "egg-schedule.log"
+      }
+    },
+    "schedule": {
+      "directory": []
+    },
+    "multipart": {
+      "mode": "stream",
+      "autoFields": false,
+      "defaultCharset": "utf8",
+      "fieldNameSize": 100,
+      "fieldSize": "100kb",
+      "fields": 10,
+      "fileSize": "50mb",
+      "files": 10,
+      "fileExtensions": [
+        ".pdf",
+        ".txt",
+        ".xlsx",
+        ".doc",
+        ".docx"
+      ],
+      "whitelist": null,
+      "allowArrayField": false,
+      "tmpdir": "/var/folders/vk/n18c7k_54d3flgpw4qjlt8080000gn/T/egg-multipart-tmp/k22",
+      "cleanSchedule": {
+        "cron": "0 30 4 * * *",
+        "disable": false
+      }
+    },
+    "development": {
+      "watchDirs": [],
+      "ignoreDirs": [],
+      "fastReady": false,
+      "reloadOnDebug": true,
+      "overrideDefault": false,
+      "overrideIgnore": false
+    },
+    "logrotator": {
+      "filesRotateByHour": null,
+      "hourDelimiter": "-",
+      "filesRotateBySize": null,
+      "maxFileSize": 52428800,
+      "maxFiles": 10,
+      "rotateDuration": 60000,
+      "maxDays": 31
+    },
+    "static": {
+      "prefix": "/public/",
+      "dir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app/public",
+      "dynamic": true,
+      "preload": false,
+      "buffer": false,
+      "maxFiles": 1000
+    },
+    "view": {
+      "root": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app/view",
+      "cache": false,
+      "defaultExtension": ".html",
+      "defaultViewEngine": "",
+      "mapping": {
+        ".pug": "pug"
+      }
+    },
+    "sequelize": {
+      "dialect": "mysql",
+      "database": "cms_dev",
+      "host": "localhost",
+      "port": "3306",
+      "username": "root",
+      "password": "<String len: 8>",
+      "operatorsAliases": {
+        "eq": "Symbol(eq)",
+        "ne": "Symbol(ne)",
+        "gte": "Symbol(gte)",
+        "gt": "Symbol(gt)",
+        "lte": "Symbol(lte)",
+        "lt": "Symbol(lt)",
+        "not": "Symbol(not)",
+        "is": "Symbol(is)",
+        "in": "Symbol(in)",
+        "notIn": "Symbol(notIn)",
+        "like": "Symbol(like)",
+        "notLike": "Symbol(notLike)",
+        "iLike": "Symbol(iLike)",
+        "notILike": "Symbol(notILike)",
+        "startsWith": "Symbol(startsWith)",
+        "endsWith": "Symbol(endsWith)",
+        "substring": "Symbol(substring)",
+        "regexp": "Symbol(regexp)",
+        "notRegexp": "Symbol(notRegexp)",
+        "iRegexp": "Symbol(iRegexp)",
+        "notIRegexp": "Symbol(notIRegexp)",
+        "between": "Symbol(between)",
+        "notBetween": "Symbol(notBetween)",
+        "overlap": "Symbol(overlap)",
+        "contains": "Symbol(contains)",
+        "contained": "Symbol(contained)",
+        "adjacent": "Symbol(adjacent)",
+        "strictLeft": "Symbol(strictLeft)",
+        "strictRight": "Symbol(strictRight)",
+        "noExtendRight": "Symbol(noExtendRight)",
+        "noExtendLeft": "Symbol(noExtendLeft)",
+        "and": "Symbol(and)",
+        "or": "Symbol(or)",
+        "any": "Symbol(any)",
+        "all": "Symbol(all)",
+        "values": "Symbol(values)",
+        "col": "Symbol(col)",
+        "placeholder": "Symbol(placeholder)",
+        "join": "Symbol(join)",
+        "match": "Symbol(match)"
+      }
+    },
+    "pug": {
+      "basedir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/app/view",
+      "cache": false,
+      "debug": false,
+      "compileDebug": true
+    },
+    "validate": {},
+    "alinode": {
+      "enable": true,
+      "server": "wss://agentserver.node.aliyun.com:8080",
+      "appid": "87051",
+      "secret": "<String len: 40>",
+      "cmddir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_commandx@1.5.4@commandx",
+      "logdir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/logs/alinode",
+      "error_log": [
+        "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/logs/k22/common-error.log",
+        "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/logs/stderr.log"
+      ],
+      "packages": [
+        "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/package.json"
+      ],
+      "reconnectDelay": 10,
+      "heartbeatInterval": 60,
+      "reportInterval": 60,
+      "logger": "<EggLogger>",
+      "libMode": true
+    },
+    "env": "local",
+    "name": "k22",
+    "keys": "<String len: 7>",
+    "cookies": {},
+    "proxy": false,
+    "maxIpsCount": 0,
+    "maxProxyCount": 0,
+    "protocolHeaders": "x-forwarded-proto",
+    "ipHeaders": "x-forwarded-for",
+    "hostHeaders": "",
+    "pkg": {
+      "name": "k22",
+      "version": "1.0.0",
+      "description": "k22",
+      "main": "index.js",
+      "scripts": {
+        "start": "egg-scripts start --daemon --title=egg-server-mp-pool",
+        "stop": "egg-scripts stop --title=egg-server-mp-pool",
+        "startdev": "egg-scripts start --daemon --title=egg-server-mp-pool-beta --port=7002",
+        "stopdev": "egg-scripts stop --title=egg-server-mp-pool-beta",
+        "dev": "egg-bin dev",
+        "debug": "egg-bin debug",
+        "test-local": "egg-bin test",
+        "test": "npm run lint -- --fix && npm run test-local && npm run precommit",
+        "cov": "egg-bin cov",
+        "lint": "npm run lint:js",
+        "pkgfiles": "egg-bin pkgfiles",
+        "autod": "egg-bin autod",
+        "ci": "npm run lint && npm run autod -- --check && npm run pkgfiles -- --check && npm run cov && npm run cov",
+        "precommit": "standard --parser babel-eslint 'app/**/*.js' 'config/**/*.js' | snazzy",
+        "lint:js": "standard index.js && standard app/**/*.js && standard config/**/*.js --verbose | snazzy"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "npm run lint:js",
+          "pre-push": "npm run lint:js"
+        }
+      },
+      "author": "Scott",
+      "license": "ISC",
+      "dependencies": {
+        "@yuque/sdk": "^1.1.1",
+        "ali-oss": "^6.12.0",
+        "autoprefixer": "^10.0.1",
+        "axios": "^0.20.0",
+        "chalk": "^4.1.0",
+        "chance": "^1.1.7",
+        "co": "^4.6.0",
+        "egg": "^2.28.0",
+        "egg-alinode": "^2.0.1",
+        "egg-scripts": "^2.13.0",
+        "egg-sequelize": "^6.0.0",
+        "egg-validate": "^2.0.2",
+        "egg-view-pug": "^1.0.0",
+        "lodash": "^4.17.20",
+        "moment": "^2.29.1",
+        "mysql2": "^2.2.5",
+        "ramda": "^0.27.1"
+      },
+      "devDependencies": {
+        "autod": "^3.1.0",
+        "autod-egg": "^1.1.0",
+        "babel-eslint": "^10.1.0",
+        "egg-bin": "^4.15.0",
+        "egg-ci": "^1.18.0",
+        "egg-mock": "^4.0.1",
+        "eslint": "^7.11.0",
+        "eslint-config-egg": "^8.1.2",
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-postcss": "^9.0.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^4.1.0",
+        "husky": "^4.3.0",
+        "snazzy": "^8.0.0",
+        "standard": "^14.3.4"
+      },
+      "standard": {
+        "ignore": [
+          "app/model/",
+          "app/public/"
+        ]
+      },
+      "ci": {
+        "version": "12"
+      }
+    },
+    "baseDir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3",
+    "HOME": "/Users/bluewhiteheart",
+    "rundir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/run",
+    "dump": {
+      "ignore": "<Set>"
+    },
+    "confusedConfigurations": {
+      "bodyparser": "bodyParser",
+      "notFound": "notfound",
+      "sitefile": "siteFile",
+      "middlewares": "middleware",
+      "httpClient": "httpclient"
+    },
+    "notfound": {
+      "pageUrl": ""
+    },
+    "siteFile": {
+      "/favicon.ico": "<Buffer len: 6463>",
+      "cacheControl": "public, max-age=2592000"
+    },
+    "bodyParser": {
+      "enable": true,
+      "encoding": "utf8",
+      "formLimit": "1mb",
+      "jsonLimit": "1mb",
+      "textLimit": "1mb",
+      "strict": true,
+      "queryString": {
+        "arrayLimit": 100,
+        "depth": 5,
+        "parameterLimit": 1000
+      },
+      "onerror": "<Function onerror>"
+    },
+    "logger": {
+      "dir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/logs/k22",
+      "encoding": "utf8",
+      "env": "local",
+      "level": "INFO",
+      "consoleLevel": "INFO",
+      "disableConsoleAfterReady": false,
+      "outputJSON": false,
+      "buffer": true,
+      "appLogName": "k22-web.log",
+      "coreLogName": "egg-web.log",
+      "agentLogName": "egg-agent.log",
+      "errorLogName": "common-error.log",
+      "coreLogger": {
+        "consoleLevel": "WARN"
+      },
+      "allowDebugAtProd": false,
+      "enablePerformanceTimer": false,
+      "type": "agent"
+    },
+    "httpclient": {
+      "enableDNSCache": false,
+      "dnsCacheLookupInterval": 10000,
+      "dnsCacheMaxLength": 1000,
+      "request": {
+        "timeout": 5000
+      },
+      "httpAgent": {
+        "keepAlive": true,
+        "freeSocketTimeout": 4000,
+        "maxSockets": 9007199254740991,
+        "maxFreeSockets": 256
+      },
+      "httpsAgent": {
+        "keepAlive": true,
+        "freeSocketTimeout": 4000,
+        "maxSockets": 9007199254740991,
+        "maxFreeSockets": 256
+      }
+    },
+    "meta": {
+      "enable": true,
+      "logging": false
+    },
+    "coreMiddleware": [
+      "meta",
+      "siteFile",
+      "notfound",
+      "bodyParser",
+      "overrideMethod"
+    ],
+    "workerStartTimeout": 600000,
+    "serverTimeout": null,
+    "cluster": {
+      "listen": {
+        "path": "",
+        "port": 7001,
+        "hostname": ""
+      }
+    },
+    "clusterClient": {
+      "maxWaitTime": 60000,
+      "responseTimeout": 60000
+    },
+    "onClientError": null,
+    "pageInfos": {
+      "header": {
+        "title": "熙金资本控股",
+        "title_en": "ZHONG CAPTIAL HOLDINGS",
+        "subtitle": "ZHONG CAPTIAL HOLDINGS",
+        "subtitle_en": ""
+      },
+      "nums": [
+        {
+          "title_en": "AUM",
+          "title": "主动管理资产",
+          "num": [
+            50
+          ],
+          "unit_en": "Hundred Million",
+          "unit": "亿元"
+        },
+        {
+          "title_en": "IRR",
+          "title": "IRR",
+          "num": [
+            28,
+            "% - ",
+            130,
+            "%"
+          ],
+          "unit_en": "",
+          "unit": ""
+        },
+        {
+          "title_en": "Investment Experience",
+          "title": "团队投资经验",
+          "num": [
+            18,
+            "+"
+          ],
+          "unit_en": "Years",
+          "unit": "年"
+        },
+        {
+          "title_en": "Founded In",
+          "title": "基金创建于",
+          "num": [
+            2007
+          ],
+          "unit_en": "",
+          "unit": ""
+        }
+      ],
+      "contactInfo": {
+        "address": "北京市朝阳区光华路1号嘉里中心写字楼北楼9层915室 邮编：100020",
+        "address_en": "Unit 915, North Tower, Beijing Kerry Center 1 Guanghua Road, Chaoyang District Beijing, China 100020",
+        "phone": "+86-10-85875090",
+        "email": "contacts@zhongcap.com",
+        "facebook": "https://www.facebook.com/zhongcap",
+        "twitter": "https://twitter.com/ZHONG_Capital",
+        "linkedin": "https://www.linkedin.com/company/zhong-capital",
+        "weibo": "https://weibo.com/u/5732373332"
+      },
+      "accountInfos": [
+        {
+          "name": "投资者登录",
+          "name_en": "Investor Login",
+          "path": "/login"
+        }
+      ]
+    },
+    "yuque": {
+      "token": "y52uowPkuxRuZTKB3CyLdSrCT6x0PhFkFhr2Jala",
+      "repoId": "324592"
+    },
+    "coreMiddlewares": "~config~coreMiddleware",
+    "appMiddlewares": [],
+    "appMiddleware": "~config~appMiddlewares"
+  },
+  "plugins": {
+    "onerror": {
+      "enable": true,
+      "package": "egg-onerror",
+      "name": "onerror",
+      "dependencies": [],
+      "optionalDependencies": [
+        "jsonp"
+      ],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-onerror@2.1.0@egg-onerror",
+      "version": "2.1.0"
+    },
+    "session": {
+      "enable": true,
+      "package": "egg-session",
+      "name": "session",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-session@3.3.0@egg-session",
+      "version": "3.3.0"
+    },
+    "i18n": {
+      "enable": true,
+      "package": "egg-i18n",
+      "name": "i18n",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-i18n@2.1.1@egg-i18n",
+      "version": "2.1.1"
+    },
+    "watcher": {
+      "enable": true,
+      "package": "egg-watcher",
+      "name": "watcher",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-watcher@3.1.1@egg-watcher",
+      "version": "3.1.1"
+    },
+    "multipart": {
+      "enable": true,
+      "package": "egg-multipart",
+      "name": "multipart",
+      "dependencies": [],
+      "optionalDependencies": [
+        "schedule"
+      ],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart",
+      "version": "2.13.1"
+    },
+    "security": {
+      "enable": true,
+      "package": "egg-security",
+      "name": "security",
+      "dependencies": [],
+      "optionalDependencies": [
+        "session"
+      ],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security",
+      "version": "2.10.1"
+    },
+    "development": {
+      "enable": true,
+      "package": "egg-development",
+      "name": "development",
+      "dependencies": [
+        "watcher"
+      ],
+      "optionalDependencies": [],
+      "env": [
+        "local"
+      ],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-development@2.7.0@egg-development",
+      "version": "2.7.0"
+    },
+    "logrotator": {
+      "enable": true,
+      "package": "egg-logrotator",
+      "name": "logrotator",
+      "dependencies": [
+        "schedule"
+      ],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-logrotator@3.1.0@egg-logrotator",
+      "version": "3.1.0"
+    },
+    "schedule": {
+      "enable": true,
+      "package": "egg-schedule",
+      "name": "schedule",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-schedule@3.6.6@egg-schedule",
+      "version": "3.6.6"
+    },
+    "static": {
+      "enable": true,
+      "package": "egg-static",
+      "name": "static",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-static@2.2.0@egg-static",
+      "version": "2.2.0"
+    },
+    "jsonp": {
+      "enable": true,
+      "package": "egg-jsonp",
+      "name": "jsonp",
+      "dependencies": [],
+      "optionalDependencies": [
+        "security"
+      ],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-jsonp@2.0.0@egg-jsonp",
+      "version": "2.0.0"
+    },
+    "view": {
+      "enable": true,
+      "package": "egg-view",
+      "name": "view",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-view@2.1.3@egg-view",
+      "version": "2.1.3"
+    },
+    "sequelize": {
+      "enable": true,
+      "package": "egg-sequelize",
+      "name": "sequelize",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-sequelize@6.0.0@egg-sequelize",
+      "version": "6.0.0"
+    },
+    "pug": {
+      "enable": true,
+      "package": "egg-view-pug",
+      "name": "pug",
+      "dependencies": [
+        "view"
+      ],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-view-pug@1.0.0@egg-view-pug",
+      "version": "1.0.0"
+    },
+    "validate": {
+      "enable": true,
+      "package": "egg-validate",
+      "name": "validate",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-validate@2.0.2@egg-validate",
+      "version": "2.0.2"
+    },
+    "alinode": {
+      "enable": true,
+      "package": "egg-alinode",
+      "name": "alinode",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/plugin.js",
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-alinode@2.0.1@egg-alinode",
+      "version": "2.0.1"
+    }
+  },
+  "appInfo": {
+    "name": "k22",
+    "baseDir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3",
+    "env": "local",
+    "HOME": "/Users/bluewhiteheart",
+    "pkg": {
+      "name": "k22",
+      "version": "1.0.0",
+      "description": "k22",
+      "main": "index.js",
+      "scripts": {
+        "start": "egg-scripts start --daemon --title=egg-server-mp-pool",
+        "stop": "egg-scripts stop --title=egg-server-mp-pool",
+        "startdev": "egg-scripts start --daemon --title=egg-server-mp-pool-beta --port=7002",
+        "stopdev": "egg-scripts stop --title=egg-server-mp-pool-beta",
+        "dev": "egg-bin dev",
+        "debug": "egg-bin debug",
+        "test-local": "egg-bin test",
+        "test": "npm run lint -- --fix && npm run test-local && npm run precommit",
+        "cov": "egg-bin cov",
+        "lint": "npm run lint:js",
+        "pkgfiles": "egg-bin pkgfiles",
+        "autod": "egg-bin autod",
+        "ci": "npm run lint && npm run autod -- --check && npm run pkgfiles -- --check && npm run cov && npm run cov",
+        "precommit": "standard --parser babel-eslint 'app/**/*.js' 'config/**/*.js' | snazzy",
+        "lint:js": "standard index.js && standard app/**/*.js && standard config/**/*.js --verbose | snazzy"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "npm run lint:js",
+          "pre-push": "npm run lint:js"
+        }
+      },
+      "author": "Scott",
+      "license": "ISC",
+      "dependencies": {
+        "@yuque/sdk": "^1.1.1",
+        "ali-oss": "^6.12.0",
+        "autoprefixer": "^10.0.1",
+        "axios": "^0.20.0",
+        "chalk": "^4.1.0",
+        "chance": "^1.1.7",
+        "co": "^4.6.0",
+        "egg": "^2.28.0",
+        "egg-alinode": "^2.0.1",
+        "egg-scripts": "^2.13.0",
+        "egg-sequelize": "^6.0.0",
+        "egg-validate": "^2.0.2",
+        "egg-view-pug": "^1.0.0",
+        "lodash": "^4.17.20",
+        "moment": "^2.29.1",
+        "mysql2": "^2.2.5",
+        "ramda": "^0.27.1"
+      },
+      "devDependencies": {
+        "autod": "^3.1.0",
+        "autod-egg": "^1.1.0",
+        "babel-eslint": "^10.1.0",
+        "egg-bin": "^4.15.0",
+        "egg-ci": "^1.18.0",
+        "egg-mock": "^4.0.1",
+        "eslint": "^7.11.0",
+        "eslint-config-egg": "^8.1.2",
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-postcss": "^9.0.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^4.1.0",
+        "husky": "^4.3.0",
+        "snazzy": "^8.0.0",
+        "standard": "^14.3.4"
+      },
+      "standard": {
+        "ignore": "~config~pkg~standard~ignore"
+      },
+      "ci": {
+        "version": "12"
+      }
+    },
+    "root": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3"
+  }
+}

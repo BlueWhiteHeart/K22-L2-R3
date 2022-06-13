@@ -1,0 +1,44 @@
+@import '../sass/mixin.sass'
+@import '../sass/var.sass'
+
+#news-notice-banner
+  width: 100%
+  +size-dpr(170, height)
+  position: relative
+  overflow: hidden
+  border-bottom: 1px solid #eee
+  .news-notice-swiper-slide
+    +size-dpr(20, padding-top)
+    +size-dpr(30, padding-left, padding-right)
+    width: 100%
+    position: relative
+    border-bottom: 1px solid $grey-3
+    text-align: center
+    font-size: 0
+    overflow: visible
+    > *
+      display: block
+    .news-notice-slide-title
+      display: block
+      +font-dpr(20)
+      color: $blue-7
+    .news-notice-slide-content
+      +size-dpr(15, margin-top)
+      box-sizing: border-box
+      width: 100%
+      +size-dpr(16, padding-left, padding-right)
+      +font-dpr(20)
+      position: relative
+      &:before
+        content: "“"
+        left: -1%
+      &:after
+        content: "”"
+        right: -1%
+      &:before, &:after
+        position: absolute
+        top: -10%
+        display: inline-block
+        +pc-size(70, font-size)
+        +font-dpr(30)
+        color: $grey-5

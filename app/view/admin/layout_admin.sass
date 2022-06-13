@@ -1,0 +1,76 @@
+@import '../common/sass/base.sass'
+@import '../common/sass/var.sass'
+@import '../common/sass/mixin.sass'
+
+$commonInputWidth: 650px
+
+#app
+  padding: 20px 20px 0
+
+.common-input
+  width: $commonInputWidth
+  margin: 10px auto
+  display: flex
+  justify-content: center
+  align-items: center
+
+  > *:first-child
+    width: 90px
+    font-size: $font-2
+    display: inline-block
+
+  > *:last-child
+    flex: 1
+
+.common-upload
+  width: $commonInputWidth
+  margin: 10px auto
+  min-height: 100px
+  border: 1px dashed #d9d9d9
+  border-radius: 6px
+  position: relative
+  overflow: hidden
+  cursor: pointer
+  &:hover
+    border-color: #409EFF
+  > div
+    +full
+    > img
+      +full
+      display: block
+    > i
+      font-size: 28px
+      color: #8c939d
+      +full
+      line-height: 200px
+      text-align: center
+
+.common-icon-upload
+  width: 60px !important
+  height: 60px !important
+  margin: 20px auto
+  display: inline-block
+  border: 1px dashed #d9d9d9
+  border-radius: 6px
+  &:hover
+    border-color: #409EFF
+  > div
+    +full
+    > img
+      +full
+      display: block
+    > i
+      font-size: 20px
+      color: #8c939d
+      +full
+      text-align: center
+
+.el-tabs__nav
+  overflow-x: scroll
+
+textarea
+  min-height: 150px
+
+.el-table
+  .cell
+    +textEllipsis(5)

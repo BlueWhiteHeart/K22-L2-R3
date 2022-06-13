@@ -1,0 +1,58 @@
+extends ../common/layout/index
+
+block content
+  style(type='text/css')
+    case isMobile
+      when true
+        include ../../public/styles/team_mb.css
+      when false
+        include ../../public/styles/team_pc.css
+  div
+    #team-header
+      - var banner = data.banners.filter(function (e) { return e.type === 4 })[0]
+      if banner
+        .swiper-slide
+          .descbox
+            img(src=banner.url)
+            .desc
+              p.desc-subtitle #{src=isEn ? banner.subtitle_en : banner.subtitle}
+              p.desc-title #{src=isEn ? banner.title_en : banner.title}
+              .swiper-slide-content #{isEn ? banner.content_en : banner.content}
+          //- .swiper-slide-title #{isEn ? banner.title_en : banner.title}
+
+    #team-img-wrapper
+      .team-icon-wrapper
+        - var banners = data.banners.filter(function (e) { return e.type === 36 })
+        if banners && banners.length
+          each banner, index in banners
+            img.team-icon(src=isEn ? banner.url_en : banner.url)
+      - var banners = data.banners.filter(function (e) { return e.type === 37 })
+      if banners && banners.length
+        each banner, index in banners
+          img.team-logo(src=banner.url)
+      .team-icon-wrapper
+        - var banners = data.banners.filter(function (e) { return e.type === 38 })
+        if banners && banners.length
+          each banner, index in banners
+            img.team-icon(src=isEn ? banner.url_en : banner.url)
+
+    #team-content
+      - var banners = data.banners.filter(function (e) { return e.type === 5 })
+      if banners && banners.length
+        each banner, index in banners
+          .content-wrapper
+            img.content-img(src=banner.url)
+            .content-text
+              .content-title #{isEn ? banner.title_en : banner.title}
+              .content-subtitle #{isEn ? banner.subtitle_en : banner.subtitle}
+              .content-description #{isEn ? banner.description_en : banner.description}
+      .mb-content
+        - var banners = data.banners.filter(function (e) { return e.type === 5 })
+        if banners && banners.length
+          each banner, index in banners
+            img.content-img(src=banner.url)
+            .content-subtitle #{isEn ? banner.subtitle_en : banner.subtitle}
+            .content-description #{isEn ? banner.description_en : banner.description}
+      if banners && banners.length
+          each banner, index in banners
+            .startup-content #{isEn ? banner.content_en : banner.content}

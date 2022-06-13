@@ -1,0 +1,89 @@
+@import '../sass/base.sass'
+@import '../sass/var.sass'
+@import '../sass/mixin.sass'
+
+.nav
+  justify-content: space-between
+  align-items: center
+  > *
+    height: 100%
+
+.foot
+  background: $cyan-6
+  +pc-size(65, padding-top, padding-bottom)
+  > *
+    flex: 1
+
+  .foot-item
+    &:first-child
+      flex: 2.5
+      > div
+        +pc-size(40, margin-bottom)
+        max-width: 220px
+      > footer
+        +pc-size(50, margin-top)
+        white-space: nowrap
+        +font-dpr(12)
+        color: $grey-8
+    &:nth-child(2), &:nth-child(3)
+      +pc-size(150, margin-right)
+      > div
+        +pc-size(12, margin-bottom)
+    &:nth-child(2)
+      i
+        color: $white-1
+        +font-dpr(18)
+        border-radius: 50%
+        display: inline-block
+        +size-dpr(31, width, height)
+        +size-dpr(32, line-height)
+        text-align: center
+    &:nth-child(3)
+      > footer
+        margin-top: 50px
+        i
+          color: #fff
+          font-size: 25px
+          margin-right: 8px
+        svg
+          // background: #ffffff
+          border-radius: 50%
+          +pc-size(45, width, height)
+          +pc-size(15, margin-right)
+        .svg-small
+          transform: scale(.9)
+    &:last-child
+      .fa-weixin
+        color: $green-6 !important
+        +font-dpr(22)
+
+    > header
+      color: $grey-5
+      font-weight: 600
+      padding-bottom: 35px
+      +font-dpr(16)
+
+    > div, > a
+      display: flex
+      flex-direction: row
+      transition: all .3s $cb-1
+      color: $grey-7
+      cursor: pointer
+      *
+        color: inherit
+      > i
+        +pc-size(33, min-width)
+        +font-dpr(25)
+      > span, a
+        +pc-size(14, font-size)
+        line-height: 150%
+      &:hover *
+        color: $grey-5
+
+  .foot-qrcode
+    width: 90px
+    height: 90px
+
+    
+
+  

@@ -1,0 +1,136 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+#contact-header
+  width: 100%
+  position: relative
+  // color: #000
+  color: #000
+  +size-dpr(730/2, height)
+
+  .swiper-slide
+    +full
+    position: relative
+
+    .swiper-slide-title, .swiper-slide-content
+      position: absolute
+      +size-dpr(31, left)
+    .swiper-slide-title
+      +size-dpr(120/2, top)
+      +font-dpr(20)
+    .swiper-slide-content
+      +size-dpr(218/2, top)
+      +font-dpr(12)
+
+  #contact-infos
+    position: absolute
+    +size-dpr(31, left)
+    +size-dpr(266/2, bottom)
+    +font-dpr(14)
+    > *
+      +size-dpr(50/2, margin-right)
+      cursor: pointer
+      color: inherit
+      &:hover
+        > *
+          color: $white-1
+      i
+        display: inline-block
+        +size-dpr(22, width)
+        +size-dpr(20/2, margin-right)
+        text-align: center
+        color: #3c5c9a
+        +font-dpr(20)
+
+#contact-content
+  #content-header
+    +size-dpr(370/2, height)
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    border-bottom: 1px solid #e5e5e5
+    +size-dpr(23, margin-bottom)
+    > *
+      width: 50%
+      position: relative
+      cursor: pointer
+      text-align: center
+      color: #3b5b99
+      &:visited, &:link, &:hover
+        text-decoration: none !important
+        color: inherit
+      span
+        display: block
+        +font-dpr(10)
+        transform: scale(.9)
+      i
+        display: block
+        +font-dpr(22)
+        +size-dpr(10, margin-bottom)
+      &:nth-child(2n)
+        &:before
+          content: ' '
+          +size-dpr(1, width)
+          +size-dpr(10, height)
+          position: absolute
+          left: 0
+          bottom: 5%
+          background: #ccc
+      &:last-child
+        display: none
+      .fa-facebook-official, .fa-linkedin
+        color: $blue-8
+      .fa-weibo
+        color: $red-7
+      .fa-twitter
+        color: $blue-6
+      .fa-weixin
+        color: $green-5
+
+  .weixin-code-wrapper
+    position: absolute
+    +size-dpr(-65, top)
+    left: 50%
+    z-index: 99999
+    transform: translate(-50%, -50%)
+    +size-dpr(5, padding)
+    box-shadow: 0px 2px 15px 0px rgba(0,0,0,.2)
+    border-radius: 3px
+    overflow: hidden
+    background: $white-1
+    display: none
+    img
+      margin: 0
+      +size-dpr(90, width, height)
+    
+  .content-map
+    +size-dpr(596 / 2, width)
+    +size-dpr(206 / 2, height)
+    margin: auto
+    position: relative
+    +size-dpr(5, border-radius)
+    overflow: hidden
+    img
+      width: 100%
+      margin-top: 0 !important
+    p
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      display: flex
+      flex-direction: row
+      i
+        +size-dpr(7, margin-right)
+        transform: scaleX(1.1)
+        +font-dpr(20)
+        color: #3d79b0
+      span
+        display: inline-block
+        +font-dpr(12)
+        line-height: 150%
+  img
+    +size-dpr(46/2, margin-top)
+    width: 100%

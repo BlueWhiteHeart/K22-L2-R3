@@ -1,0 +1,29 @@
+extends ../common/layout/index
+
+block content
+  style(type='text/css')
+    case isMobile
+      when true
+        include ../../public/styles/social_responsibility_mb.css
+      when false
+        include ../../public/styles/social_responsibility_pc.css
+  div
+    - var banner1Type = data.bannerTypes[0].id
+    #sr-header
+      - var banner = data.banners.filter(function (e) { return e.type === banner1Type })[0]
+      if banner
+        .swiper-slide.bg-cover(style='background-image: url(' + banner.url + ')')
+          .swiper-slide-title #{isEn ? banner.title_en : banner.title}
+          .swiper-slide-content #{isEn ? (banner.content_en || '').slice(0, 70) : (banner.content || '').slice(0, 70)}
+
+    #sr-content
+      - var banners = data.banners.filter(function (e) { return e.type !== banner1Type })
+      if banners && banners.length
+        each banner in banners
+          a.content-wrapper(href=banner.href ? banner.href : ((isEn ? '/en' : '') + '/detail?id=' + banner.id), target=banner.href ? '_blank' : '_self')
+            .content-img-wrapper
+              img(src=banner.url)
+              span #{isEn ? banner.subtitle_en : banner.subtitle}
+            .content-text-wrapper
+              .content-text-title #{isEn ? banner.title_en : banner.title}
+              .content-text-content #{isEn ? (banner.description_en || '').slice(0, 70) : (banner.description || '')}

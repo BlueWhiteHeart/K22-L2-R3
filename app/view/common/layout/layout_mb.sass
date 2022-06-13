@@ -1,0 +1,196 @@
+@import './layout.sass'
+@import '../sass/mixin.sass'
+@import '../sass/var.sass'
+
+html, body
+  +full
+  overflow: hidden
+  position: relative
+a
+  color: inherit
+
+#main
+  +full
+  +y-scroll
+  height: calc(100% - #{$navHeightWithUnit})
+
+.nav
+  +size-dpr($navHeight, height)
+  background: #fff
+  border-bottom: 1px solid #eaeaea
+  display: flex
+  .nav-bar-pc
+    display: none
+
+  > *:first-child
+    width: 60%
+
+  .logo-link
+    height: auto
+
+  .nav-logo
+    +size-dpr(12, margin-left)
+    +size-dpr(40, height)
+
+  .nav-logo-title, .nav-logo-title_en, .nav-logo-subtitle
+    color: $black-1
+    display: inline-block
+
+  .nav-logo-title
+    +font-dpr(16)
+
+  .nav-logo-title_en
+    +font-dpr(13)
+
+  .nav-logo-subtitle
+    +font-dpr(10)
+    white-space: nowrap
+    display: block
+    transform: scale(0.75) translateX(-16%)
+
+  .nav-bar-mb
+    flex: 1
+    > a
+      flex: 1
+      justify-content: center
+
+    > .nav-item
+      height: 100%
+      display: flex
+      align-items: center
+    #nav-menu-trigger
+      +size-dpr($navHeight, width)
+      justify-content: center
+      background: #003c4e
+      svg
+        &:first-child
+          +size-dpr(34, width, height)
+        &:last-child
+          +size-dpr(28, width, height)
+        fill: $white-1
+        display: none
+      .menu-trigger-active
+        display: block !important
+        opacity: 1
+
+  #nav-bar-fixed
+    width: 100%
+    height: calc(100% - #{$navHeightWithUnit})
+    position: fixed
+    // top: $navHeightWithUnit
+    +size-dpr($navHeight, top)
+    left: 0
+    z-index: 9999
+    transition: transform .5s ease
+    display: flex
+    flex-direction: row
+    #nav-bar-fixed-trigger
+      width: 20%
+      height: 100%
+      // background: rgba(0, 0, 0, .6)
+    .nav-item-wrapper
+      width: 80%
+      height: 100%
+      position: relative
+      background: $white-1
+      .nav-item-active
+        color: $blue-4
+      .nav-item
+        display: block
+        height: 1.7rem
+        line-height: 1.7rem
+        border-bottom: 1px solid #eaeaea
+        +size-dpr(45, padding-left)
+        +font-dpr(16)
+        &:first-child
+          i
+            color: #3d515f
+            +size-dpr(8, margin-right)
+        &:last-child
+          border: 0
+          height: auto
+          line-height: normal
+          position: absolute
+          +size-dpr(38, bottom)
+          left: 0
+          > *:first-child
+            +size-dpr(10, margin-bottom)
+          > *:last-child
+            display: block
+            color: #5191ca
+          i
+            +size-dpr(7, margin-right)
+
+  .drawer-slide-in
+    transform: translateX(0)
+    #nav-bar-fixed-trigger
+      transition: background 1.5s $cb-1
+      background: rgba(0, 0, 0, .6)
+  .drawer-slide-out
+    transform: translateX(100%)
+    #nav-bar-fixed-trigger
+      // transition: background .s ease
+      background: transparent
+
+
+.foot
+  display: block !important
+  padding: 1.6rem 0 1.6rem
+  font-size: 0
+  position: relative
+  .foot-item
+    width: 50%
+    padding: 1rem .5rem 0 .5rem
+    display: inline-block
+    vertical-align: top
+    margin-right: 0 !important
+    &:first-child
+      display: block
+      width: 100%
+      border-bottom: 1px solid $grey-9
+      padding-top: 0
+      padding-bottom: 1rem
+      > div
+        max-width: none !important
+        span
+          white-space: normal
+      footer
+        display: none
+    &:nth-child(3), &:nth-child(4)
+      padding-left: 1rem
+    &:nth-child(2)
+      footer
+        +size-dpr(15, margin-top)
+        a
+          display: inline-block
+          +size-dpr(28, width, height)
+          +size-dpr(8, margin-right)
+          img
+            +full
+    &:nth-child(3)
+      footer
+        position: absolute
+        bottom: 1rem
+        left: .5rem
+    &:last-child
+      position: absolute
+      bottom: 1.6rem
+      right: 0
+      header
+        white-space: nowrap
+        +font-dpr(14)
+      .foot-qrcode
+        +size-dpr(80, width, height)
+
+    > *
+      > span, a
+        white-space: nowrap
+        +font-dpr(12)
+    
+    .fa
+      color: $grey-8
+      +font-dpr(16)
+      +size-dpr(20, width)
+
+
+

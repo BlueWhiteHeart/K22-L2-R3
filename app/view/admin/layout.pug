@@ -1,0 +1,402 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title 后台管理界面
+    link(rel='stylesheet' href='https://unpkg.com/element-ui@2.2.2/lib/theme-chalk/index.css')
+    script(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/resources/vue.js')
+    script(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/resources/zepto.js')
+    script(src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/resources/element.js')
+    style
+      include ../../public/styles/layout_admin.css
+  body
+    div(id='nav')
+    script(type='text/x-template' id='nav-component')
+      div(id='nav' style='position: relative;')
+        img(
+          style='position:absolute; top:10px; left:40px; height:40px; z-index: 9999;'
+          src='https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1524184818085.png'
+        )
+        el-menu(
+          :default-active='active'
+          mode='horizontal'
+          style='padding-left: 12%;'
+        )
+          el-menu-item(
+            v-for='item in menu'
+            :index='item.href'
+            :key='item.href'
+            @click='go(item.href)'
+          )
+            i(:class='item.icon')
+            span(slot='title') {{item.name}}
+    script.
+      new Vue({
+        el: '#nav',
+        template: '#nav-component',
+        data: function () {
+          return {
+            menu: [
+              { name: '首页', href: '/admin/home', icon: 'el-icon-menu' },
+              { name: '团队页面', href: '/admin/team', icon: 'el-icon-document' },
+              { name: '公司页面', href: '/admin/company', icon: 'el-icon-location' },
+              { name: '社会页面', href: '/admin/socialResponsibility', icon: 'el-icon-menu' },
+              { name: '新闻页面', href: '/admin/news', icon: 'el-icon-news' },
+              { name: '联系页面', href: '/admin/contact', icon: 'el-icon-service' },
+              { name: '投资文件新闻', href: '/admin/info', icon: 'el-icon-tickets' },
+              { name: '用户管理', href: '/admin/user', icon: 'el-icon-setting' },
+              { name: '如何录入', href: '/admin/doc', icon: 'el-icon-tickets' },
+              { name: '退出登录', href: '/logout', icon: 'el-icon-tickets' }
+            ],
+            active: window.location.pathname
+          }
+        },
+        methods: {
+          go: function (href) {
+            window.location.href = href
+          }
+        }
+      })
+
+    block content
+      div(id='app')
+      script(type='text/x-template' id='content-component')
+        div(id='app')
+          el-button(v-if='isFileList' type='primary' icon='el-icon-plus' size='mini' @click='go("/admin/info/cu")') 上传新文件
+          el-button(v-else type='primary' icon='el-icon-plus' size='mini' @click='go("/admin/banner")') 新增一条数据
+          div 下方的各个 Tab 代表本页面的不同部分，选择某个 Tab 后，再点击上面新增数据，就可以在此 Tab 下新增一条数据
+          el-tabs(
+            v-model='active'
+            style='margin: 15px auto 0;'
+            @tab-click='tabActiveChange'
+            type='card')
+            el-tab-pane(v-for='bt in bannerTypes' :label='bt.description' :name='bt.id + ""' :key='bt.id') 
+          el-table(:data='activeDataSource')
+            el-table-column(prop='title' label='标题')
+            el-table-column(prop='title_en' label='标题(英文)')
+            el-table-column(prop='subtitle' label='副标题')
+            el-table-column(prop='subtitle_en' label='副标题(英文)')
+            el-table-column(label='内容')
+              template(slot-scope='scope')
+                div(v-if="scope.row.content_origin === 2") 
+                  span 已关联语雀文章
+                  el-button(
+                    type='text'
+                    size='small'
+                    @click='go("https://www.yuque.com/ny5p0f/flx476/" + scope.row.content_origin_id, "open")'
+                  ) 点击查看
+                div(v-else) {{ formatter(scope.row) }}
+            el-table-column(label='内容(英文)')
+              template(slot-scope='scope')
+                div(v-if="scope.row.content_en_origin === 2") 
+                  span 已关联语雀文章
+                    el-button(
+                      type='text'
+                      size='small'
+                      @click='go("https://www.yuque.com/ny5p0f/flx476/" + scope.row.content_en_origin_id, "open")'
+                    ) 点击查看
+                div(v-else) {{ formatterEN(scope.row) }}
+            el-table-column(prop='status' label='状态')
+              template(slot-scope='scope')
+                el-tag(:type='scope.row.status ? "" : "danger"') {{scope.row.status ? '展示中' : '已下线'}}
+            el-table-column(prop='url' label='图片' width='200')
+              template(slot-scope='scope')
+                img(:src='scope.row.url' style='width: 200px;')
+            el-table-column(prop='url_en' label='图片(英文版)' width='200')
+              template(slot-scope='scope')
+                img(:src='scope.row.url_en' style='width: 200px;')
+            el-table-column(label='操作')
+              template(slot-scope='scope')
+                div(v-if='isFileList')
+                  el-button(@click='go("/admin/info/cu?id=" + scope.row.id)' type='text' size='small') 编辑
+                  el-button(type='text' size='small')
+                    a(:href='scope.row.href', targe='_blank') 下载
+                  el-button(@click='toggleAuthorityModal(true, scope.row)' type='text' size='small') 设置权限
+                div(v-else)
+                  el-button(@click='go("/admin/banner/?id=" + scope.row.id)' type='text' size='small') 编辑
+                  el-button(@click='changeStatus(scope.row)' type='text' size='small') {{scope.row.status === 1 ? '删除' : '展示'}}
+                  el-button(@click='showModal(scope.row)' type='text' size='small') 关联语雀文章
+
+          el-dialog(
+            title='关联语雀文章'
+            :visible.sync='yuqueObject.visible'
+            center
+          )
+            div
+              div
+                span 关联中文内容：
+                el-select(v-model='yuqueObject.docId' clearable)
+                  el-option(
+                    v-for='item in yuqueObject.docs'
+                    :key='item.id'
+                    :label='item.title'
+                    :value='item.id'
+                  )
+              div(style="margin-top: 15px;")
+                span 关联英文内容：
+                el-select(v-model='yuqueObject.enDocId' clearable)
+                  el-option(
+                    v-for='item in yuqueObject.docs'
+                    :key='item.id'
+                    :label='item.title'
+                    :value='item.id'
+                  )
+            span(slot='footer')
+              el-button(@click='hideModal' :loading="loading") 取 消
+              el-button(
+                type="primary"
+                @click="changeContentOrigin"
+                :loading="loading"
+              ) 确 定
+
+          el-dialog(
+            title='设置权限'
+            :visible.sync='authority.visible'
+            center
+          )
+            div
+              div
+                span 有权限的用户：
+                el-select(
+                  v-model='authority.ids'
+                  multiple
+                  filterable
+                  :filter-method='searchUser'
+                  placeholder='输入搜索 手机号/邮箱/账号'
+                )
+                  el-option(
+                    v-for='item in authority.list'
+                    :key='item.id'
+                    :label='item.name + " (" + item.mobile + ")"'
+                    :value='item.id'
+                  )
+            span(slot='footer')
+              el-button(@click='toggleAuthorityModal(false)' :loading="loading") 取 消
+              el-button(
+                type="primary"
+                @click="changeAuthority"
+                :loading="loading"
+              ) 确 定
+      script.
+        var bannerTypes = !{JSON.stringify(data.bannerTypes || '[]')}.filter(function (e) {
+          if (window.location.href.indexOf('admin/home') > -1) {
+            return [1, 2, 3].indexOf(+e.id) > -1
+          }
+          return true
+        })
+        new Vue({
+          el: '#app',
+          template: '#content-component',
+          data: function () {
+            return {
+              active: bannerTypes[0].id + '',
+              loading: false,
+              bannerTypes: bannerTypes,
+              activeDataSource: [],
+              dataSource: !{JSON.stringify(data.banners) || '[]'},
+              yuqueObject: {
+                docs: !{JSON.stringify(data.yuequeDocs) || '[]'},
+                visible: false,
+                item: null,
+                docId: null,
+                enDocId: null,
+              },
+              authority: {
+                id: null,
+                timer: null,
+                visible: false,
+                ids: [],
+                list: [],
+              }
+            }
+          },
+          beforeMount () {
+            this.tabActiveChange()
+          },
+          computed: {
+            isFileList: function () {
+              return [33, 34, 35].indexOf(+this.active) > -1
+            }
+          },
+          methods: {
+            formatter(row, column) {
+              return row.content && row.content.length > 40 ? row.content.slice(0, 40) + '...' : (row.content || '')
+            },
+            formatterEN(row, column) {
+              return row.content_en && row.content.length > 40 ? row.content_en.slice(0, 40) + '...' : (row.content || '')
+            },
+            go (href, type) {
+              if (type === 'open') {
+                return window.open(href)
+              }
+              window.location.href = href
+            },
+            tabActiveChange () {
+              var active = +this.active
+              this.activeDataSource = this.dataSource.filter(function (e) {
+                return e.type === active
+              })
+            },
+            rq (obj) {
+              var that = this;
+              that.loading = true
+              $.ajax(Object.assign({
+                timeout: 30000,
+                error: function (xhr) {
+                  try {
+                    var msg = JSON.parse(xhr.response).errMsg
+                    that.$message.error(msg)
+                  } catch (err) {
+                    that.$message.error('网络异常!')
+                  }
+                },
+                complete: function () {
+                  that.loading = false
+                }
+              }, obj));
+            },
+            changeStatus (row) {
+              var that = this
+              this
+                .$confirm('是否确认' + (row.status !== 1 ? '展示' : '删除') + '？')
+                .then(
+                  that.rq.bind(that, {
+                    type: 'put',
+                    url: '/banner',
+                    data: Object.assign({}, row, {
+                      status: +(row.status !== 1)
+                    }),
+                    success: function (data) {
+                      if (data.success) {
+                        that.$message.success('保存成功!')
+                        var filterFn = function (e) {
+                          return e.id !== row.id
+                        }
+                        that.dataSource = that.dataSource.filter(filterFn)
+                        that.activeDataSource = that.activeDataSource.filter(filterFn)
+                      } else {
+                        that.$message.error('保存失败: ' + data.errMsg)
+                      }
+                    },
+                  })
+                )
+            },
+            showModal (row) {
+              this.yuqueObject.visible = true
+              this.yuqueObject.item = row
+              this.yuqueObject.docId = row.content_origin_id
+              this.yuqueObject.enDocId = row.content_en_origin_id
+            },
+            hideModal () {
+              this.yuqueObject.visible = false
+              this.yuqueObject.item = null
+              this.yuqueObject.docId = null
+              this.yuqueObject.enDocId = null
+            },
+            changeContentOrigin () {
+              var row = this.yuqueObject.item;
+              var item = Object.assign({}, row, {
+                content_origin: this.yuqueObject.docId ? 2 : 1,
+                content_origin_id: this.yuqueObject.docId || null,
+                content_en_origin: this.yuqueObject.enDocId ? 2 : 1,
+                content_en_origin_id: this.yuqueObject.enDocId || null,
+              });
+              var that = this;
+              that.rq.call(that, {
+                type: 'put',
+                url: '/banner',
+                data: item,
+                success: function (data) {
+                  if (data.success) {
+                    that.$message.success('保存成功!')
+                    var changeItem = function (e) {
+                      return e.id === item.id ? item : e;
+                    }
+                    that.dataSource = that.dataSource.map(changeItem)
+                    that.activeDataSource = that.activeDataSource.map(changeItem)
+                    that.hideModal();
+                  } else {
+                    that.$message.error('保存失败: ' + data.errMsg)
+                  }
+                },
+              })
+            },
+            toggleAuthorityModal (status, item) {
+              if (status) {
+                var that = this;
+                this.authority.id = item.id;
+                this.authority.visible = true;
+                this.authority.ids = item.authority
+                  ? item
+                    .authority
+                    .split(',')
+                    .map(function (e) { return Number(e) })
+                  : [];
+                this.rq({
+                  type: 'get',
+                  url: '/banner/authority?id=' + item.id,
+                  success: function (res) {
+                    if (res.success) {
+                      that.authority.list = res.data
+                    }
+                  },
+                });
+              } else {
+                this.authority.id = null
+                this.authority.visible = false
+                this.authority.ids = []
+                this.authority.list = []
+              }
+            },
+            searchUser (keyword) {
+              clearTimeout(this.authority.timer);
+              var that = this;
+              if (!keyword || !keyword.trim()) return;
+              this.authority.timer = setTimeout(function () {
+                that.rq({
+                  type: 'get',
+                  url: '/users?keyword=' + keyword,
+                  success: function (res) {
+                    if (res.success) {
+                      that.authority.list = res.data.rows
+                    }
+                  },
+                });
+              }, 500);
+            },
+            changeAuthority () {
+              var id = this.authority.id;
+              var ids = this.authority.ids;
+              if (!id) {
+                return this.$message.error('文件不存在');
+              }
+              var that = this;
+              that.rq.call(that, {
+                type: 'put',
+                url: '/banner/authority',
+                data: {
+                  id: id,
+                  users: ids
+                },
+                success: function (data) {
+                  if (data.success) {
+                    that.$message.success('保存成功!')
+                    var changeItem = function (e) {
+                      if (e.id === id) {
+                        return Object.assign({}, e, {
+                          authority: ids.join(',')
+                        });
+                      }
+                      return e;
+                    }
+                    that.dataSource = that.dataSource.map(changeItem)
+                    that.activeDataSource = that.activeDataSource.map(changeItem)
+                    that.toggleAuthorityModal(false);
+                  } else {
+                    that.$message.error('保存失败: ' + data.errMsg)
+                  }
+                },
+              })
+            }
+          }
+        })

@@ -1,0 +1,104 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+a
+  color: inherit
+  text-decoration: none
+
+#detail-header
+  display: flex
+  flex-direction: row
+  .header-item
+    display: block
+    flex: 1
+    +size-dpr(50, height, line-height)
+    position: relative
+    +font-dpr(16)
+    color: $white-1
+    text-align: center
+    transition: color .4s $cb-1
+    overflow: hidden
+    .header-item-img
+      width: 100%
+      height: 300%
+      position: absolute
+      top: 0
+      left: 0
+      filter: blur(7px)
+      transform: scale(1.1)
+    > span
+      position: relative
+      z-index: 5
+    &:hover
+      color: $blue-6
+    &:first-child
+      > span
+        &:before
+          content: '<'
+          +size-dpr(10, margin-right)
+    &:last-child
+      > span
+        &:after
+          content: '>'
+          +size-dpr(10, margin-left)
+    &:first-child, &:last-child
+      > span
+        &:before, &:after
+          +font-dpr(16)
+          display: inline-block
+          transform: scaleX(.6)
+          color: #8a969f
+
+#detail-content
+  width: 100%
+  margin: auto
+  +size-dpr(20, padding-left, padding-right)
+
+#detail-breadCrumb
+  +size-dpr(25, margin-top)
+  +size-dpr(26.5, margin-bottom)
+  font-size: 0
+  display: flex
+  flex-direction: row
+  align-items: center
+  .breadCrumb-item
+    display: inline-block
+    +font-dpr(12)
+
+    &:not(:last-child)
+      &:after
+        content: '>'
+        +size-dpr(15, margin-right, margin-left)
+    &:last-child
+      text-overflow: ellipsis
+      white-space: nowrap
+      overflow: hidden
+
+
+#detail-text-wrapper
+  +size-dpr(79, margin-bottom)
+
+  .detail-img
+    width: 100%
+    +size-dpr(29, margin-bottom)
+    position: relative
+    img
+      +full
+    span
+      position: absolute
+      +size-dpr(15, left, bottom)
+      +font-dpr(15)
+      color: $white-1
+
+  .detail-text
+    +size-dpr(2, padding-left, padding-right)
+    line-height: 200%
+    +font-dpr(12)
+    color: #858585
+    text-align: left
+    > h3
+      +size-dpr(23, margin-bottom)
+      line-height: 120%
+      +font-dpr(24)
+      color: #000
+

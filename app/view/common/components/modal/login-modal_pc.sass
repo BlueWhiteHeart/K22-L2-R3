@@ -1,0 +1,137 @@
+@import '../../sass/mixin.sass'
+@import '../../sass/var.sass'
+
+$bgColor: rgba(0, 0, 0, 0.7)
+
+#v-login
+  +full
+  position: fixed
+  z-index: 99999
+  +pc-size(100, top)
+  left: 0
+  background: $bgColor
+  display: none
+  
+  .v-login-content
+    // +pc-size(620, max-height)
+    width: 100%
+    font-size: 0
+    position: fixed
+    top: 53%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 99999
+    // white-space: nowrap
+    text-align: center
+    &-left, &-right
+      display: inline-block
+      vertical-align: top
+      // height: 100%
+      position: relative
+      +pc-size(12, font-size)
+      text-align: left
+
+    &-left, &-right
+      +pc-size(635, height)
+
+    &-left
+      +pc-size(368, width)
+      +pc-size(54, padding-top)
+      +pc-size(50, padding-left, padding-right)
+      background: linear-gradient(287deg, rgba(60,79,96,1) 0%, rgba(57,77,95,1) 100%)
+      color: #fff
+      &--header
+        +pc-size(20, font-size)
+        font-weight: 500
+      &--line
+        width: 100%
+        height: 1px
+        background: rgba(255,255,255,0.15)
+        +pc-size(20, margin-top, margin-bottom)
+      &--title
+        +pc-size(10, margin-bottom)
+        +pc-size(14, font-size)
+        font-weight: 500
+      &--content
+        font-family: PingFangSC
+        +pc-size(30, margin-bottom)
+        +pc-size(12, font-size)
+        +pc-size(16, line-height)
+        text-align: justify
+        opacity: 0.6
+        letter-spacing: 0
+      &--btn
+        +pc-size(-11, margin-top)
+        +pc-size(156, width)
+        +pc-size(35, height, line-height)
+        +pc-size(6, border-radius)
+        +pc-size(12, font-size)
+        background: rgba(255, 255, 255, 0.0708)
+        text-align: center
+        cursor: pointer
+        color: #fff
+        display: block
+        opacity: 0.6
+        &:hover
+          opacity: 0.8
+
+    &-right
+      +pc-size(460, width)
+      +pc-size(100, padding-top)
+      // +pc-size(110, padding-bottom)
+      +pc-size(65, padding-left, padding-right)
+      background: #fff
+      position: relative
+      border-top: 1px solid $bgColor;
+      border-right: 1px solid $bgColor;
+
+      &--title
+        +pc-size(28, font-size)
+        +pc-size(92, margin-bottom)
+        font-weight: 500
+      &--close
+        position: absolute
+        +pc-size(20, top, right, width, height)
+        cursor: pointer
+      &--cell
+        +pc-size(6, padding-bottom)
+        +pc-size(40, margin-bottom)
+        border-bottom: 1px solid rgba(216,216,216,1)
+        position: relative
+        &-icon, &-input
+          vertical-align: middle
+        &-icon
+          +pc-size(13, width)
+          +pc-size(14, margin-right)
+          height: auto
+        &-input
+          display: inline-block
+          width: 70%
+          +pc-size(28, height)
+          +pc-size(14, font-size)
+          outline: none
+          border: 0
+          &::-webkit-input-placeholder
+            color: rgba(193,193,193,1)
+          &::-moz-placeholder
+            color: rgba(193,193,193,1)
+          &::-ms-input-placeholder
+            color: rgba(193,193,193,1)
+      &--btn
+        +pc-size(330, width)
+        +pc-size(50, height, line-height)
+        +pc-size(6, border-radius)
+        background: rgba(60,79,96,1)
+        color: #fff
+        text-align: center
+        cursor: pointer
+
+#v-login-captcha
+  +pc-size(14, font-size)
+  +pc-size(8, padding)
+  display: inline-block
+  position: absolute
+  right: 0
+  top: 0
+  cursor: pointer
+  box-sizing: border-box

@@ -1,0 +1,163 @@
+extends ../common/layout/index
+
+block content
+  style(type='text/css')
+    case isMobile
+      when true
+        include ../../public/styles/company_mb.css
+      when false
+        include ../../public/styles/company_pc.css
+  div
+    #company-header
+      - var banner = data.banners.filter(function (e) { return e.type === 6 })[0]
+      if banner
+        .swiper-slide.bg-cover(style='background-image: url(' + banner.url + ')')
+          .header-container
+            .swiper-slide-title #{isEn ? banner.title_en : banner.title}
+            .swiper-slide-content #{isEn ? banner.content_en : banner.content}
+    #company-content
+      - var banners = data.banners.filter(function (e) { return e.type !== 6 })
+      #logo-container
+        #content-header
+          .content-header-tab.content-header-tab-active(data-id='-1') #{isEn ? 'ALL' : '全部'}
+          each bt in data.bannerTypes
+            if bt.id !== 6
+              .content-header-tab(data-id=bt.id) #{isEn ? bt.description_en : bt.description}
+          .content-header-tag #{isEn ? 'Total：' + banners.length : '共计：' + banners.length + ' 家' }
+          #content-header-scroll-bar
+        #content-imgs
+          each banner in banners
+            .logo-img.card-shadow(data-id=banner.id)
+              img(src=banner.url)
+  script.
+    var tabs = document.getElementsByClassName('content-header-tab')
+    var banners = !{JSON.stringify(data.banners)}.filter(function (e) {
+      return e.type !== 6
+    })
+    var lastIndex;
+    var lastTypeId = -1
+    try {
+      changeScrollBar(tabs[0])
+    } catch (err) { console.error(err) }
+    for (var i = 0; i < tabs.length; i++) {
+      (function (index) {
+        tabs[index].onclick = function (e) {
+          try {
+            var typeId = +e.target.getAttribute('data-id')
+            if (lastTypeId !== typeId) {
+              logoImgEvent('remove')
+              lastTypeId = typeId
+              activeTab(typeId)
+              activeBanner(typeId)
+              changeScrollBar(tabs[index])
+              logoImgEvent('add')
+            }
+          } catch (err) {
+            console.error(err)
+          }
+        }
+      })(i)
+    }
+    logoImgEvent('add')
+
+    function activeTab (typeId) {
+      for (var i = 0; i < tabs.length; i++) {
+        var target = tabs[i]
+        var _typeId = +target.getAttribute('data-id')
+        target.setAttribute('class', typeId === _typeId ? 'content-header-tab content-header-tab-active' : 'content-header-tab')
+      }
+    }
+
+    function activeBanner (typeId) {
+      var container = document.getElementById('content-imgs')
+      var _banners = typeId === -1 ? banners : banners.filter(function (b) {
+        return b.type === typeId
+      })
+      var html = _banners.reduce(function (prev, curt) {
+        return prev + '<div class="logo-img card-shadow" data-id="' + curt.id + '">' +
+          '<img src="' + curt.url + '"></div>';
+      }, '')
+      container.innerHTML = html
+    }
+
+    function changeScrollBar (ev) {
+      var scrollBar = document.getElementById('content-header-scroll-bar');
+      var w = ev.offsetWidth;
+      var l = ev.offsetLeft;
+      var t = ['', '-webkit-', '-ms-', '-moz-', '-o-'].reduce(function (prev, curt) {
+        return prev + curt + 'transform: translate(' + l + 'px);'
+      }, '');
+      scrollBar.setAttribute(
+        'style',
+        'width: ' + w + 'px;' + t
+      )
+    }
+
+    function logoImgEvent (type) {
+      var logos = document.getElementsByClassName('logo-img');
+      lastIndex = null;
+      for (var i = 0;i < logos.length;i++) {
+        (function (i) {
+          logos[i][type === 'add' ? 'addEventListener' : 'removeEventListener']('click', toggleDesc, false)
+        })(i)
+      }
+    }
+
+    function toggleDesc (ev) {
+      var width = document.getElementById('company-content').clientWidth
+      var imgContainer = document.getElementById('content-imgs')
+      var imgs = document.getElementsByClassName('logo-img');
+      var bannerNum = #{isMobile} ? 2 : (width == 1350 ? 4: 3)
+      var targetId = ev.target.getAttribute('data-id') || ev.target.parentNode.getAttribute('data-id')
+      var banner = banners.filter(function (e) {
+        return e.id == targetId
+      })[0]
+      for (var i = 0;i < imgs.length;i++) {
+        if (targetId == imgs[i].getAttribute('data-id')) {
+          break;
+        }
+      }
+      if (banner) {
+        var row = ~~(i / bannerNum);
+        var insertIndex = bannerNum * (row + 1);
+        var leftStyle = !!banner.href ? '' : 'margin-right: 0;border-right: 0;';
+        var rightStyle = !!banner.href ? '' : 'display: none;';
+        var rowIndex = i - bannerNum * row;
+        var triangleLeft = {
+          2: ['22%', '75%'],
+          3: ['130px', '430px', '730px'],
+          4: ['130px', '430px', '730px', '1040px']
+        };
+        var html = '<div class="triangle" style="left: ' + triangleLeft[bannerNum][rowIndex] + ';"><div class="triangle-border"></div></div><div class="left" style="' + leftStyle + '">' +
+          '<div class="logo-desc-title">' + (#{isEn} ? banner.title_en : banner.title) +
+          '</div><div class="logo-desc-subtitle">' + (#{isEn} ? banner.subtitle_en : banner.subtitle) +
+          '</div><div class="logo-desc-content">' + (#{isEn} ? banner.content_en : banner.content) +
+          '</div></div><div class="right" style="' + rightStyle + '">' +
+          '<img src="https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1525144497335.png" />' + 
+          '<a class="logo-desc-href" target="_blank" href=' + banner.href + '>' + banner.href +
+          '</a></div>';
+        if (lastIndex == insertIndex) {
+          var targetDom = document.getElementById('logo-desc');
+          var _id = targetDom.getAttribute('data-id');
+          if (_id === targetId) {
+            $(targetDom).slideToggle();
+          } else {
+            $(targetDom).slideUp(300, function () {
+              targetDom.setAttribute('data-id', targetId);
+              targetDom.innerHTML = html;
+              $(targetDom).slideDown();
+            });
+          }
+        } else {
+          var oldEl = document.getElementById('logo-desc');
+          oldEl && imgContainer.removeChild(oldEl);
+          var el = document.createElement('div');
+          el.setAttribute('id', 'logo-desc');
+          el.setAttribute('data-id', targetId);
+          el.innerHTML = html;
+          imgContainer.insertBefore(el, imgContainer.childNodes[insertIndex]);
+          $(el).slideDown();
+        }
+        lastIndex = insertIndex;
+      }
+    }

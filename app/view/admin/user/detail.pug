@@ -1,0 +1,119 @@
+extends ../layout
+
+block content
+
+  div(id='app')
+
+  script(type='text/x-template' id='content-component')
+    div(id='app')
+      h3(style='text-align: center;margin-bottom: 30px;') #{data.user.id ? '编辑用户' : '新增用户'}
+      div.common-input(v-for='input in inputs' :key='input.key')
+        span {{input.prefix}}
+        el-input(
+          v-model.trim='form[input.key]'
+          :placeholder='input.placeholder'
+          :type='input.type || "text"'
+          size='mini')
+
+      div.common-input
+        span 用户状态：
+        el-select(v-model='form.status' placeholder='请选择用户状态：' size='mini')
+          el-option(
+            v-for='opt in types'
+            :label='opt.label'
+            :value='opt.id'
+            :key='opt.id')
+      div.common-input
+        span 用户权限：
+        el-select(v-model='form.level' placeholder='请选择用户权限：' size='mini')
+          el-option(
+            v-for='opt in levels'
+            :label='opt.label'
+            :value='opt.id'
+            :key='opt.id')
+      div.common-input(style='text-align: center;margin-top: 30px')
+        el-button(
+          type='primary'
+          @click='submit'
+          :loading='loading'
+          size='mini') 保存
+  script.
+    new Vue({
+      el: '#app',
+      template: '#content-component',
+      data: function () {
+        return {
+          loading: false,
+          types: [
+            { label: '待审核', id: 0 },
+            { label: '已激活', id: 1 },
+            { label: '已冻结', id: 2 }
+          ],
+          levels: [
+            { label: '投资人', id: 3 },
+            { label: '管理员', id: 2 },
+            { label: '超级管理员', id: 1 }
+          ],
+          inputs: [
+            { prefix: '账号:', key: 'account', placeholder: '请输入账号' },
+            { prefix: '密码:', key: 'password', placeholder: '请输入密码', type: 'password' },
+            { prefix: '手机号:', key: 'mobile', placeholder: '请输入手机号' },
+            { prefix: '姓名:', key: 'name', placeholder: '请输入姓名' },
+            { prefix: '邮箱:', key: 'email', placeholder: '请输入邮箱' }
+          ],
+          form: {
+            id: !{JSON.stringify(data.user.id) || 'null'},
+            account: !{JSON.stringify(data.user.account) || 'null'},
+            password: !{JSON.stringify(data.user.password) || 'null'},
+            mobile: !{JSON.stringify(data.user.mobile) || 'null'},
+            name: !{JSON.stringify(data.user.name) || 'null'},
+            email: !{JSON.stringify(data.user.email) || 'null'},
+            level: !{JSON.stringify(data.user.level) || '3'},
+            status: !{JSON.stringify(data.user.status) || '1'}
+          },
+        }
+      },
+      methods: {
+        submit: function () {
+          var that = this
+          that.loading = true
+          if (
+            !that.form.password ||
+            !that.form.account ||
+            !that.form.password.trim() ||
+            !that.form.account.trim()
+          ) {
+            that.loading = false
+            return that.$message.warning('账号密码不能为空!')
+          }
+          $.ajax({
+            type: that.form.id > 0 ? 'put' : 'post',
+            url: '/user',
+            timeout: 30000,
+            data: that.form,
+            success: function (data) {
+              if (data.success) {
+                that.$message.success('保存成功!')
+                setTimeout(function () {
+                  window.location.href = document.referrer
+                }, 500)
+              } else {
+                that.$message.error('保存失败: ' + data.errMsg)
+              }
+            },
+            error: function (xhr) {
+              try {
+                var msg = JSON.parse(xhr.response).errMsg
+                that.$message.error(msg)
+              } catch (err) {
+                that.$message.error('网络异常!')
+              }
+            },
+            complete: function () {
+              that.loading = false
+            }
+          })
+        }
+      }
+    })
+  

@@ -1,0 +1,196 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+a
+  text-decoration: none
+  color: #000
+
+#news-header, #news-other-header
+  width: 100%
+  position: relative
+  height: 7.5rem
+
+  .swiper-slide
+    +full
+    position: relative
+    text-align: center
+    color: $white-1
+    text-align: center
+    .swiper-slide-title, .swiper-slide-subtitle, .swiper-slide-content
+      display: block
+      width: 90%
+      position: absolute
+      left: 50%
+      transform: translate(-50%, 0)
+    .swiper-slide-title
+      top: 65%
+      +font-dpr(10)
+    .swiper-slide-subtitle
+      top: 33%
+      +font-dpr(27)
+    .swiper-slide-content
+      top: 30%
+      +font-dpr(22)
+
+  #news-header-pagination
+    position: absolute
+    +size-dpr(5, bottom)
+    left: 0
+    z-index: 999
+    text-align: center
+    .swiper-pagination-bullet
+      +size-dpr(6, width, height)
+      background: $grey-3
+    .swiper-pagination-bullet-active
+      background: $white-1
+
+#news-content
+  background: $grey-3
+  +size-dpr(43, padding-bottom)
+#news-other
+  background: $white-1
+  .content-more
+    +size-dpr(15, margin-bottom)
+
+#content-header
+  width: 100%
+  +size-dpr(20, padding-top)
+  +size-dpr(10, padding-bottom)
+  +size-dpr(18, padding-left)
+  +size-dpr(15, padding-right)
+  white-space: nowrap
+  position: relative
+  background: $white-1
+  .content-header-tab, .content-header-tag, .content-header-view
+    color: $black-1
+  .content-header-tab
+    transition: color .3s $cb-1
+    padding: 0 2px
+    +size-dpr(10, padding-bottom)
+    +size-dpr(15, margin-right)
+    display: inline-block
+    cursor: pointer
+    +font-dpr(12)
+    &:hover
+      color: $blue-6
+  .content-header-tab-active
+    border-bottom: 2px solid #3d78b0
+    color: #3d78b0
+  .content-header-view
+    display: inline-block
+    position: relative
+    color: $grey-5
+    &:before
+      content: ' '
+      width: 1px
+      +size-dpr(15, height)
+      position: absolute
+      top: 50%
+      left: 0
+      transform: translateY(-50%)
+      background: $grey-5
+    .content-header-icon
+      fill: #c1c2c3
+      transition: all .4s $cb-1
+    .content-header-icon-active
+      fill: $black-1
+    > svg
+      +size-dpr(15, margin-left)
+      vertical-align: middle
+      &:first-child
+        +size-dpr(16, width, height)
+      &:last-child
+        +size-dpr(18, width, height)
+
+  .content-header-tag
+    position: absolute
+    +size-dpr(5, right)
+    top: 48%
+    transform: translate(0, -50%) scale(0.9)
+    +font-dpr(10)
+    > span:nth-child(2)
+      color: $blue-7
+    i
+      cursor: pointer
+      +font-dpr(15)
+      color: $green-5
+      &:hover + .content-header-code
+        display: block
+  .content-header-code
+    display: none !important
+
+#detail-text-wrapper
+  p
+    img
+      width: 100% !important
+
+#content-imgs, #other-imgs
+    +size-dpr(15, padding)
+    .content-wrapper
+      display: block
+      +size-dpr(15, margin-bottom)
+      cursor: pointer
+      &:last-child
+        margin-bottom: 0
+      .content-img-wrapper
+        position: relative
+        background: $white-1
+        height: 8.5rem
+        > img
+          width: 100%
+        .content-img-tip
+          position: absolute
+          +size-dpr(12, left, bottom)
+          > *
+            vertical-align: middle
+          > span
+            +font-dpr(10)
+            color: $white-1
+            +size-dpr(7, margin-left)
+          > img
+            +size-dpr(30, width, height)
+            border-radius: 50%
+      .content-text-wrapper
+        display: block
+        background: $white-1
+        +size-dpr(10, padding-top, padding-bottom)
+        +size-dpr(10, padding-left, padding-right)
+        .content-text-title
+          +size-dpr(5, margin-bottom)
+          +textEllipsis(2)
+          +font-dpr(14)
+        .content-text-content
+          +textEllipsis(3)
+          +font-dpr(12)
+          +size-dpr(20, line-height)
+      .content-text-more
+        display: none
+
+    .content-wrapper-special
+      display: flex
+      flex-direction: row
+      .content-img-wrapper, .content-text-wrapper
+        flex: 1
+        height: 3rem
+      .content-text-wrapper
+        +size-dpr(5, padding-top, padding-bottom)
+        +size-dpr(10, padding-left, padding-right)
+        overflow: hidden
+        .content-text-title
+          +size-dpr(10, margin-bottom)
+        .content-text-content
+          transform: scaleY(0.9)
+
+.content-more
+  background: #edeeef
+  text-align: center
+  +size-dpr(12, font-size)
+  +size-dpr(47, height, line-height)
+  +size-dpr(15, margin-left, margin-right)
+  color: #cdcecf
+  cursor: pointer
+  transition: all .2s $cb-1
+  border: 1px solid transparent
+  &:active
+    color: $grey-7
+    border-color: $grey-5
+

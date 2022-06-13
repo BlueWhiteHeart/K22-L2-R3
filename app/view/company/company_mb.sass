@@ -1,0 +1,148 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+#company-header
+  width: 100%
+  height: 7rem
+
+  .swiper-slide
+    +full
+    position: relative
+
+    .swiper-slide-title, .swiper-slide-content
+      width: 90%
+      display: block
+      position: absolute
+      left: 50%
+      transform: translateX(-50%)
+      text-align: center
+      color: $white-1
+    .swiper-slide-title
+      top: 24%
+      +font-dpr(22)
+    .swiper-slide-content
+      top: 45%
+      +font-dpr(12)
+
+#company-content
+  background: $white-1
+  #content-header
+    width: 100%
+    +size-dpr(15, margin-bottom)
+    +x-scroll
+    white-space: nowrap
+    position: relative
+    border-bottom: 1px solid $grey-3
+
+    .content-header-tab
+      transition: color .3s $cb-1
+      +size-dpr(25.5, margin-right)
+      +size-dpr(27, padding-top, padding-bottom)
+      display: inline-block
+      cursor: pointer
+      +font-dpr(16)
+      color: $grey-7
+      &:first-child
+        +size-dpr(30, margin-left)
+      &:hover
+        color: $blue
+    .content-header-tab-active
+      color: $blue
+    .content-header-tag
+      display: none
+
+  #content-header-scroll-bar
+    position: absolute
+    bottom: 0
+    transition: all .3s $cb-1
+    width: 40px
+    height: 2px
+    background: $blue
+
+  #content-imgs
+    +size-dpr(15, margin-top)
+    +size-dpr(25, margin-bottom)
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    flex-wrap: wrap
+    +size-dpr(15, padding-left, padding-right)
+    .logo-img
+      width: 48%
+      +size-dpr(15, margin-bottom)
+      cursor: none
+      display: inline-block
+      vertical-align: middle
+      text-align: center
+      img
+        width: 100%
+    #logo-desc
+      width: 100%
+      margin: 0 auto
+      +size-dpr(15, margin-bottom)
+      +size-dpr(32.5, padding-top, padding-bottom)
+      font-size: 0
+      display: none
+      position: relative
+      border: 1px solid #e6e9eb
+      background: $white-1
+      .triangle
+        position: absolute
+        top: -5.18px
+        left: 25%
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 0 5px 5px 5px
+        border-color: transparent transparent #fff transparent
+        .triangle-border
+          position: relative
+          &:before, &:after
+            position: absolute
+            top: 2px
+            left: 0
+            content: ""
+            background: #e6e9eb
+            display: block
+            width: 1px
+            height: 7.25px
+          &:before
+            transform: rotate(45deg) translateX(-3.5px)
+          &:after
+            transform: rotate(-45deg) translateX(3.5px)
+      .left, .right
+        width: 100%
+        +size-dpr(35, padding-left, padding-right)
+        display: inline-block
+        vertical-align: top
+      .right
+        img
+          display: none
+      .logo-desc-title
+        position: relative
+        +font-dpr(14)
+        font-weight: 600
+        &:before
+          display: block
+          content: ""
+          +size-dpr(16, height)
+          +size-dpr(2, width)
+          position: absolute
+          +size-dpr(1, top)
+          +size-dpr(-10, left)
+          background: $blue
+
+      .logo-desc-subtitle
+        +font-dpr(10)
+        +size-dpr(10, margin-top)
+        +size-dpr(15, margin-bottom)
+        color: #7e7e7e
+      .logo-desc-content
+        +font-dpr(11)
+        +size-dpr(1, letter-spacing)
+      .logo-desc-href
+        display: block
+        +size-dpr(22.5, margin-top)
+        +font-dpr(12)
+        color: $blue
+

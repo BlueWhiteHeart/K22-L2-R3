@@ -1,0 +1,253 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+#main
+  background: $grey-3
+#news-header, #news-other-header
+  width: 100%
+  height: 500px
+  overflow: hidden
+  position: relative
+
+  .swiper-slide
+    +full
+    position: relative
+    text-align: center
+    color: $white-1
+    img
+      +full
+    .swiper-slide-title, .swiper-slide-subtitle, .swiper-slide-content
+      width: 100%
+      text-align: center
+      padding-top: 166px
+    .swiper-slide-title
+      +pc-size(14, font-size)
+      +pc-size(10, padding-top)
+    .swiper-slide-subtitle
+      padding-top: 10px
+      +pc-size(146 + 10, top)
+      +pc-size(50, font-size)
+      font-weight: 400
+    .swiper-slide-content
+      padding-top: 166px
+      +pc-size(194, bottom)
+      +pc-size(50, font-size)
+
+  #news-header-pagination
+    position: absolute
+    bottom: 15px
+    left: 0
+    z-index: 999
+    text-align: center
+    .swiper-pagination-bullet
+      background: $grey-5
+    .swiper-pagination-bullet-active
+      background: $white-1
+
+.news-content, #news-other-imgs
+  width: 100%
+  margin: auto
+  +pc-size(44, padding-top)
+  +pc-size(48, padding-bottom)
+
+.news-content
+  +pc-u(0, 0, 12%, 17%, padding-left, padding-right)
+  +pc-u(auto, auto, 0, 0, margin-left, margin-right)
+  +pc-u(1240px, 1240px, 100%, 100%, width)
+
+#news-other
+  padding-bottom: 52px
+  .content-more
+    +pc-u(0, 6%, 12%, 17%, margin-left, margin-right)
+    margin-top: 0
+    box-sizing: border-box
+
+#detail-text-wrapper
+  div
+    width: 100% !important
+  p
+    img
+      width: 100% !important
+
+#content-header
+  width: 100%
+  +pc-size(44, margin-bottom)
+  +pc(16, 16, 0, 0, padding-left)
+  white-space: nowrap
+  position: relative
+  .content-header-tab, .content-header-tag, .content-header-view
+    +pc-size(14, font-size)
+    color: $grey-7
+  .content-header-tab
+    transition: color .3s $cb-1
+    +pc-size(40, margin-right)
+    +pc-size(10, padding-bottom)
+    display: inline-block
+    cursor: pointer
+    &:hover
+      color: #3d78b0
+  .content-header-tab-active
+    border-bottom: 2px solid #3d78b0
+    color: #3d78b0
+  .content-header-view
+    display: inline-block
+    vertical-align: middle
+    .content-header-icon
+      fill: #c1c2c3
+      transition: all .4s $cb-1
+    .content-header-icon-active
+      fill: $black-1
+    > svg
+      cursor: pointer
+      vertical-align: middle
+      &:first-child
+        +pc-size(38, margin-left)
+        +pc-size(20, width, height)
+      &:last-child
+        +pc-size(16, margin-left)
+        +pc-size(22, width, height)
+  .content-header-tag
+    z-index: 2
+    position: absolute
+    +pc-u(74px, 74px, 2%, 2%, right)
+    top: 45%
+    transform: translate(0, -50%)
+    color: $black-1
+    > span:nth-child(2)
+      color: #3d78b0
+    i
+      margin-left: 8px
+      cursor: pointer
+      font-size: $font-5
+      color: $green-5
+      &:hover + .content-header-code
+        display: block
+  .content-header-code
+    width: 150px
+    height: 150px
+    padding: 10px
+    position: absolute
+    right: -22%
+    top: -162px
+    background: $white-1
+    box-shadow: 0 2px 10px 0px rgba(0,0,0,.1)
+    border-radius: 3px
+    display: none
+    &:hover
+      display: block
+    img
+      border-radius: 3px
+      +full
+
+.news-imgs, #news-other-imgs
+  display: block
+  font-size: 0
+  +pc-u(1280px, 1280px, 100%, 100%, width)
+  +pc-u(-41px, -41px, -2%, -2%, margin-left)
+  
+  .content-wrapper
+    +pc-u(386px, 386px, 31%, 31%, width)
+    +pc-u(40px, 40px, 2%, 2%, margin-left, margin-bottom)
+    vertical-align: top
+    display: inline-block
+    cursor: pointer
+    position: relative
+    .content-img-wrapper
+      position: relative
+      background: $white-1
+      > img
+        +full
+      .content-img-tip
+        position: absolute
+        +pc-size(20, left, bottom)
+        > *
+          vertical-align: middle
+        > span
+          font-size: 12px
+          color: $white-1
+          margin-left: 10px
+        > img
+          +pc-size(40, width, height)
+          border-radius: 50%
+    .content-text-wrapper
+      display: block
+      background: $white-1
+      +pc-size(34, padding-top)
+      +pc-size(44, padding-bottom)
+      +pc-size(36, padding-left, padding-right)
+      .content-text-title
+        +pc-size(26, margin-bottom)
+        +textEllipsis(2)
+        +pc(20, 20, 22, 22, font-size)
+        color: #000
+        +pc(54, 54, 63, 63, height)
+      .content-text-content
+        +pc-size(14, font-size)
+        color: #000
+        height: 40px
+        overflow: hidden
+        // +textEllipsis(2)
+        +pc(44, 44, 63, 63, height)
+    .content-text-more
+      display: none
+
+  .content-wrapper-special
+    width: 100%
+    max-width: 100%
+    +pc-size(216, height)
+    background: $white-1
+    display: flex
+    flex-direction: row
+    
+    .content-img-wrapper, .content-text-wrapper
+      display: block
+      height: 100%
+      vertical-align: middle
+    .content-img-wrapper
+      +pc-size(324, width)
+    .content-text-wrapper
+      flex: 1
+      +pc-size(42, padding-left, padding-right)
+      .content-text-title
+        color: #000
+        +pc-size(24, margin-bottom)
+        +pc-size(22, font-size)
+      .content-text-content
+        height: auto
+        overflow: hidden
+        +pc-size(13, font-size)
+        color: #000
+    .content-text-more
+      display: none
+      color: #cacaca
+      +pc-size(14, margin-top)
+      +pc-size(14, font-size)
+      position: absolute
+      +pc-size(216 + 41, left)
+      +pc-size(10, bottom)
+      &:hover
+        color: $blue-4
+      i
+        margin-left: 8px
+
+.content-more
+  background: #edeeef
+  text-align: center
+  +pc-size(14, font-size)
+  +pc-size(50, height, line-height)
+  margin-top: 42px
+  color: #aaabac
+  cursor: pointer
+  transition: all .3s $cb-1
+  border: 1px solid transparent
+  &:hover
+    color: $grey-7
+    border-color: $grey-5
+
+#news-other-imgs
+  +pc-size(56, padding-top)
+  +pc-u(0, 0, 9%, 17%, padding-left, padding-right)
+  +pc-u(0, 0, 2%, 2%, margin-left)
+  font-size: 0
+  display: block
+  width: auto

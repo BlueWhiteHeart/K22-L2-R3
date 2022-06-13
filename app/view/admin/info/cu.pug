@@ -1,0 +1,139 @@
+extends ../layout
+
+block content
+  div(id='app')
+
+  script(type='text/x-template' id='content-component')
+    div(id='app')
+      h3(style='text-align: center;margin-bottom: 30px;') #{data.banner.title ? '编辑本条数据' : '新增文件'}
+      div.common-input(v-for='input in inputs' :key='input.key')
+        span {{input.prefix}}
+        el-input(
+          v-model.trim='form[input.key]'
+          :placeholder='input.placeholder'
+          :type='input.type || "textarea"'
+          size='mini')
+
+      div.common-input(v-for='select in selects' :key='select.key')
+        span {{select.prefix}}
+        el-select(v-model='form[select.key]' :placeholder='select.placeholder' size='mini')
+          el-option(
+            v-for='opt in select.opts'
+            :label='opt.l'
+            :value='opt.v'
+            :key='opt.value')
+
+      div.common-input
+        span 所属板块类型：
+        el-select(v-model='form.type' placeholder='请选择所属文件类型' size='mini')
+          el-option(
+            v-for='opt in types'
+            :label='opt.description'
+            :value='opt.id'
+            :key='opt.value')
+
+      el-upload.common-upload(
+        action='/file/upload'
+        :on-success='uploadSuccess'
+        :show-file-list='false'
+        :before-upload='beforeUpload'
+        :on-change='uploadComplete'
+        :disabled='loading'
+      )
+        div(v-if='form.href' style='padding: 30px;')
+          a(:href='form.href' target='_blank') 文件已上传（此处右键另存为）
+          p 文件大小: {{form.content}}
+        i(v-else :class='uploadIconClass')
+
+      div.common-input(style='text-align: center;margin-top: 30px')
+        el-button(
+          type='primary'
+          @click='submit'
+          :loading='loading'
+          size='mini') 保存
+  script.
+    new Vue({
+      el: '#app',
+      template: '#content-component',
+      data: function () {
+        return {
+          loading: false,
+          types: !{JSON.stringify(data.bannerTypes)},
+          //- uploadUrl: window.location.origin + '/banner/upload',
+          inputs: [
+            { prefix: '标题:', key: 'title', placeholder: '请输入文件标题' }
+          ],
+          selects: [
+            { prefix: '文件状态:', key: 'status', placeholder: '请选择展示状态', opts: [{ l: '下线隐藏', v: 0 }, { l: '上线展示', v: 1 }] },
+          ],
+          form: {
+            id: !{JSON.stringify(data.banner.id) || 'null'},
+            type: !{JSON.stringify(data.banner.type) || 'null'},
+            title: !{JSON.stringify(data.banner.title) || 'null'},
+            subtitle: !{JSON.stringify(data.banner.subtitle) || 'null'},
+            content: !{JSON.stringify(data.banner.content) || 'null'},
+            href: !{JSON.stringify(data.banner.href) || 'null'},
+            status: #{[0, 1].indexOf(data.banner.status) > -1 ? data.banner.status : 1}
+          }
+        }
+      },
+      computed: {
+        uploadIconClass: function () {
+          return 'el-icon-plus ' + (this.loading ? 'el-icon-loading' : 'avatar-uploader-icon')
+        }
+      },
+      methods: {
+        submit: function () {
+          var that = this
+          that.loading = true
+          $.ajax({
+            type: that.form.id > 0 ? 'put' : 'post',
+            url: '/banner/file',
+            timeout: 30000,
+            data: that.form,
+            success: function (data) {
+              if (data.success) {
+                that.$message.success('保存成功!')
+                setTimeout(function () {
+                  window.location.href = document.referrer
+                }, 500)
+              } else {
+                that.$message.error('保存失败: ' + data.errMsg)
+              }
+            },
+            error: function (xhr) {
+              try {
+                var msg = JSON.parse(xhr.response).errMsg
+                that.$message.error(msg)
+              } catch (err) {
+                that.$message.error('网络异常!')
+              }
+            },
+            complete: function () {
+              that.loading = false
+            }
+          })
+        },
+        beforeUpload: function (file) {
+          this.loading = true
+        },
+        uploadSuccess: function (response, file, fileList) {
+          try {
+            var { success, data, errMsg, err } = response
+            if (success) {
+              this.form.href = data.url
+              this.form.content = data.size
+              this.$message.success('上传成功!')
+            } else {
+              console.error(err)
+              this.$message.error(errMsg)
+            }
+          } catch (err) {
+            this.$message.warning('上传失败!请检查网络')
+          }
+        },
+        uploadComplete: function (file, fileList) {
+          this.loading = false
+        }
+      }
+    })

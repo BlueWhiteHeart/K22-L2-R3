@@ -1,0 +1,438 @@
+@import '../common/sass/mixin.sass'
+@import '../common/sass/var.sass'
+
+.banner
+  position: relative
+
+.banner-pagination
+  position: absolute
+  z-index: 10
+  text-align: center
+
+$banner1Height: 9.5rem
+
+#banner-1
+  width: 100%
+  height: $banner1Height
+
+  img
+    +full
+  
+  .banner-1-title, .banner-1-subtitle
+    position: absolute
+    color: $white-1
+    text-align: center
+  .banner-1-title
+    width: 75%
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -100%)
+    +font-dpr(24)
+    text-align: center
+  .banner-1-subtitle
+    width: 100%
+    top: 65%
+    left: 0
+    +font-dpr(10)
+    transform: scale(.85) translate(0, -100%)
+
+  .banner-pagination-bg
+    position: absolute
+    bottom: 0
+    // height: 207px
+    +size-dpr(207, height)
+    width: 100%
+    background-image: url(https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523522380186.png)
+    background-repeat: repeat-x
+    background-size: contain
+    z-index: 1
+
+  #banner-1-pagination
+    display: flex
+    justify-content: center
+    align-items: center
+    bottom: 5%
+
+    .swiper-pagination-bullet
+      border: 0
+      border-radius: 0
+      // color: rgba(54, 54, 55, 1)
+      opacity: 0.2
+      color: #eee
+      background: transparent
+      flex: 1
+      height: auto
+      padding: 1% 0
+      margin: 0
+      display: block
+      position: relative
+      box-sizing: border-box
+      transition: color .2s $cb-1
+      > *
+        white-space: nowrap
+        +font-dpr(10)
+        &:first-child
+          display: inline
+          position: relative
+
+    > div:nth-child(2)
+      border-right: 1px solid rgba(54, 54, 55, 1)
+      border-left: 1px solid rgba(54, 54, 55, 1)
+
+    .swiper-pagination-bullet-active
+      color: $white-1
+      opacity: 1
+        
+      > *:last-child
+        // border-bottom: 1px solid $blue-7
+        &:after
+          content: ' '
+          width: 80%
+          +size-dpr(1, height)
+          position: absolute
+          bottom: -50%
+          left: 50%
+          transform: translate(-50%, 0)
+          background: $blue-7
+
+
+#banner-2
+  .banner-2-wrapper
+    display: block !important
+    > *
+      width: 100%
+      box-sizing: border-box
+    > .banner-2-content-wrapper
+      +size-dpr(57.5, padding-top)
+      +size-dpr(50, padding-bottom)
+      +size-dpr(32.5, padding-left, padding-right)
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: flex-start
+      color: $black-1
+
+      .banner-2-tag
+        +font-dpr(12)
+      .banner-2-title
+        +size-dpr(10, margin-top)
+        +size-dpr(22, margin-bottom)
+        +font-dpr(18)
+      .banner-2-content
+        +font-dpr(14)
+        +size-dpr(20, line-height)
+        text-align: left
+      .banner-2-footer
+        display: none
+
+    > .banner-2-img-wrapper
+      +size-dpr(390, height)
+      transform: scale(0.85)
+      text-align: center
+      > img
+        height: 100%
+    
+    
+#banner-3
+  height: 1.54 * $banner1Height
+  opacity: 1
+  position: relative
+  > *
+    display: block
+  > .banner-3-img-wrapper
+    height: 52%
+    background-position: 15% center !important
+    position: relative
+    z-index: 5
+    img
+      width: 100%
+  .swiper-slide-content
+      height: 48%
+      +size-dpr(32.5, margin-left)
+      +size-dpr(15, padding-left)
+      +size-dpr(25, padding-top, padding-right)
+      position: relative
+      z-index: 7
+      transform: translateY(-8%)
+      background: #3d5061
+      color: $white-1
+      .banner-3-title
+        font-style: italic
+        white-space: nowrap
+        > *
+          display: inline-block
+        > *:first-child
+          +font-dpr(40)
+          float: left
+          transform: translateY(-10%)
+        > *:last-child
+          white-space: normal
+          +size-dpr(7.5, padding-left)
+          +font-dpr(21)
+        .middlecn-true
+          +font-dpr(20)
+          +size-dpr(28, line-height)
+        .last
+          +font-dpr(38)
+
+      .banner-3-subtitle, .banner-3-content, .banner-3-desc
+        +size-dpr(30, margin-left)
+      .banner-3-subtitle
+        +size-dpr(30, margin-top)
+        +size-dpr(5, margin-bottom)
+        +font-dpr(13)
+      .banner-3-desc
+        +font-dpr(11)
+        +textEllipsis(3)
+        color: #8395a6
+      .banner-3-footer
+        +size-dpr(5, padding-bottom)
+        position: absolute
+        +size-dpr(30, right)
+        bottom: 16%
+        display: inline-block
+        border-bottom: 1px solid #c4cbd0
+        +font-dpr(10)
+        > *
+          vertical-align: middle
+          &:first-child
+            color: inherit
+            +size-dpr(20, padding-right)
+          &:last-child
+            +font-dpr(20)
+            color: #96abbe
+          
+  .swiper-slide-active
+    > .swiper-slide-content
+      > *
+        opacity: 1
+
+  #banner-3-pagination
+    width: auto
+    bottom: 6%
+    +size-dpr(95, left)
+    .swiper-pagination-bullet
+      background: $grey-3
+    // transform: translateX((145 + 20) * $scale + px)
+    .swiper-pagination-bullet-active
+      background: $white-1
+
+#numbers
+  +size-dpr(52.5, padding-top, padding-bottom)
+  display: flex
+  flex-wrap: wrap
+  > .numbers-item
+    // padding: 0 (100 * $scale + px)
+    width: 50%
+    position: relative
+    color: #547088
+    text-align: center
+    &:first-child, &:nth-child(2)
+      +size-dpr(22, margin-bottom)
+
+    &:nth-child(2)
+      .numbers-item-num
+        > span
+          vertical-align: baseline
+          &:nth-child(2), &:last-child
+            +size-dpr(4, margin-left)
+    &:nth-child(3)
+      .numbers-item-num
+        > span
+          vertical-align: top
+          &:last-child
+            display: inline-block
+            +size-dpr(4, margin-top)
+            +size-dpr(5, margin-left)
+
+    &:not(:last-child):after
+      content: ''
+      +size-dpr(1, width)
+      +size-dpr(90, height)
+      display: block
+      position: absolute
+      right: 0
+      top: 0
+      background: #ebebeb
+    .numbers-item-title
+      +font-dpr(12)
+    .numbers-item-num
+      > span
+        +font-dpr(15)
+      .numbers-item-num-up
+        +font-dpr(35)
+    .numbers-item-unit
+      +font-dpr(14)
+      color: $grey-7
+      opacity: .9
+
+.carousel
+  position: relative
+  .mask-left, .mask-right
+    +size-dpr(100, width)
+    +size-dpr(190, height)
+    position: absolute
+    top: 0
+    z-index: 10
+    background-size: 100% 100%
+    background-position: center
+  .mask-left
+    background-image: url('https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523896234117.png')
+    left: 0
+  .mask-right
+    background-image: url('https://zhongcap.oss-cn-hangzhou.aliyuncs.com/homepage/1523896183252.png')
+    right: 0
+
+#banner-4-1, #banner-4-2
+  text-align: center
+  overflow: hidden
+  z-index: 9
+
+  .swiper-wrapper
+    transition-timing-function: linear
+
+  .swiper-slide
+    display: inline-block
+    +size-dpr(147, width)
+    +size-dpr(87.5, height)
+    transition: opacity 1s linear
+    margin: 5px
+    opacity: 1
+    .swiper-img
+      +full
+      display: inline-block
+      vertical-align: middle
+      text-align: center
+      img
+        width: 100%
+        height: 100%
+
+#banner-4-2
+  .swiper-wrapper
+    margin-left: 25%
+    [data-dpr='2'] & 
+      margin-left: 2%
+    [data-dpr='3'] & 
+      margin-left: 6%
+
+  .banner-4-foot
+    +size-dpr(37.5, margin-top, margin-bottom)
+    display: block
+    text-align: left
+    +size-dpr(5, text-indent)
+    +font-dpr(15)
+    color: $grey-5
+    cursor: pointer
+    transition: color .2s $cb-1
+    text-align: center
+    &:hover
+      color: $blue-4
+    > *
+      vertical-align: middle
+    > i
+      +size-dpr(10, margin-left)
+      +font-dpr(20)
+
+#banner-5-container
+  box-sizing: border-box
+  overflow: hidden
+  position: relative
+  background: $cyan-10
+  .banner-5-prev, .banner-5-next
+    display: none
+#banner-5
+  // width: 100%
+  overflow: hidden
+  position: static
+  +size-dpr(40, padding-top, padding-bottom)
+
+  .banner-5-header
+    text-align: center
+    > p
+      +font-dpr(22)
+      color: $white-1
+    > a
+      +size-dpr(15, margin-top)
+      +size-dpr(35, margin-bottom)
+      display: inline-block
+      +font-dpr(15)
+      cursor: pointer
+      color: #8a969f
+      transition: color .2s $cb-1
+      &:hover
+        color: $blue-4
+      > span
+        +size-dpr(20, margin-right)
+
+  .swiper-wrapper
+    transition-timing-function: linear
+
+    .swiper-slide
+      width: 50%
+      +size-dpr(22.5, margin-right)
+      > a
+        text-decoration: none
+      .banner-5-img-wrapper
+        position: relative
+        background: $white-1
+        width: 100%
+        img
+          width: 100%
+        > span
+          position: absolute
+          +computeSize($scale, 35, left)
+          +computeSize($scale, 20, bottom)
+          +font-dpr(12)
+          color: $white-1
+      
+      .banner-5-content-wrapper
+        background: $white-1
+        +size-dpr(22.5, padding-top, padding-bottom)
+        +size-dpr(20, padding-left, padding-right)
+        .banner-5-title, .banner-5-content
+          +textEllipsis(3)
+        .banner-5-title
+          +size-dpr(63, height)
+          +size-dpr(15, margin-bottom)
+          +font-dpr(14)
+        .banner-5-content
+          +font-dpr(12)
+        .banner-5-content_en
+          +size-dpr(45, min-height, height)
+        .banner-5-content_cn
+          +size-dpr(50, min-height, height)
+
+    .swiper-slide-prev, .swiper-slide-next
+      opacity: .6
+  #banner-5-pagination
+    display: none
+
+#banner-6
+  +size-dpr(55, padding-top)
+  text-align: center
+  .banner-6-title
+    +font-dpr(22)
+  .banner-6-subtitle
+    +size-dpr(10, margin-top)
+    +size-dpr(20, margin-bottom)
+    +size-dpr(20, line-height)
+    +font-dpr(12)
+  .banner-6-content
+    display: inline-block
+    +size-dpr(30, padding-left, padding-right)
+    +size-dpr(10, padding-top, padding-bottom)
+    +size-dpr(60, margin-bottom)
+    +font-dpr(12)
+    color: $blue-4
+    border: 1px solid #edf1f5
+    border-radius: 30px
+    transition: all .3s $cb-1
+    cursor: pointer
+    &:hover
+      background: $blue-4
+      color: $white-1
+      border-color: $white-1
+  > img
+    display: block
+    width: 100%
+

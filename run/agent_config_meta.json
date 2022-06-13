@@ -1,0 +1,421 @@
+{
+  "keys": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+  "security": {
+    "csrf": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "type": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "ignoreJSON": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "useSession": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "cookieName": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "sessionName": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "headerName": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "bodyName": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "queryName": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "supportedRequests": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "refererWhiteList": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "domainWhiteList": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+    "protocolWhiteList": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+    "xframe": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "value": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "hsts": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.local.js",
+      "maxAge": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "includeSubdomains": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "dta": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "noopen": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "nosniff": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "value": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "xssProtection": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "value": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "csp": {
+      "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "policy": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "ipExceptionList": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js",
+      "checkAddress": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+    }
+  },
+  "pageInfos": {
+    "header": {
+      "title": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "title_en": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "subtitle": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "subtitle_en": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js"
+    },
+    "nums": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+    "contactInfo": {
+      "address": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "address_en": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "phone": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "email": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "facebook": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "twitter": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "linkedin": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+      "weibo": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js"
+    },
+    "accountInfos": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js"
+  },
+  "view": {
+    "mapping": {
+      ".pug": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js"
+    },
+    "root": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-view@2.1.3@egg-view/config/config.default.js",
+    "cache": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-view@2.1.3@egg-view/config/config.local.js",
+    "defaultExtension": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-view@2.1.3@egg-view/config/config.default.js",
+    "defaultViewEngine": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-view@2.1.3@egg-view/config/config.default.js"
+  },
+  "pug": {
+    "cache": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-view-pug@1.0.0@egg-view-pug/config/config.local.js"
+  },
+  "multipart": {
+    "fileSize": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+    "fileExtensions": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+    "mode": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "autoFields": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "fields": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "files": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "whitelist": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "allowArrayField": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js",
+      "disable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-multipart@2.13.1@egg-multipart/config/config.default.js"
+    }
+  },
+  "alinode": {
+    "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+    "appid": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+    "secret": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.default.js",
+    "server": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-alinode@2.0.1@egg-alinode/config/config.default.js",
+    "cmddir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-alinode@2.0.1@egg-alinode/config/config.default.js",
+    "logdir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-alinode@2.0.1@egg-alinode/config/config.default.js",
+    "error_log": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-alinode@2.0.1@egg-alinode/config/config.default.js",
+    "packages": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-alinode@2.0.1@egg-alinode/config/config.default.js",
+    "reconnectDelay": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-alinode@2.0.1@egg-alinode/config/config.default.js",
+    "heartbeatInterval": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-alinode@2.0.1@egg-alinode/config/config.default.js",
+    "reportInterval": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-alinode@2.0.1@egg-alinode/config/config.default.js"
+  },
+  "sequelize": {
+    "dialect": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+    "database": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+    "host": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+    "port": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+    "username": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+    "password": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+    "operatorsAliases": {
+      "eq": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "ne": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "gte": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "gt": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "lte": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "lt": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "not": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "is": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "in": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "notIn": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "like": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "notLike": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "iLike": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "notILike": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "startsWith": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "endsWith": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "substring": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "regexp": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "notRegexp": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "iRegexp": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "notIRegexp": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "between": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "notBetween": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "overlap": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "contains": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "contained": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "adjacent": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "strictLeft": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "strictRight": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "noExtendRight": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "noExtendLeft": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "and": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "or": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "any": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "all": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "values": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "col": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "placeholder": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "join": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+      "match": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js"
+    }
+  },
+  "yuque": {
+    "token": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js",
+    "repoId": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/config/config.local.js"
+  },
+  "session": {
+    "maxAge": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-session@3.3.0@egg-session/config/config.default.js",
+    "key": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-session@3.3.0@egg-session/config/config.default.js",
+    "httpOnly": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-session@3.3.0@egg-session/config/config.default.js",
+    "encrypt": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-session@3.3.0@egg-session/config/config.default.js",
+    "logValue": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-session@3.3.0@egg-session/config/config.default.js"
+  },
+  "helper": {
+    "shtml": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-security@2.10.1@egg-security/config/config.default.js"
+  },
+  "jsonp": {
+    "limit": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-jsonp@2.0.0@egg-jsonp/config/config.default.js",
+    "callback": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-jsonp@2.0.0@egg-jsonp/config/config.default.js",
+    "csrf": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-jsonp@2.0.0@egg-jsonp/config/config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-onerror@2.1.0@egg-onerror/config/config.default.js",
+    "appErrorFilter": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-onerror@2.1.0@egg-onerror/config/config.default.js",
+    "templatePath": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-onerror@2.1.0@egg-onerror/config/config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-i18n@2.1.1@egg-i18n/config/config.default.js",
+    "dirs": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-i18n@2.1.1@egg-i18n/config/config.default.js",
+    "queryField": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-i18n@2.1.1@egg-i18n/config/config.default.js",
+    "cookieField": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-i18n@2.1.1@egg-i18n/config/config.default.js",
+    "cookieDomain": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-i18n@2.1.1@egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-i18n@2.1.1@egg-i18n/config/config.default.js"
+  },
+  "watcher": {
+    "type": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-watcher@3.1.1@egg-watcher/config/config.local.js",
+    "eventSources": {
+      "default": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-watcher@3.1.1@egg-watcher/config/config.default.js",
+      "development": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-watcher@3.1.1@egg-watcher/config/config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-schedule@3.6.6@egg-schedule/config/config.default.js",
+      "file": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-schedule@3.6.6@egg-schedule/config/config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-schedule@3.6.6@egg-schedule/config/config.default.js"
+  },
+  "development": {
+    "watchDirs": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-development@2.7.0@egg-development/config/config.default.js",
+    "ignoreDirs": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-development@2.7.0@egg-development/config/config.default.js",
+    "fastReady": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-development@2.7.0@egg-development/config/config.default.js",
+    "reloadOnDebug": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-development@2.7.0@egg-development/config/config.default.js",
+    "overrideDefault": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-development@2.7.0@egg-development/config/config.default.js",
+    "overrideIgnore": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-development@2.7.0@egg-development/config/config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-logrotator@3.1.0@egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-logrotator@3.1.0@egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-logrotator@3.1.0@egg-logrotator/config/config.default.js",
+    "maxFileSize": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-logrotator@3.1.0@egg-logrotator/config/config.default.js",
+    "maxFiles": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-logrotator@3.1.0@egg-logrotator/config/config.default.js",
+    "rotateDuration": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-logrotator@3.1.0@egg-logrotator/config/config.default.js",
+    "maxDays": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-logrotator@3.1.0@egg-logrotator/config/config.default.js"
+  },
+  "static": {
+    "prefix": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "dir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "dynamic": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "preload": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "buffer": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "maxFiles": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js"
+  },
+  "validate": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg-validate@2.0.2@egg-validate/config/config.default.js",
+  "env": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "name": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "cookies": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "proxy": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "maxIpsCount": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "maxProxyCount": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "protocolHeaders": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "ipHeaders": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "hostHeaders": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "pkg": {
+    "name": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "version": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "description": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "main": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "scripts": {
+      "start": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "stop": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "startdev": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "stopdev": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "dev": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "debug": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "test-local": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "test": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "cov": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "lint": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "pkgfiles": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "autod": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "ci": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "precommit": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "lint:js": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+        "pre-push": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+      }
+    },
+    "author": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "license": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "dependencies": {
+      "@yuque/sdk": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "ali-oss": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "autoprefixer": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "axios": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "chalk": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "chance": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "co": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "egg": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "egg-alinode": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "egg-scripts": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "egg-sequelize": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "egg-validate": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "egg-view-pug": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "lodash": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "moment": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "mysql2": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "ramda": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    },
+    "devDependencies": {
+      "autod": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "autod-egg": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "babel-eslint": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "egg-bin": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "egg-ci": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "egg-mock": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "eslint": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "eslint-config-egg": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "gulp": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "gulp-clean-css": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "gulp-postcss": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "gulp-rename": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "gulp-sass": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "husky": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "snazzy": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "standard": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    },
+    "standard": {
+      "ignore": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    },
+    "ci": {
+      "version": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    }
+  },
+  "baseDir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "HOME": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "rundir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "dump": {
+    "ignore": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "notFound": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "sitefile": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "middlewares": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "httpClient": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "cacheControl": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+  },
+  "bodyParser": {
+    "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "encoding": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "formLimit": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "jsonLimit": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "textLimit": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "strict": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "depth": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "parameterLimit": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    },
+    "onerror": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+  },
+  "logger": {
+    "dir": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "encoding": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "env": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "level": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "consoleLevel": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "disableConsoleAfterReady": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "outputJSON": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "buffer": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "appLogName": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "coreLogName": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "agentLogName": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "errorLogName": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.local.js"
+    },
+    "allowDebugAtProd": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "enablePerformanceTimer": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "dnsCacheMaxLength": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "request": {
+      "timeout": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "maxSockets": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "maxFreeSockets": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "maxSockets": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "maxFreeSockets": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "logging": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+  },
+  "coreMiddleware": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "workerStartTimeout": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "serverTimeout": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "port": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+      "hostname": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js",
+    "responseTimeout": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+  },
+  "onClientError": "/Users/bluewhiteheart/Desktop/zao/K22-L2-R3/node_modules/_egg@2.35.0@egg/config/config.default.js"
+}
