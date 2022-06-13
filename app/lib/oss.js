@@ -4,47 +4,46 @@ const OSS = require('ali-oss')
 const co = require('co')
 const path = require('path')
 
-// const BUCKETDOMAINURL = 'https://cappro.oss-cn-hangzhou.aliyuncs.com'
-// const APPLICATIONDIR = 'homepage'
-// const BUCKET = 'cappro'
+// const BUCKETDOMAINURL = ''
+// const APPLICATIONDIR = ''
+// const BUCKET = ''
 
 // const ossOptions = {
-//   region: 'oss-cn-hangzhou',
-//   accessKeyId: 'LTAIUMxEdCdcuQ5E',
-//   accessKeySecret: 'OO6p6MPh8nSsJjgoErSkNpRJkSex8p',
-//   endpoint: 'oss-cn-hangzhou.aliyuncs.com'
+//   region: '',
+//   accessKeyId: '',
+//   accessKeySecret: '',
+//   endpoint: ''
 // }
 
-// // 正式上线时使用这个
-// const BUCKETDOMAINURL = 'https://zhongcap.oss-cn-hangzhou.aliyuncs.com'
-// const APPLICATIONDIR = 'homepage'
-// // const BUCKET = 'zhongcap'
+// const BUCKETDOMAINURL = ''
+// const APPLICATIONDIR = ''
+// // const BUCKET = ''
 
 // const ossOptions = {
-//   region: 'oss-cn-hangzhou',
-//   accessKeyId: 'LTAI05YpE15P9CJM',
-//   accessKeySecret: 'n1lO4qoLiC70TB4DJMA8dqQeMYekcT',
-//   endpoint: 'oss-cn-hangzhou.aliyuncs.com',
-//   bucket: 'zhongcap'
+//   region: '',
+//   accessKeyId: '',
+//   accessKeySecret: '',
+//   endpoint: '',
+//   bucket: ''
 // }
 
 // k22 上线
-const BUCKETDOMAINURL = 'https://k22.oss-cn-hangzhou.aliyuncs.com'
+const BUCKETDOMAINURL = ''
 const APPLICATIONDIR = 'homepage'
 
 // node 配置项可参考
 // https://help.aliyun.com/document_detail/64097.html?spm=a2c4g.11186623.4.1.11791ef0nCiYDW
 const ossOptions = {
   // bucket 所在的区域
-  region: 'oss-cn-hangzhou',
+  region: '',
   // ram 用户 AccessKey 配置
   // 这边提供了一个仅有控制 bucket：k22 的权限用户
-  accessKeyId: 'LTAI4G9dhnJwUZnVywuE3iRt',
-  accessKeySecret: 'qmue6xcgUIIIS5E8aik9ZSDsnjYnYp',
+  accessKeyId: '',
+  accessKeySecret: '',
   // OSS 域名
-  endpoint: 'oss-cn-hangzhou.aliyuncs.com',
+  endpoint: '',
   // 通过控制台或 PutBucket 创建的 bucket
-  bucket: 'k22'
+  bucket: ''
 }
 
 const client = OSS(ossOptions)
