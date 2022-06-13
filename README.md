@@ -78,11 +78,6 @@ npm stopdev
 
 本项目数据模型及数据配置，可参考 `/docs` 目录下 《模型设计与数据配置.md》
 
-#### 页面流程设计
-
-![image-20201211201423230](https://k22.oss-cn-hangzhou.aliyuncs.com/homepage/WechatIMG117.jpeg)
-
-![image-20201211201604556](https://k22.oss-cn-hangzhou.aliyuncs.com/homepage/WechatIMG116.jpeg)
 
 ## [项目里程碑]
 
