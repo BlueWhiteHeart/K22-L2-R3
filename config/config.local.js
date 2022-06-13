@@ -14,6 +14,6 @@ exports.sequelize = {
 }
 
 exports.yuque = {
-  token: 'y52uowPkuxRuZTKB3CyLdSrCT6x0PhFkFhr2Jala',
+  token: '',
   repoId: '324592'
 }
